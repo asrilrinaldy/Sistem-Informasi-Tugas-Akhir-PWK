@@ -1,19 +1,19 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Register extends CI_Controller {
 
   public function __construct()
 	{
     parent::__construct();
 
-		$this->load->model('login_model');
+		$this->load->model('register_model');
 	}
 
 	public function index()
 	{
-		$this->load->view('login_view');
-  }
+		$this->load->view('register_view');
+	}
 
   public function login (){
     $username = htmlspecialchars($this->input->post('username',TRUE),ENT_QUOTES);
