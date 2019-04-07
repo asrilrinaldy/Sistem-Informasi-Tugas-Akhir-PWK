@@ -15,42 +15,35 @@ class Register extends CI_Controller {
 		$this->load->view('register_view');
 	}
 
-  public function login (){
-    $username = htmlspecialchars($this->input->post('username',TRUE),ENT_QUOTES);
-    $password = htmlspecialchars($this->input->post('password',TRUE),ENT_QUOTES);
-
-    $cek_admin=$this->login_model->cek_admin($username,$password);
-    $cek_dosen=$this->login_model->cek_dosen($username,$password);
-
-    if($cek_admin->num_rows() > 0){
-      $data=$cek_admin->row_array();
-      $this->session->set_userdata('masuk',TRUE);
-      $this->session->set_userdata('akses','Admin');
-      $this->session->set_userdata('ses_id',$data['id_admin']);
-      $this->session->set_userdata('ses_nama',$data['nama']);
-      redirect('page');
-    }else if ($cek_dosen->num_rows() > 0) {
-      $data=$cek_dosen->row_array();
-      $this->session->set_userdata('masuk',TRUE);
-      $this->session->set_userdata('akses','Dosen');
-      $this->session->set_userdata('ses_id',$data['NIP']);
-      $this->session->set_userdata('ses_nama',$data['Nama']);
-      redirect('page');
-    }else{
-          $cek_mahasiswa = $this->login_model->cek_mhs($username,$password);
-          if($cek_mahasiswa->num_rows() > 0){
-            $data=$cek_mahasiswa->row_array();
-            $this->session->set_userdata('masuk',TRUE);
-            $this->session->set_userdata('akses','Mahasiswa');
-            $this->session->set_userdata('ses_id',$data['NIM']);
-            $this->session->set_userdata('ses_nama',$data['Nama']);
-            redirect('page');
-          }else{
-            $url=base_url('index.php/login');
-            redirect($url);
-          }
-        }
-  }
+  public function check_register()
+    {
+      $site = $this->Konfigurasi_model->listing();
+      $data = array(
+          'title'     => 'Register | '.$site['nama_website'],
+          'favicon'   => $site['favicon'],
+          'site'      => $site
+      );
+      $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[50]');
+      $this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[5]|max_length[50]');
+      $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[5]|max_length[20]');
+      if ($this->form_validation->run() == false) {
+        $this->template->load('authentication/layout/template','authentication/register',$data);
+      }
+      else {
+        $this->Auth_model->reg();
+        $this->session->set_flashdata('alert', '<p class="box-msg">
+          <div class="info-box alert-success">
+          <div class="info-box-icon">
+          <i class="fa fa-check-circle"></i>
+          </div>
+          <div class="info-box-content" style="font-size:14">
+          <b style="font-size: 20px">SUKSES</b><br>Pendaftaran berhasil, silakan login.</div>
+          </div>
+          </p>
+        ');
+        redirect('login','refresh',$data);
+      }
+    }
 
   function logout(){
     $this->session->sess_destroy();
