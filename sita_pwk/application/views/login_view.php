@@ -52,7 +52,7 @@ if ($this->session->userdata('masuk') == TRUE) {
 						</button>
 
 					</div>
-					<a href="#" class="registerstyle">
+					<a href="<?php echo site_url('Register') ?>" class="registerstyle">
 						Register
 					</a>
 				</form>
