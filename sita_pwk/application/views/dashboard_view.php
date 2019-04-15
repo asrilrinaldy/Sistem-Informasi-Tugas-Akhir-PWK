@@ -13,8 +13,14 @@
           <h1>Halo!!! <?php echo $this->session->userdata('ses_nama');?></h1>
           <br><br>
           <h2><?php echo $this->session->userdata('akses');?></h2>
+          <?php if ($this->session->userdata('akses') == 'Admin') : ?>
+            <a href="<?php echo base_url().'referensi'?>">Referensi</a>
+          <?php endif; ?>
+          <?php if ($this->session->userdata('akses') == 'Mahasiswa') : ?>
+            <a href="<?php echo base_url().'referensi/lihat_referensi'?>">Referensi</a>
+          <?php endif; ?>
           <br><br>
-          <a href="<?php echo base_url().'index.php/login/logout'?>">Sign Out</a>
+          <a href="<?php echo base_url().'login/logout'?>">Sign Out</a>
         </div>
       </div>
  
