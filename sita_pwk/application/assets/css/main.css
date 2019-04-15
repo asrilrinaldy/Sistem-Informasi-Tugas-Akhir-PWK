@@ -7,11 +7,6 @@
 	box-sizing: border-box;
 }
 
-/* Only for snippet */
-.double-nav .breadcrumb-dn {
-  color: #fff;
-}
-
 body, html {
 	height: 100%;
 	font-family: Poppins-Regular, sans-serif;
