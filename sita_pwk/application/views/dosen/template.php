@@ -21,11 +21,11 @@
 
 <div class="atas">
 <div class="row">
-  
+
 <div class="col-md-2">
   <a>
     <img src="<?php base_url() ?>images/logoitera.png" >
-  </a>  
+  </a>
 </div>
 <div class="col-md-6">
     <h1> Sistem Informasi Tugas Akhir
@@ -36,18 +36,18 @@
 </div>
 
 <body>
-    
+
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 ">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        
+
         <a class="navbar-brand brand-logo-mini">
           <img src="<?php base_url() ?>images/logo-mini.svg" alt="logo" />
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
-        
+
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -184,8 +184,8 @@
               <a class="dropdown-item">
                 Change Password
               </a>
-              
-              <a class="dropdown-item" href="<?php echo base_url('')?>">
+
+              <a class="dropdown-item" href="<?php echo base_url().'index.php/login/logout'?>">
               <i class="menu-icon mdi mdi-logout"></i>
                 Logout
               </a>
@@ -243,7 +243,7 @@
         </ul>
       </nav>
       <!-- main-panel ends -->
-      
+
       <!-- disini konten -->
  <!--    <?php $this->load->view($konten); ?> -->
     <!-- /.konten -->
@@ -266,7 +266,7 @@
         </footer> -->
 
         <!-- partial -->
-     
+
   <!-- plugins:js -->
   <script src="<?php base_url() ?>assets/js/vendor.bundle.base.js"></script>
   <script src="<?php base_url() ?>assets/js/vendor.bundle.addons.js"></script>

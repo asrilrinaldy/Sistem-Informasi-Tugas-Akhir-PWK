@@ -28,14 +28,14 @@ class Login extends CI_Controller {
       $this->session->set_userdata('akses','Admin');
       $this->session->set_userdata('ses_id',$data['id_admin']);
       $this->session->set_userdata('ses_nama',$data['nama']);
-      redirect('page');
+      redirect('berandaadmin');
     }else if ($cek_dosen->num_rows() > 0) {
       $data=$cek_dosen->row_array();
       $this->session->set_userdata('masuk',TRUE);
       $this->session->set_userdata('akses','Dosen');
       $this->session->set_userdata('ses_id',$data['NIP']);
       $this->session->set_userdata('ses_nama',$data['Nama']);
-      redirect('page');
+      redirect('berandadosen');
     }else{
           $cek_mahasiswa = $this->login_model->cek_mhs($username,$password);
           if($cek_mahasiswa->num_rows() > 0){
@@ -46,7 +46,7 @@ class Login extends CI_Controller {
             $this->session->set_userdata('ses_nama',$data['Nama']);
             redirect('page');
           }else{
-            $url=base_url('index.php/login');
+            $url=base_url('login');
             redirect($url);
           }
         }
