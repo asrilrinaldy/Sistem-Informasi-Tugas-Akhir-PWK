@@ -1,23 +1,26 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+defined('BASEPATH') or exit('No direct script access allowed');
+?>
+<!DOCTYPE html>
 <?php
 if ($this->session->userdata('masuk') == TRUE) {
-  redirect('page');
+	redirect('page');
 } ?>
 <html lang="en">
+
 <head>
 	<title>Login SITA PWK</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="<?php echo base_url()?>assets/css/util.css" rel="stylesheet">
-	<link href="<?php echo base_url()?>assets/css/main.css" rel="stylesheet">
+	<link href="<?php echo base_url() ?>assets/css/util.css" rel="stylesheet">
+	<link href="<?php echo base_url() ?>assets/css/main.css" rel="stylesheet">
 </head>
+
 <body style="background-color: #666666;">
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="<?php echo base_url().'index.php/login/login'?>" method="post">
+				<form class="login100-form validate-form" action="<?php echo base_url() . 'index.php/login/login' ?>" method="post">
 					<span class="login100-form-title p-b-10">
 						LOGIN
 					</span>
@@ -25,7 +28,7 @@ if ($this->session->userdata('masuk') == TRUE) {
 						Selamat Datang, Silahkan Masuk Untuk Melanjutkan
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required, ex: imam@student.itera.ac.id">
+					<div class="wrap-input100 validate-input" data-validate="Valid email is required, ex: imam@student.itera.ac.id">
 						<input class="input100" type="text" name="username">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Email</span>
@@ -52,12 +55,12 @@ if ($this->session->userdata('masuk') == TRUE) {
 						</button>
 
 					</div>
-					<a href="<?php echo site_url('Register') ?>" class="registerstyle">
+					<a href="<?php echo site_url('Register/register') ?>" class="registerstyle">
 						Register
 					</a>
 				</form>
 
-				<div class="login100-more" style="background-image: url('<?=base_url()?>assets/images/bg-011.png');">
+				<div class="login100-more" style="background-image: url('<?= base_url() ?>assets/images/bg-011.png');">
 					<span class="container">
 						<span class="container2">
 							Selamat Datang Di Sistem Informasi Tugas Akhir PWK
@@ -79,7 +82,8 @@ if ($this->session->userdata('masuk') == TRUE) {
 		</div>
 	</div>
 
-	<script src="<?=base_url()?>/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="<?=base_url()?>/assets/js/main.js"></script>
+	<script src="<?= base_url() ?>/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="<?= base_url() ?>/assets/js/main.js"></script>
 </body>
+
 </html>

@@ -1,54 +1,78 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Register extends CI_Controller {
-
+class Register extends CI_Controller
+{
   public function __construct()
-	{
+  {
     parent::__construct();
 
-		$this->load->model('register_model');
-	}
-
-	public function index()
-	{
-		$this->load->view('register_view');
-	}
-
-  public function check_register()
-    {
-      $site = $this->Konfigurasi_model->listing();
-      $data = array(
-          'title'     => 'Register | '.$site['nama_website'],
-          'favicon'   => $site['favicon'],
-          'site'      => $site
-      );
-      $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[50]');
-      $this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[5]|max_length[50]');
-      $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[5]|max_length[20]');
-      if ($this->form_validation->run() == false) {
-        $this->template->load('authentication/layout/template','authentication/register',$data);
-      }
-      else {
-        $this->Auth_model->reg();
-        $this->session->set_flashdata('alert', '<p class="box-msg">
-          <div class="info-box alert-success">
-          <div class="info-box-icon">
-          <i class="fa fa-check-circle"></i>
-          </div>
-          <div class="info-box-content" style="font-size:14">
-          <b style="font-size: 20px">SUKSES</b><br>Pendaftaran berhasil, silakan login.</div>
-          </div>
-          </p>
-        ');
-        redirect('login','refresh',$data);
-      }
-    }
-
-  function logout(){
-    $this->session->sess_destroy();
-    $url=base_url();
-    redirect($url);
+    $this->load->library('form_validation');
+    $this->load->model('Register_model', 'mahasiswa');
   }
+  //Dashboard
+  public function index()
+  {
+    $data['title'] = 'Dashboard - SITA PWK';
+    $data['metaDescription'] = 'Dashboard';
+    $data['metaKeywords'] = 'Dashboard';
+    $this->load->view('login_view', $data);
+  }
+  public function register()
+  {
+    $data['title'] = 'Register - SITA PWK';
+    $data['metaDescription'] = 'Register';
+    $data['metaKeywords'] = 'Register';
+    $this->load->view('register_view', $data);
+  }
+  // action register
+  public function actionRegister()
+  {
+    $this->load->library('form_validation');
+    // field name, error message, validation rules
+    $this->form_validation->set_rules('Nama', 'Nama Lengkap', 'trim|required');
+    $this->form_validation->set_rules('NIM', 'NIM', 'trim|required|min_length[4]');
+    $this->form_validation->set_rules('Email', 'Email', 'trim|required|valid_email');
+    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
 
+    $this->form_validation->set_rules('Password', 'Password', 'trim|required|min_length[4]|max_length[32]');
+    $this->form_validation->set_rules('Ulangi_password', 'Ulangi Password', 'trim|required|matches[Password]');
+    $this->form_validation->set_rules('Alamat', 'Alamat Lengkap', 'trim|required');
+    $this->form_validation->set_rules('No_telepon', 'No_telepon', 'trim|required');
+    $this->form_validation->set_rules('Tempat_lahir', 'Tempat_lahir', 'trim|required');
+    $this->form_validation->set_rules('Tanggal_lahir', 'Tanggal_lahir', 'trim|required');
+
+    if ($this->form_validation->run() == FALSE) {
+      $this->register();
+    } else {
+      // post values
+      $Nama = $this->input->post('Nama');
+      $NIM = $this->input->post('NIM');
+      $Email = $this->input->post('Email');
+      $Password = $this->input->post('Password');
+      $Alamat = $this->input->post('Alamat');
+      $No_telepon = $this->input->post('No_telepon');
+      $Tempat_lahir = $this->input->post('Tempat_lahir');
+      $Tanggal_lahir = $this->input->post('Tanggal_lahir');
+      // set post values
+      $this->mahasiswa->setNama($Nama);
+      $this->mahasiswa->setNIM($NIM);
+      $this->mahasiswa->setEmail($Email);
+      $this->mahasiswa->setPassword(MD5($Password));
+      $this->mahasiswa->setAlamat($Alamat);
+      $this->mahasiswa->setNo_telepon($No_telepon);
+      $this->mahasiswa->setTempat_lahir($Tempat_lahir);
+      $this->mahasiswa->setTanggal_lahir($Tanggal_lahir);
+      // insert values in database
+      $this->mahasiswa->createMahasiswa();
+      redirect('register/index');
+    }
+  }
+}
+
+function logout()
+{
+  $this->session->sess_destroy();
+  $url = base_url();
+  redirect($url);
 }
