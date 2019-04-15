@@ -250,7 +250,6 @@
 
     </div>
     <!-- page-body-wrapper ends -->
-  </div>
   <!-- container-scroller -->
 
         <!-- content-wrapper ends -->
@@ -274,11 +273,11 @@
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
   <!-- inject:js -->
-  <script src="<?php base_url() ?>js/off-canvas.js"></script>
-  <script src="<?php base_url() ?>js/misc.js"></script>
+  <script src="<?php base_url() ?>assets/js/off-canvas.js"></script>
+  <script src="<?php base_url() ?>assets/js/misc.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="<?php base_url() ?>js/dashboard.js"></script>
+  <script src="<?php base_url() ?>assets/js/dashboard.js"></script>
   <!-- End custom js for this page-->
 </body>
 

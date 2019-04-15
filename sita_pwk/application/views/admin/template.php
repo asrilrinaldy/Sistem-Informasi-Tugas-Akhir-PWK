@@ -46,13 +46,14 @@
           <img src="<?php base_url() ?>images/logo-mini.svg" alt="logo" />
         </a>
       </div>
-      <div class="navbar-menu-wrapper d-flex align-items-center">
-        
+
+
+      <div class="navbar-menu-wrapper d-flex align-items-center">  
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <i class="mdi mdi-file-document-box"></i>
-              <span class="count">7</span>
+              <span class="count">3</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
               <div class="dropdown-item">
@@ -104,6 +105,8 @@
               </a>
             </div>
           </li>
+
+
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
               <i class="mdi mdi-bell"></i>
@@ -197,6 +200,7 @@
         </button>
       </div>
     </nav>
+
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
@@ -210,13 +214,13 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href=<?php echo base_url('settingadmin') ?>>
-              <i class="menu-icon mdi mdi-social-person"></i>
+              <i class="menu-icon mdi mdi-account-edit"></i>
               <span class="menu-title">Setting Admin</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-communication-contact"></i>
+              <i class="menu-icon mdi mdi-clipboard-account"></i>
               <span class="menu-title">Kelola Data Dosen</span>
               <i class="menu-arrow"></i>
             </a>
@@ -233,7 +237,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-communication-contact"></i>
+              <i class="menu-icon mdi mdi-account-multiple"></i>
               <span class="menu-title">Kelola Data Mahasiswa</span>
               <i class="menu-arrow"></i>
             </a>
@@ -250,13 +254,13 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('referensijudul') ?>">
-              <i class="menu-icon mdi mdi-file-document-box"></i>
+              <i class="menu-icon mdi mdi-book-open-page-variant"></i>
               <span class="menu-title">Kelola Referensi Judul</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('jadwalpenting') ?>">
-              <i class="menu-icon mdi mdi-file-document-box"></i>
+              <i class="menu-icon mdi mdi-calendar-clock"></i>
               <span class="menu-title">Kelola Jadwal Penting</span>
             </a>
           </li>
@@ -268,7 +272,7 @@
       <!-- main-panel ends -->
       
       <!-- disini konten -->
-<!--     <?php $this->load->view($konten); ?> -->
+<!--  <?php $this->load->view($konten); ?> -->
     <!-- /.konten -->
 
     </div>
@@ -297,11 +301,11 @@
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
   <!-- inject:js -->
-  <script src="<?php base_url() ?>js/off-canvas.js"></script>
-  <script src="<?php base_url() ?>js/misc.js"></script>
+  <script src="<?php base_url() ?>assets/js/off-canvas.js"></script>
+  <script src="<?php base_url() ?>assets/js/misc.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="<?php base_url() ?>js/dashboard.js"></script>
+  <script src="<?php base_url() ?>assets/js/dashboard.js"></script>
   <!-- End custom js for this page-->
 </body>
 
