@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Referensi</title>
+	<title>Dosen</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/jquery.dataTables.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/dataTables.bootstrap4.css'?>">
@@ -26,7 +26,7 @@
                         <th>Nama</th>
                         <th>Password</th>
                         <th>Email</th>
-                        <th>No_telepon</th>
+                        <th>No. Telepon</th>
                         <th>Alamat</th>
                         <th>Tempat Lahir</th>
                         <th>Tanggal Lahir</th>
@@ -128,49 +128,49 @@
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">NIP</label>
                         <div class="col-md-10">
-                          <input type="text" name="nip_edit" id="nip_edit" class="form-control" placeholder="ID Referensi">
+                          <input type="text" name="nip_edit" id="nip_edit" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Nama</label>
                         <div class="col-md-10">
-                          <input type="text" name="nama_edit" id="nama_edit" class="form-control" placeholder="Judul TA">
+                          <input type="text" name="nama_edit" id="nama_edit" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Password</label>
                         <div class="col-md-10">
-                          <input type="password" name="password_edit" id="password_edit" class="form-control" placeholder="Price">
+                          <input type="password" name="password_edit" id="password_edit" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Email</label>
                         <div class="col-md-10">
-                          <input type="text" name="email_edit" id="email_edit" class="form-control" placeholder="Tahun">
+                          <input type="text" name="email_edit" id="email_edit" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">No. Telepon</label>
                         <div class="col-md-10">
-                          <input type="text" name="no_telepon_edit" id="no_telepon_edit" class="form-control" placeholder="Asal Referensi">
+                          <input type="text" name="no_telepon_edit" id="no_telepon_edit" class="form-control" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Alamat</label>
                         <div class="col-md-10">
-                          <input type="text" name="alamat_edit" id="alamat_edit" class="form-control" value="Adm001">
+                          <input type="text" name="alamat_edit" id="alamat_edit" class="form-control" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Tempat Lahir</label>
                         <div class="col-md-10">
-                          <input type="text" name="tempat_lahir_edit" id="tempat_lahir_edit" class="form-control" value="Adm001">
+                          <input type="text" name="tempat_lahir_edit" id="tempat_lahir_edit" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Tanggal Lahir</label>
                         <div class="col-md-10">
-                          <input type="text" name="tanggal_lahir_edit" id="tanggal_lahir_edit" class="form-control" value="Adm001">
+                          <input type="text" name="tanggal_lahir_edit" id="tanggal_lahir_edit" class="form-control">
                         </div>
                     </div>
                   </div>
@@ -184,19 +184,19 @@
             </form>
         <!--END MODAL EDIT-->
 
-        <!--MODAL DELETE-->
+				<!--MODAL DELETE-->
          <form>
             <div class="modal fade" id="Modal_Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Dosen</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Data Dosen</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                       <strong>Delete Data Dosen Ini?</strong>
+                       <strong>Delete ?</strong>
                   </div>
                   <div class="modal-footer">
                     <input type="hidden" name="nip_delete" id="nip_delete" class="form-control">
@@ -231,19 +231,18 @@
 		            var html = '';
 		            var i;
 		            for(i=0; i<data.length; i++){
-		                html +=
-                    'h1'+"ASDASD"+'''<tr>'+
-		                  		'<td>'+data[i].NIP+'</td>'+
-		                        '<td>'+data[i].Nama+'</td>'+
-                            '<td>'+MD5(data[i].password)+'</td>'+
-		                        '<td>'+data[i].Email+'</td>'+
-                            '<td>'+data[i].No_telepon+'</td>'+
-                            '<td>'+data[i].Alamat+'</td>'+
-                            '<td>'+data[i].Tempat_lahir+'</td>'+
-                            '<td>'+data[i].Tanggal_lahir+'</td>'+
-		                        '<td style="text-align:right;">'+
+									html += '<tr>'+
+												'<td>'+data[i].NIP+'</td>'+
+													'<td>'+data[i].Nama+'</td>'+
+													'<td>'+data[i].password+'</td>'+
+													'<td>'+data[i].Email+'</td>'+
+													'<td>'+data[i].No_telepon+'</td>'+
+													'<td>'+data[i].Alamat+'</td>'+
+													'<td>'+data[i].Tempat_lahir+'</td>'+
+													'<td>'+data[i].Tanggal_lahir+'</td>'+
+													'<td style="text-align:right;">'+
                                     '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-nip="'+data[i].NIP+'" data-nama="'+data[i].Nama+'" data-password="'+data[i].password+'" data-email="'+data[i].Email+'" data-no_telepon="'+data[i].No_telepon+'" data-alamat="'+data[i].Alamat+'" data-tempat_lahir="'+data[i].Tempat_lahir+'" data-tanggal_lahir="'+data[i].Tanggal_lahir+'">Edit</a>'+' '+
-                                    '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_referensi="'+data[i].Id_Referensi+'">Delete</a>'+
+                                    '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-nip="'+data[i].NIP+'">Delete</a>'+
                                 '</td>'+
 		                        '</tr>';
 		            }
@@ -255,26 +254,30 @@
 
         //Save product
         $('#btn_save').on('click',function(){
-            var id_referensi = $('#id_referensi').val();
-            var judul_ta = $('#judul_ta').val();
-            var penulis = $('#penulis').val();
-            var tahun = $('#tahun').val();
-            var asal_referensi = $('#asal_referensi').val();
-            var id_admin = $('#id_admin').val();
+            var nip = $('#nip').val();
+            var nama = $('#nama').val();
+            var password = $('#password').val();
+            var email = $('#email').val();
+            var no_telepon = $('#no_telepon').val();
+            var alamat = $('#alamat').val();
+						var tempat_lahir = $('#tempat_lahir').val();
+						var tanggal_lahir = $('#tanggal_lahir').val();
             $.ajax({
                 type : "POST",
-                url  : "<?php echo site_url('referensi/save')?>",
+                url  : "<?php echo site_url('keloladosen/save')?>",
                 dataType : "JSON",
-                data : {id_referensi:id_referensi , judul_ta:judul_ta, penulis:penulis, tahun:tahun, asal_referensi:asal_referensi, id_admin:id_admin},
+                data : {nip:nip , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
                 success: function(data){
-                    $('[name="id_referensi"]').val("");
-                    $('[name="judul_ta"]').val("");
-                    $('[name="penulis"]').val("");
-                    $('[name="tahun"]').val("");
-                    $('[name="asal_referensi"]').val("");
-                    $('[name="id_admin"]').val("");
+                    $('[name="nip"]').val("");
+                    $('[name="nama"]').val("");
+                    $('[name="password"]').val("");
+                    $('[name="email"]').val("");
+                    $('[name="no_telepon"]').val("");
+                    $('[name="alamat"]').val("");
+										$('[name="tempat_lahir"]').val("");
+										$('[name="tanggal_lahir"]').val("");
                     $('#Modal_Add').modal('hide');
-                    show_referensi();
+                    show_dosen();
                 }
             });
             return false;
@@ -282,46 +285,54 @@
 
         //get data for update record
         $('#show_data').on('click','.item_edit',function(){
-            var id_referensi = $(this).data('id_referensi');
-            var judul_ta = $(this).data('judul_ta');
-            var penulis  = $(this).data('penulis');
-            var tahun = $(this).data('tahun');
-            var asal_referensi = $(this).data('asal_referensi');
-            var id_admin = $(this).data('id_admin');
+            var nip = $(this).data('nip');
+            var nama = $(this).data('nama');
+            var password  = $(this).data('password');
+            var email = $(this).data('email');
+            var no_telepon = $(this).data('no_telepon');
+            var alamat = $(this).data('alamat');
+						var tempat_lahir = $(this).data('tempat_lahir');
+						var tanggal_lahir = $(this).data('tanggal_lahir');
 
             $('#Modal_Edit').modal('show');
-            $('[name="id_referensi_edit"]').val(id_referensi);
-            $('[name="judul_ta_edit"]').val(judul_ta);
-            $('[name="penulis_edit"]').val(penulis);
-            $('[name="tahun_edit"]').val(tahun);
-            $('[name="asal_referensi_edit"]').val(asal_referensi);
-            $('[name="id_admin_edit"]').val(id_admin);
+            $('[name="nip_edit"]').val(nip);
+            $('[name="nama_edit"]').val(nama);
+            $('[name="password_edit"]').val(password);
+            $('[name="email_edit"]').val(email);
+            $('[name="no_telepon_edit"]').val(no_telepon);
+            $('[name="alamat_edit"]').val(alamat);
+						$('[name="tempat_lahir_edit"]').val(tempat_lahir);
+						$('[name="tanggal_lahir_edit"]').val(tanggal_lahir);
         });
 
         //update record to database
          $('#btn_update').on('click',function(){
 
-           var id_referensi = $('#id_referensi_edit').val();
-           var judul_ta = $('#judul_ta_edit').val();
-           var penulis = $('#penulis_edit').val();
-           var tahun = $('#tahun_edit').val();
-           var asal_referensi = $('#asal_referensi_edit').val();
-           var id_admin = $('#id_admin_edit').val();
+           var nip = $('#nip_edit').val();
+           var nama = $('#nama_edit').val();
+           var password = $('#password_edit').val();
+           var email = $('#email_edit').val();
+           var no_telepon = $('#no_telepon_edit').val();
+           var alamat = $('#alamat_edit').val();
+					 var tempat_lahir = $('#tempat_lahir_edit').val();
+					 var tanggal_lahir = $('#tanggal_lahir_edit').val();
 
             $.ajax({
                 type : "POST",
-                url  : "<?php echo site_url('referensi/update')?>",
+                url  : "<?php echo site_url('keloladosen/update')?>",
                 dataType : "JSON",
-                data : {id_referensi:id_referensi , judul_ta:judul_ta, penulis:penulis, tahun:tahun, asal_referensi:asal_referensi, id_admin:id_admin},
+                data : {nip:nip , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
                 success: function(data){
-                    $('[name="id_referensi_edit"]').val("");
-                    $('[name="judul_ta_edit"]').val("");
-                    $('[name="penulis_edit"]').val("");
+                    $('[name="nip_edit"]').val("");
+                    $('[name="nama_edit"]').val("");
+                    $('[name="password_edit"]').val("");
                     $('[name="tahun_edit"]').val("");
-                    $('[name="asal_referensi_edit"]').val("");
-                    $('[name="id_admin_edit"]').val("");
+                    $('[name="no_telepon_edit"]').val("");
+                    $('[name="alamat_edit"]').val("");
+									  $('[name="tempat_lahir_edit"]').val("");
+										$('[name="tanggal_lahir_edit"]').val("");
                     $('#Modal_Edit').modal('hide');
-                    show_referensi();
+                    show_dosen();
                 }
             });
             return false;
@@ -329,24 +340,24 @@
 
         //get data for delete record
         $('#show_data').on('click','.item_delete',function(){
-            var id_referensi = $(this).data('id_referensi');
+            var nip = $(this).data('nip');
 
             $('#Modal_Delete').modal('show');
-            $('[name="id_referensi_delete"]').val(id_referensi);
+            $('[name="nip_delete"]').val(nip);
         });
 
         //delete record to database
          $('#btn_delete').on('click',function(){
-            var id_referensi = $('#id_referensi_delete').val();
+            var nip = $('#nip_delete').val();
             $.ajax({
                 type : "POST",
-                url  : "<?php echo site_url('referensi/delete')?>",
+                url  : "<?php echo site_url('keloladosen/delete')?>",
                 dataType : "JSON",
-                data : {id_referensi:id_referensi},
+                data : {nip:nip},
                 success: function(data){
-                    $('[name="id_referensi_delete"]').val("");
+                    $('[name="nip_delete"]').val("");
                     $('#Modal_Delete').modal('hide');
-                    show_referensi();
+                    show_dosen();
                 }
             });
             return false;
