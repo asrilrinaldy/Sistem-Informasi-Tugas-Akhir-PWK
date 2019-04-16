@@ -245,7 +245,7 @@
       <!-- main-panel ends -->
 
       <!-- disini konten -->
- <!--    <?php $this->load->view($konten); ?> -->
+ 
     <!-- /.konten -->
 
     </div>
