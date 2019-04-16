@@ -224,10 +224,10 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('tambahdosen') ?>">Tambah Dosen</a>
+                  <a class="nav-link" href="<?php echo base_url('tambahdosen') ?>">Informasi Dosen</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('keloladosen') ?>">Kelola Informasi Dosen</a>
+                  <a class="nav-link" href="<?php echo base_url('keloladosen') ?>">Ubah Password Dosen</a>
                 </li>
               </ul>
             </div>
@@ -242,10 +242,10 @@
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('tambahmahasiswa') ?>">Tambah Mahasiswa</a>
+                  <a class="nav-link" href="<?php echo base_url('tambahmahasiswa') ?>">Informasi Mahasoswa</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('kelolamahasiswa') ?>">Kelola Informasi Mahasiswa</a>
+                  <a class="nav-link" href="<?php echo base_url('kelolamahasiswa') ?>">Ubah Password Mahasiswa</a>
                 </li>
               </ul>
           </div>
@@ -271,10 +271,13 @@
           </li>
         </ul>
       </nav>
+
+
+
       <!-- main-panel ends -->
 
       <!-- disini konten -->
- <!--    <?php $this->load->view($konten); ?> -->
+ <?php $this->load->view($konten); ?>
     <!-- /.konten -->
 
     </div>
@@ -284,7 +287,7 @@
 
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <!-- <footer class="footer">
+        <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
               <a>Kelompok 6</a>. All rights reserved.</span>
@@ -292,7 +295,7 @@
               <i class="mdi mdi-heart text-danger"></i>
             </span>
           </div>
-        </footer> -->
+        </footer>
 
         <!-- partial -->
 
