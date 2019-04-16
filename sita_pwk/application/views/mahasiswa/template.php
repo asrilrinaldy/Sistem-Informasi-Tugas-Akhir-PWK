@@ -161,7 +161,7 @@
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Admin001</span>
+              <span class="profile-text">Mahasiswa</span>
               <img class="img-xs rounded-circle" src="<?php base_url() ?>images/faces/face21.jpg" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
@@ -185,7 +185,7 @@
                 Change Password
               </a>
 
-              <a class="dropdown-item" href="<?php echo base_url().'index.php/login/logout'?>">
+              <a class="dropdown-item" href="<?php echo base_url('')?>">
               <i class="menu-icon mdi mdi-logout"></i>
                 Logout
               </a>
@@ -201,69 +201,40 @@
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
+
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('berandadmin') ?>">
+            <a class="nav-link" href="berandamahasiswa">
               <i class="menu-icon mdi mdi-signal"></i>
               <span class="menu-title">Beranda</span>
             </a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo base_url('pengaturanadmin') ?>>
-              <i class="menu-icon mdi mdi-account-edit"></i>
-              <span class="menu-title">Pengaturan Admin</span>
+            <a class="nav-link" href="informasidosen">
+              <i class="menu-icon mdi mdi-account"></i>
+              <span class="menu-title">Informasi Dosen</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-clipboard-account"></i>
-              <span class="menu-title">Kelola Data Dosen</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('tambahdosen') ?>">Tambah Dosen</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('keloladosen') ?>">Kelola Informasi Dosen</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <i class="menu-icon mdi mdi-account-multiple"></i>
-              <span class="menu-title">Kelola Data Mahasiswa</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('tambahmahasiswa') ?>">Tambah Mahasiswa</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('kelolamahasiswa') ?>">Kelola Informasi Mahasiswa</a>
-                </li>
-              </ul>
-          </div>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url().'referensi'?>">
-              <i class="menu-icon mdi mdi-book-open-page-variant"></i>
-              <span class="menu-title">Kelola Referensi TA </span>
+            <a class="nav-link" href="konsultasimahasiswa">
+              <i class="menu-icon mdi mdi-message-text-outline"></i>
+              <span class="menu-title">Konsultasi</span>
             </a>
           </li>
 
-          
+          <li class="nav-item">
+            <a class="nav-link" href="referensijudul">
+              <i class="menu-icon mdi mdi-book-open"></i>
+              <span class="menu-title">Referensi Judul</span>
+            </a>
+          </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('jadwalpenting') ?>">
-              <i class="menu-icon mdi mdi-file-document-box"></i>
-              <span class="menu-title">Kelola Jadwal Penting</span>
+            <a class="nav-link" href="LogBookMahasiswa">
+              <i class="menu-icon mdi mdi-tumblr-reblog"></i>
+              <span class="menu-title">Logbook Mahasiswa</span>
             </a>
           </li>
               </ul>
@@ -271,10 +242,17 @@
           </li>
         </ul>
       </nav>
+
+
+
       <!-- main-panel ends -->
 
       <!-- disini konten -->
- <!--    <?php $this->load->view($konten); ?> -->
+
+
+
+
+    <?php $this->load->view($konten); ?>
     <!-- /.konten -->
 
     </div>
@@ -284,7 +262,7 @@
 
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <!-- <footer class="footer">
+        <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
               <a>Kelompok 6</a>. All rights reserved.</span>
@@ -292,7 +270,7 @@
               <i class="mdi mdi-heart text-danger"></i>
             </span>
           </div>
-        </footer> -->
+        </footer>
 
         <!-- partial -->
 
