@@ -234,12 +234,12 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <i class="menu-icon mdi mdi-account-multiple"></i>
               <span class="menu-title">Kelola Data Mahasiswa</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
                   <a class="nav-link" href="<?php echo base_url('tambahmahasiswa') ?>">Tambah Mahasiswa</a>
@@ -248,7 +248,7 @@
                   <a class="nav-link" href="<?php echo base_url('kelolamahasiswa') ?>">Kelola Informasi Mahasiswa</a>
                 </li>
               </ul>
-            </div>
+          </div>
           </li>
 
           <li class="nav-item">
@@ -257,6 +257,8 @@
               <span class="menu-title">Kelola Referensi TA </span>
             </a>
           </li>
+
+          
 
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('jadwalpenting') ?>">
