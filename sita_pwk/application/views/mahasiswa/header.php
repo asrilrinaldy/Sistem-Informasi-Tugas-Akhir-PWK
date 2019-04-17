@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Sistem Informasi Tugas Akhir</title>
+  <title>Sistem Informasi Tugas Akhir PWK</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?php base_url() ?>assets/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php base_url() ?>assets/css/vendor.bundle.base.css">
@@ -42,12 +42,13 @@
     <nav class="navbar default-layout col-lg-12 col-12 p-0 ">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
 
-        <a class="navbar-brand brand-logo-mini">
-          <img src="<?php base_url() ?>images/logo-mini.svg" alt="logo" />
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
+        <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
 
+
+        </ul>
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -56,17 +57,17 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
               <div class="dropdown-item">
-                <p class="mb-0 font-weight-normal float-left">You have 3 unread mails
+                <p class="mb-0 font-weight-normal float-left">You have 7 unread mails
                 </p>
                 <span class="badge badge-info badge-pill float-right">View all</span>
               </div>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
-                  <img src="<?php base_url() ?>images/faces/face2.jpg" alt="image" class="profile-pic">
+                  <img src="<?php base_url() ?>images/faces/face4.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-medium text-dark">Nurmeishy Febriani
+                  <h6 class="preview-subject ellipsis font-weight-medium text-dark">David Grey
                     <span class="float-right font-weight-light small-text">1 Minutes ago</span>
                   </h6>
                   <p class="font-weight-light small-text">
@@ -94,7 +95,7 @@
                   <img src="<?php base_url() ?>images/faces/face3.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-medium text-dark"> Sisi
+                  <h6 class="preview-subject ellipsis font-weight-medium text-dark"> Johnson
                     <span class="float-right font-weight-light small-text">18 Minutes ago</span>
                   </h6>
                   <p class="font-weight-light small-text">
@@ -162,7 +163,7 @@
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <span class="profile-text">Mahasiswa</span>
-              <img class="img-xs rounded-circle" src="<?php base_url() ?>images/faces/face21.jpg" alt="Profile image">
+              <img class="img-xs rounded-circle" src="<?php base_url() ?>images/faces/face1.jpg" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <a class="dropdown-item p-0">
@@ -179,15 +180,16 @@
                 </div>
               </a>
               <a class="dropdown-item mt-2">
-                Manage Accounts
+                Pengaturan Akun
               </a>
               <a class="dropdown-item">
-                Change Password
+                Ganti Kata Sandi
               </a>
-
-              <a class="dropdown-item" href="<?php echo base_url('')?>">
-              <i class="menu-icon mdi mdi-logout"></i>
-                Logout
+              <a class="dropdown-item">
+                Cek Pesan
+              </a>
+              <a class="dropdown-item">
+                Keluar
               </a>
             </div>
           </li>
@@ -201,8 +203,10 @@
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
-
         <ul class="nav">
+          <li class="nav-item nav-profile">
+
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="berandamahasiswa">
               <i class="menu-icon mdi mdi-signal"></i>
@@ -234,24 +238,18 @@
           <li class="nav-item">
             <a class="nav-link" href="LogBookMahasiswa">
               <i class="menu-icon mdi mdi-tumblr-reblog"></i>
-              <span class="menu-title">Logbook Mahasiswa</span>
+              <span class="menu-title">LogBook Mahasiswa</span>
             </a>
           </li>
-              </ul>
-            </div>
-          </li>
+
+
+
+
         </ul>
       </nav>
-
-
-
       <!-- main-panel ends -->
 
       <!-- disini konten -->
-
-
-
-
     <?php $this->load->view($konten); ?>
     <!-- /.konten -->
 
@@ -265,10 +263,7 @@
         <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
-              <a>Kelompok 6</a>. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
-              <i class="mdi mdi-heart text-danger"></i>
-            </span>
+              <a>Kelompok 6</a> Proyek Perangkat Lunak RA</span>
           </div>
         </footer>
 
