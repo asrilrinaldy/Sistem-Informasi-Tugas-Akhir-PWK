@@ -17,6 +17,12 @@
   <link rel="stylesheet" href="<?php base_url() ?>css/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="<?php base_url() ?>images/logoitera.png" />
+
+  <style>
+h5 {
+  background-color: #308ee0;
+}
+</style>
 </head>
 
 <div class="atas">
