@@ -20,38 +20,15 @@
             <span class="judul-title">
               DATA MAHASISWA
             </span><br></br>
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>
-                      Nama :
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>
-                      NIM :
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>
-                      Program Studi :
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>
-                      Dosen TA 1 :
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>
-                      Dosen TA 2 :
-                    </th>
-                  </tr>
-                </thead>
 
-              </table>
+            <div class="biodata-mahasiswa">
+              <br>Nama</br>
+              <br>NIM</br>
+              <br>Program Studi</br>
+              <br>Dosen TA 1</br>
+              <br>Dosen TA 2</br>
             </div>
+
           </div>
         </div>
       </div>

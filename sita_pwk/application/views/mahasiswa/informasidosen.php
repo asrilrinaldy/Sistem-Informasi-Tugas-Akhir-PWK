@@ -46,10 +46,10 @@
                       No
                     </th>
                     <th>
-                      NIP
+                      Nama
                     </th>
                     <th>
-                      Nama
+                      NIP
                     </th>
                     <th>
                       Telp
@@ -64,14 +64,14 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="font-weight-medium">
+                    <td >
                       1
                     </td>
                     <td>
-                      14116158
+                      Asril Rinaldi
                     </td>
                     <td>
-                      Asril Rinaldi
+                      14116158
                     </td>
                     <td>
                       14502
@@ -160,6 +160,24 @@
                 </tbody>
               </table>
             </div>
+
+          <br></br>
+            <div class="row">
+              <div class="col-sm-5">
+                <div class="dataTables_info" id="kelas_info" role="status" aria-live="polite">Showing 1 to 10 of 743 entries
+                </div>
+              </div>
+
+              <div class="col-sm-7">
+
+                  <ul class="tombol-tabel">
+                    <a href="#" class="previous">&laquo; Previous</a>
+                    <a href="#" class="next">Next &raquo;</a>
+                  </ul>
+
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
