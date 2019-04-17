@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class berandaadmin extends CI_Controller {
+class kelolamahasiswa extends CI_Controller {
 
 	public function index()
 	{
-		$isi['konten'] = 'admin/beranda';
+		$isi['konten'] = 'admin/mahasiswa/kelolamahasiswa';
 		$this->load->view('admin/template', $isi);
 	}
 }
