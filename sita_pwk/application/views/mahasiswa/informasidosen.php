@@ -3,6 +3,7 @@
   <div class="content-wrapper">
     <div class="row">
 
+
     </div>
 
    <!-- tabel mahasiswa -->
@@ -14,7 +15,27 @@
             <i class="menu-icon mdi mdi-paperclip"></i>
             <span class="judul-title">
               INFORMASI DOSEN
-            </span>
+            </span><br></br>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="jumlah-tampilan" id="kelas_length">Show
+                <label> <select name="kelas_length" aria-controls="kelas" class="form-control input-sm">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                  </select>
+                </label> Entries
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div  class="dataTables_filter"> Search
+                <label>
+                 <input type="search" class="form-control input-sm" placeholder="" aria-controls="kelas">
+                </label>
+              </div>
+            </div>
+          </div>
 
 
             <div class="table-responsive">

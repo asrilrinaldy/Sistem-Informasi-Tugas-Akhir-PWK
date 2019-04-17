@@ -13835,8 +13835,36 @@ input:focus {
         font-size: 18px;
         line-height: 2;
         vertical-align: middle;
+			}
+/*CSS ITERA*/
+			div.dataTables_filter {
+				text-align: right;
 
 			}
+			/*kotak pencarian dosen*/
+
+				form {
+				    width:300px;
+				    margin-right: 0px;
+				}
+				.search {
+				    padding:8px 15px;
+				    background:rgba(50, 50, 50, 0.2);
+				    border:0px solid #dbdbdb;
+				}
+				.button {
+				    position:relative;
+				    padding:6px 15px;
+				    left:-8px;
+				    border:2px solid #12688d;
+				    background-color:#12688d;
+				    color:#fafafa;
+				}
+				.button:hover  {
+				    background-color:#fafafa;
+				    color:#207cca;
+				}
+
       .sidebar .nav .nav-item .nav-link .badge {
         margin-left: auto; }
       .sidebar .nav .nav-item .nav-link:hover {
@@ -16384,5 +16412,7 @@ ul {
 @media (min-width: 992px) {
   .error-page .error-page-divider {
     border-left: 3px solid rgba(255, 255, 255, 0.2); } }
+
+
 
 /*# sourceMappingURL=maps/style.css.map */

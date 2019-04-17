@@ -19,7 +19,7 @@
             <i class="menu-icon mdi mdi-paperclip"></i>
             <span class="judul-title">
               DATA MAHASISWA
-            </span>
+            </span><br></br>
             <div class="table-responsive">
               <table class="table table-bordered">
                 <thead>
