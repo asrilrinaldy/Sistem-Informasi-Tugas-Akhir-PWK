@@ -59,6 +59,12 @@
 /* === SCSS Compass Functions === */
 
 /*css bagian gambar itera dan teks sampingnya*/
+
+
+
+
+
+
 .atas .row{
 	margin-bottom: -30px;
 	margin-top: -30px;
@@ -96,7 +102,7 @@
 	margin : 10px 10px 10px 0px;
 	border : 15px 15px 15px 10px;
 	padding: 15px 15px 10px 10px;
-	
+
 }
 .col-md-9 .regis h2{
 	font-size: 35px;
@@ -7915,7 +7921,9 @@ pre {
   padding-right: 12.5px;
   padding-left: 12.5px;
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+
+ }
 
 .row {
   display: flex;
@@ -8322,8 +8330,10 @@ pre {
     flex: 0 0 91.66667%;
     max-width: 91.66667%; }
   .col-lg-12 {
-    flex: 0 0 100%;
-    max-width: 100%; }
+
+
+	}
+
   .order-lg-first {
     order: -1; }
   .order-lg-last {
@@ -8686,7 +8696,8 @@ pre {
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar; }
   .table-responsive > .table-bordered {
-    border: 0; }
+    border: 1;
+}
 
 .form-control {
   display: block;
@@ -10404,7 +10415,15 @@ tbody.collapse.show {
 
 .card-body {
   flex: 1 1 auto;
-  padding: 1.25rem; }
+  padding: 1.25rem;
+	border-style: solid;
+	border-width: 3px;
+	border-top-width: 15px;
+	border-left-width: 2px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-color: #12688d;
+ }
 
 .card-title {
   margin-bottom: 0.75rem; }
@@ -13410,7 +13429,19 @@ a.text-dark:hover, a.text-dark:focus {
   color: #2e3345 !important; }
 
 .text-muted, .preview-list .preview-item .preview-item-content p .content-category {
-  color: #c2c2c2 !important; }
+  color: #c2c2c2 !important;
+
+ }
+.nama-kolom{
+	text-align: center;
+
+}
+
+ .jadwal-dosen{
+	 color: blue;
+	 text-align: center;
+
+ }
 
 .text-hide {
   font: 0/0 a;
@@ -13798,6 +13829,14 @@ input:focus {
         font-size: 12px;
         line-height: 1;
         vertical-align: middle; }
+			.judul-title{
+				color: inherit;
+        display: inline-block;
+        font-size: 18px;
+        line-height: 2;
+        vertical-align: middle;
+
+			}
       .sidebar .nav .nav-item .nav-link .badge {
         margin-left: auto; }
       .sidebar .nav .nav-item .nav-link:hover {
@@ -14288,13 +14327,13 @@ pre {
 
 /* Footer */
 .footer {
-  background: #f2f8f9;
+  background: #222222;
   padding: 20px 1rem;
   transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   -webkit-transition: all 0.25s ease;
   -ms-transition: all 0.25s ease;
-  border-top: 1px solid #f2f2f2;
+  border-top: 1px solid #222222;
   font-size: calc(13px - 0.05rem);
   font-family: "Poppins", sans-serif; }
   .footer a {
@@ -16347,4 +16386,3 @@ ul {
     border-left: 3px solid rgba(255, 255, 255, 0.2); } }
 
 /*# sourceMappingURL=maps/style.css.map */
-
