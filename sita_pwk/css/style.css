@@ -9054,6 +9054,29 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
     .form-inline .custom-control-label {
       margin-bottom: 0; } }
 
+.tombol-tabel{
+	text-align: right;
+}
+a {
+text-decoration: none;
+display: inline-block;
+padding: 8px 16px;
+}
+
+.previous {
+background-color: #f1f1f1;
+color: black;
+}
+
+.next {
+background-color: #4CAF50;
+color: white;
+}
+
+.round {
+border-radius: 50%;
+}
+
 .btn {
   display: inline-block;
   font-weight: 400;
@@ -9131,18 +9154,18 @@ fieldset:disabled a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #fff;
-  border-color: #000; }
+  background-color: #00ce68;
+  border-color: #00ce68; }
   .btn-success:hover {
     color: #fff;
-    background-color: #12688d;
-    border-color: #12688d; }
+    background-color: #00a855;
+    border-color: #009b4e; }
   .btn-success:focus, .btn-success.focus {
     box-shadow: 0 0 0 0.2rem rgba(0, 206, 104, 0.5); }
   .btn-success.disabled, .btn-success:disabled {
     color: #fff;
-    background-color: #12688d;
-    border-color: #12688d; }
+    background-color: #00ce68;
+    border-color: #00ce68; }
   .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active,
   .show > .btn-success.dropdown-toggle {
     color: #fff;
@@ -9154,18 +9177,18 @@ fieldset:disabled a.btn {
 
 .btn-info {
   color: #fff;
-  background-color: #12688d;
-  border-color: #12688d; }
+  background-color: #8862e0;
+  border-color: #8862e0; }
   .btn-info:hover {
     color: #fff;
-    background-color: #12688d;
-    border-color: #12688d; }
+    background-color: #7042da;
+    border-color: #6837d8; }
   .btn-info:focus, .btn-info.focus {
     box-shadow: 0 0 0 0.2rem rgba(136, 98, 224, 0.5); }
   .btn-info.disabled, .btn-info:disabled {
     color: #fff;
-    background-color: #12688d;
-    border-color: #12688d; }
+    background-color: #8862e0;
+    border-color: #8862e0; }
   .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active,
   .show > .btn-info.dropdown-toggle {
     color: #fff;
@@ -9453,7 +9476,7 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #12688d;
+  color: #007bff;
   background-color: transparent; }
   .btn-link:hover {
     color: #0056b3;
@@ -10424,17 +10447,6 @@ tbody.collapse.show {
 	border-bottom-width: 2px;
 	border-color: #12688d;
  }
- .card-body12 {
-   flex: 1 1 auto;
-   padding: 1.25rem;
- 	border-style: solid;
- 	border-width: 3px;
- 	border-top-width: 15px;
- 	border-left-width: 2px;
- 	border-right-width: 2px;
- 	border-bottom-width: 2px;
-
-  }
 
 .card-title {
   margin-bottom: 0.75rem; }
@@ -12372,39 +12384,6 @@ button.bg-dark:focus {
 .m-2 {
   margin: 0.5rem !important; }
 
-/*BUTTON*/
-.tombol-tabel{
-	text-align: right;
-	
-
-}
-
-	a {
-	  text-decoration: none;
-	  display: inline-block;
-	  padding: 8px 16px;
-	}
-
-	a:hover {
-	  background-color: #ddd;
-	  color: black;
-	}
-
-	.previous {
-	  background-color: #f1f1f1;
-	  color: black;
-	}
-
-	.next {
-	  background-color: #12688d;
-	  color: white;
-	}
-
-	.round {
-	  border-radius: 50%;
-	}
-
-
 .mt-2, .template-demo > .btn, .template-demo > .btn-toolbar, .template-demo > .btn-group, .template-demo .circle-progress,
 .my-2 {
   margin-top: 0.5rem !important; }
@@ -13889,7 +13868,7 @@ input:focus {
 
 			}
 			.biodata-dosen{
-				font-size: 8pt;
+				font-size: 9pt;
 				font-style: normal;
 
 			}
@@ -14471,8 +14450,8 @@ pre {
 .img-xs2{
 	width: 150px;
   height: 150px;
-	margin-left: 150px;
-
+	margin-left: 100px;
+	color: white;
 }
 
 .img-ss {
@@ -15024,7 +15003,7 @@ pre {
     .btn-group .btn.btn-warning {
       border-color: #f0a500; }
     .btn-group .btn.btn-success {
-      border-color: #ffffff; }
+      border-color: #00bf60; }
     .btn-group .btn.btn-danger {
       border-color: #e44544; }
     .btn-group .btn.btn-dark {
