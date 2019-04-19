@@ -5,7 +5,7 @@ class berandaadmin extends CI_Controller {
 
 	public function index()
 	{
-		$isi['konten'] = 'admin/beranda';
+		$isi['konten'] = 'admin/berandaadmin';
 		$this->load->view('admin/template', $isi);
 	}
 }
