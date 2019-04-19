@@ -92,7 +92,7 @@
                 <div class="card-body">
                   <h4 class="card-title">Data Mahasiswa</h4>
                   <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table id="tabelMHS" class="table table-bordered">
                       <thead>
                         <tr>
                           <th>
@@ -246,3 +246,12 @@
           </div>
           </div>
       <!-- main-panel ends -->
+      <!-- Buat DataTable-->
+      <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-3.2.1.js'?>"></script>
+      <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.dataTables.js'?>"></script>
+      <script>
+        $(document).ready(function(){
+            $('#tabelMHS').DataTable();
+        });
+    </script>
+      <!-- Buat DataTable-->

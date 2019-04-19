@@ -27,11 +27,11 @@ h5 {
 
 <div class="atas">
 <div class="row">
-  
+
 <div class="col-md-2">
   <a>
     <img src="<?php base_url() ?>images/logoitera.png" >
-  </a>  
+  </a>
 </div>
 <div class="col-md-6">
     <h1>Sistem Informasi Tugas Akhir
@@ -42,12 +42,12 @@ h5 {
 </div>
 
 <body>
-    
+
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 ">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        
+
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -209,7 +209,7 @@ h5 {
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url() ?>">
+            <a class="nav-link" href="<?php echo base_url("berandaadmin") ?>">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Beranda</span>
             </a>
@@ -269,7 +269,7 @@ h5 {
         </ul>
       </nav>
       <!-- main-panel ends -->
-      
+
       <!-- disini konten -->
     <?php $this->load->view($konten); ?>
     <!-- /.konten -->
@@ -292,7 +292,7 @@ h5 {
         </footer>
 
         <!-- partial -->
-     
+
   <!-- plugins:js -->
   <script src="<?php base_url() ?>assets/js/vendor.bundle.base.js"></script>
   <script src="<?php base_url() ?>assets/js/vendor.bundle.addons.js"></script>
@@ -306,6 +306,7 @@ h5 {
   <!-- Custom js for this page-->
   <script src="<?php base_url() ?>js/dashboard.js"></script>
   <!-- End custom js for this page-->
+
 </body>
 
 </html>
