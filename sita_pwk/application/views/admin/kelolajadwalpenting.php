@@ -3,7 +3,7 @@
   <div class="content-wrapper">
     <div id="header">
             <h1><b>
-        <font color=#12688D> KELOLA ADMINISTRATOR</font></h1></b>
+        <font color=#12688D>JADWAL PENTING MAHASISWA</font></h1></b>
         <hr width=100% size=8 NOSHADE class="hr hr-prmary" style="height: 10px; background-color: #12688D">
           </div>
     <div class="row">
@@ -17,12 +17,12 @@
       <div class="col-lg-12 grid-margin">
         <div class="card">
           <div class="card-body">
-             <a href="<?php echo base_url('tambahadmin')?>" style=" background-color: #12688D"><font color="#ffffff">
+             <a href="<?php echo base_url('tambahjadwal')?>" style=" background-color: #12688D"><font color="#ffffff">
               <i class="mdi mdi-plus-circle"></i>
              Tambah</font></a>
                   <div class="card-title">
                     <br>
-                    <center><h3><font color="#ffffff">DATA ADMIN</font>
+                    <center><h3><font color="#ffffff">MAHASISWA</font>
                     </h3></center><br>
           <div class="row">
             <div class="col-sm-6">
@@ -54,19 +54,22 @@
                       No
                     </th>
                     <th>
+                      NIM
+                    </th>
+                    <th>
                       Nama
                     </th>
                     <th>
-                      Email
+                      Ruang
                     </th>
                     <th>
-                      Username
+                      Tanggal
                     </th>
                     <th>
-                      Telephone
+                      Waktu
                     </th>
                     <th>
-                      Aksi
+                      Edit
                     </th>
                   </tr>
                 </thead>
@@ -76,19 +79,22 @@
                       1
                     </td>
                     <td>
+                      14116068
+                    </td>
+                    <td>
                       Rodliyatun Nichlah
                     </td>
                     <td>
-                      atunnichlah@gmail.com
+                      E311
                     </td>
                     <td>
-                      Admin002
+                      30/07/2019
                     </td>
                     <td>
-                      089631500093
+                      10:20
                     </td>
-                    <td class="aksi">
-                      <a class="nav-link" href="editdata">
+                    <td class="edit">
+                      <a class="nav-link" href="editjadwal">
                        <i class="mdi mdi-settings"></i>
                       </a>
                     </td>
@@ -97,21 +103,20 @@
                     <td class="font-weight-medium">
                       2
                     </td>
+                   
                     <td>
-
-                    </td>
-                    <td>
-
                       </div>
                     </td>
                     <td>
-
                     </td>
                     <td>
-
+                      </td>
+                    <td>
+                      </td>
+                    <td>
                     </td>
-                    <td class="aksi">
-                      <a class="nav-link" href="editdata">
+                    <td class="edit">
+                      <a class="nav-link" href="editjadwal">
                        <i class="menu-icon mdi mdi-settings"></i>
                       </a>
                     </td>
@@ -124,7 +129,8 @@
 
                     </td>
                     <td>
-
+<td>
+                    </td>
                     </td>
                     <td>
 
@@ -132,8 +138,8 @@
                     <td>
 
                     </td>
-                    <td class="aksi">
-                      <a class="nav-link" href="editdata">
+                    <td class="edit">
+                      <a class="nav-link" href="editjadwal">
                        <i class="mdi mdi-settings"></i>
                       </a>
                     </td>
@@ -146,7 +152,8 @@
 
                     </td>
                     <td>
-
+<td>
+                    </td>
                     </td>
                     <td>
 
@@ -155,9 +162,9 @@
 
                     </td>
 
-                    <td class="aksi">
+                    <td class="edit">
 
-                        <a class="nav-link" href="editdata">
+                        <a class="nav-link" href="editjadwal">
                          <i class="mdi mdi-settings"></i>
                         </a>
 

@@ -17,6 +17,12 @@
   <link rel="stylesheet" href="<?php base_url() ?>css/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="<?php base_url() ?>images/logoitera.png" />
+
+  <style>
+h3 {
+  background-color: #12688D;
+}
+</style>
 </head>
 
 <div class="atas">
@@ -203,20 +209,20 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url() ?>">
-              <i class="menu-icon mdi mdi-television"></i>
+            <a class="nav-link" href="<?php echo base_url('berandaadmin') ?>">
+              <i class="menu-icon mdi mdi-signal"></i>
               <span class="menu-title">Beranda</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href=<?php echo base_url('pengaturanadmin') ?>>
-              <i class="menu-icon mdi mdi-backup-restore"></i>
+              <i class="menu-icon mdi mdi-account-location"></i>
               <span class="menu-title">Pengaturan Admin</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-content-copy"></i>
+              <i class="menu-icon mdi mdi-account-edit"></i>
               <span class="menu-title">Kelola Data Dosen</span>
               <i class="menu-arrow"></i>
             </a>
@@ -233,7 +239,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <i class="menu-icon mdi mdi-restart"></i>
+              <i class="menu-icon mdi mdi-account-settings-variant"></i>
               <span class="menu-title">Kelola Data Mahasiswa</span>
               <i class="menu-arrow"></i>
             </a>
@@ -249,12 +255,12 @@
             </div>
             <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('referensi') ?>">
-              <i class="menu-icon mdi mdi-chart-line"></i>
+              <i class="menu-icon mdi mdi-note-multiple-outline"></i>
               <span class="menu-title">Kelola Referensi T.A</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('jadwalpenting') ?>">
+            <a class="nav-link" href="<?php echo base_url('kelolajadwalpenting') ?>">
               <i class="menu-icon mdi mdi-table"></i>
               <span class="menu-title">Kelola Jadwal Penting</span>
             </a>
