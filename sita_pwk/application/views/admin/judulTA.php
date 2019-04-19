@@ -2,7 +2,13 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/dataTables.bootstrap4.css'?>">
 <div class="main-panel">
   <div class="content-wrapper">
-   <!-- tabel mahasiswa -->
+    <div id="header">
+            <h1><b>
+        <font color=#12688D> KELOLA REFERENSI</font></h1></b>
+        <hr width=100% size=8 NOSHADE class="hr hr-prmary" style="height: 10px; background-color: #12688D">
+    </div>
+
+   <!-- tabel referensi -->
 
     <div class="row">
       <div class="col-lg-12 grid-margin">
