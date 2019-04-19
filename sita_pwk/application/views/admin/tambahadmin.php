@@ -3,7 +3,7 @@
   <div class="content-wrapper">
   	<div id="header">
             <h1><b>
-        <font color=#12688D> SUNTING ADMINISTRATOR</font></h1></b>
+        <font color=#12688D> TAMBAH ADMINISTRATOR</font></h1></b>
         <hr width=100% size=8 NOSHADE class="hr hr-prmary" style="height: 10px; background-color: #12688D">
           </div>
     <div class="row">
