@@ -13,7 +13,7 @@ class Referensi_model extends CI_Model {
 				'Penulis' => $this->input->post('penulis'),
         'Tahun' => $this->input->post('tahun'),
         'Asal_Referensi' => $this->input->post('asal_referensi'),
-        'Id_admin' => $this->input->post('id_admin')
+        'Id_admin' => $this->session->userdata('ses_id')
 			);
 		$result=$this->db->insert('referensi',$data);
 		return $result;
