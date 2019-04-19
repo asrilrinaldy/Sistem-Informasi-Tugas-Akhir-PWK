@@ -160,8 +160,8 @@
                 </tbody>
               </table>
             </div>
-
           <br></br>
+
             <div class="row">
               <div class="col-sm-5">
                 <div class="dataTables_info" id="kelas_info" role="status" aria-live="polite">Showing 1 to 10 of 743 entries

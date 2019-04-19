@@ -7658,6 +7658,8 @@ textarea {
   font-size: inherit;
   line-height: inherit; }
 
+
+
 button,
 input {
   overflow: visible; }
@@ -8708,7 +8710,7 @@ pre {
   color: #495057;
   background-color: #ffffff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid #000;
   border-radius: 2px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   .form-control::-ms-expand {
@@ -8721,7 +8723,7 @@ pre {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
   .form-control::placeholder {
-    color: #c9c8c8;
+    color: #000;
     opacity: 1; }
   .form-control:disabled, .form-control[readonly] {
     background-color: #e9ecef;
@@ -8815,7 +8817,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   height: calc(2.875rem + 2px); }
 
 .form-group {
-  margin-bottom: 1rem; }
+  margin-bottom: 5rem; }
 
 .form-text {
   display: block;
@@ -10447,6 +10449,18 @@ tbody.collapse.show {
 	border-bottom-width: 2px;
 	border-color: #12688d;
  }
+
+ .card-body1 {
+   flex: 1 1 auto;
+   padding: 1.25rem;
+ 	border-style: solid;
+ 	border-width: 3px;
+ 	border-top-width: 15px;
+ 	border-left-width: 2px;
+ 	border-right-width: 2px;
+ 	border-bottom-width: 2px;
+ 	border-color: #12688d;
+  }
 
 .card-title {
   margin-bottom: 0.75rem; }
@@ -13870,7 +13884,6 @@ input:focus {
 			.biodata-dosen{
 				font-size: 9pt;
 				font-style: normal;
-
 			}
 
 /*CSS ITERA*/
@@ -14450,8 +14463,7 @@ pre {
 .img-xs2{
 	width: 150px;
   height: 150px;
-	margin-left: 100px;
-	color: white;
+	margin-left: 150px;
 }
 
 .img-ss {
@@ -14720,6 +14732,18 @@ pre {
     background-color: rgba(255, 255, 255, 0.2);
     font-size: 1.125rem;
     padding: 0.5rem 1.25rem; }
+
+.card20{
+	   border: 0;
+	   border-radius: 1px;
+		 background-color: red;
+
+ }
+
+	.status1{
+		background: #95cdb1;
+	}
+
 
 .card-weather {
   background: #e1ecff;
@@ -15510,7 +15534,9 @@ pre {
 /* Cards */
 .card {
   border: 0;
-  border-radius: 2px; }
+  border-radius: 2px;
+ }
+
   .card .card-body {
     padding: 1.88rem 1.81rem; }
     .card .card-body + .card-body {
@@ -15826,6 +15852,14 @@ pre {
   .input-group-prepend .input-group-text {
     background: transparent;
     border-color: #f2f2f2; }
+
+		.form-keterangan {
+		  border: 1px solid #000000;
+		  font-family: "Poppins", sans-serif;
+		  font-size: 0.75rem;
+		  padding: 3rem 5rem;
+		  line-height: 14px;
+		  font-weight: 300; }
 
 .form-control {
   border: 1px solid #f2f2f2;
