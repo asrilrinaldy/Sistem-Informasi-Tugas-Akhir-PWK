@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Sistem Informasi Tugas Akhir Teknik Sipil</title>
+  <title>Sistem Informasi Tugas Akhir PWK</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?php base_url() ?>assets/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php base_url() ?>assets/css/vendor.bundle.base.css">
@@ -27,11 +27,11 @@ h3 {
 
 <div class="atas">
 <div class="row">
-  
+
 <div class="col-md-2">
   <a>
     <img src="<?php base_url() ?>images/logoitera.png" >
-  </a>  
+  </a>
 </div>
 <div class="col-md-6">
     <h1>Sistem Informasi Tugas Akhir
@@ -42,12 +42,12 @@ h3 {
 </div>
 
 <body>
-    
+
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 ">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        
+
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -229,7 +229,7 @@ h3 {
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('infodosen') ?>">Info Dosen</a>
+                  <a class="nav-link" href="<?php echo base_url('keloladosen') ?>">Info Dosen</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="<?php echo base_url('passdosen') ?>">Ubah Password Dosen</a>
@@ -269,7 +269,7 @@ h3 {
         </ul>
       </nav>
       <!-- main-panel ends -->
-      
+
       <!-- disini konten -->
     <?php $this->load->view($konten); ?>
     <!-- /.konten -->
@@ -292,7 +292,7 @@ h3 {
         </footer>
 
         <!-- partial -->
-     
+
   <!-- plugins:js -->
   <script src="<?php base_url() ?>assets/js/vendor.bundle.base.js"></script>
   <script src="<?php base_url() ?>assets/js/vendor.bundle.addons.js"></script>

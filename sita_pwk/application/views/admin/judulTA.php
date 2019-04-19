@@ -15,9 +15,8 @@
         <div class="card">
           <div class="card-body">
             <div class="col-md-12">
-                <h1>Referensi
-                    <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span>Tambah Referensi</a></div>
-                </h1>
+              <div class="float-left"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus mdi mdi-plus-circle"></span>Tambah</a></div>
+              <br><br>
             </div>
             <div class="table-responsive">
               <table id="tabelREF" class="table table-striped">

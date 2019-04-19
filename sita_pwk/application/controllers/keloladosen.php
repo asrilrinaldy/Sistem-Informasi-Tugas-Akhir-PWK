@@ -5,7 +5,8 @@ class Keloladosen extends CI_Controller{
 		$this->load->model('dosen_model');
 	}
 	function index(){
-		$this->load->view('admin/Dosen/keloladosen_view');
+		$isi['konten'] = 'admin/Dosen/keloladosen';
+		$this->load->view('admin/template', $isi);
 	}
 
 	function dosen_data(){
