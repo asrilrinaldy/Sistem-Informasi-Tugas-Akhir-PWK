@@ -60,7 +60,13 @@
                       Ruang
                     </th>
                     <th>
-                      Jadwal
+                      Tanggal
+                    </th>
+                    <th>
+                      Waktu
+                    </th>
+                    <th>
+                      Edit
                     </th>
                   </tr>
                 </thead>
