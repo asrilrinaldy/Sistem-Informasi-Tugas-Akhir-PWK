@@ -17,6 +17,9 @@
       <div class="col-lg-12 grid-margin">
         <div class="card">
           <div class="card-body">
+             <a href="<?php echo base_url('tambahjadwal')?>" style=" background-color: #12688D"><font color="#ffffff">
+              <i class="mdi mdi-plus-circle"></i>
+             Tambah</font></a>
                   <div class="card-title">
                     <br>
                     <center><h3><font color="#ffffff">MAHASISWA</font>
@@ -84,8 +87,14 @@
                     <td>
                       E311
                     </td>
-                    <td class="jadwal">
-                      <a class="nav-link" href="editdata">
+                    <td>
+                      30/07/2019
+                    </td>
+                    <td>
+                      10:20
+                    </td>
+                    <td class="edit">
+                      <a class="nav-link" href="editjadwal">
                        <i class="mdi mdi-settings"></i>
                       </a>
                     </td>
@@ -94,21 +103,20 @@
                     <td class="font-weight-medium">
                       2
                     </td>
+                   
                     <td>
-
-                    </td>
-                    <td>
-
                       </div>
                     </td>
                     <td>
-
                     </td>
                     <td>
-
+                      </td>
+                    <td>
+                      </td>
+                    <td>
                     </td>
-                    <td class="aksi">
-                      <a class="nav-link" href="editdata">
+                    <td class="edit">
+                      <a class="nav-link" href="editjadwal">
                        <i class="menu-icon mdi mdi-settings"></i>
                       </a>
                     </td>
@@ -121,7 +129,8 @@
 
                     </td>
                     <td>
-
+<td>
+                    </td>
                     </td>
                     <td>
 
@@ -129,8 +138,8 @@
                     <td>
 
                     </td>
-                    <td class="aksi">
-                      <a class="nav-link" href="editdata">
+                    <td class="edit">
+                      <a class="nav-link" href="editjadwal">
                        <i class="mdi mdi-settings"></i>
                       </a>
                     </td>
@@ -143,7 +152,8 @@
 
                     </td>
                     <td>
-
+<td>
+                    </td>
                     </td>
                     <td>
 
@@ -152,9 +162,9 @@
 
                     </td>
 
-                    <td class="aksi">
+                    <td class="edit">
 
-                        <a class="nav-link" href="editdata">
+                        <a class="nav-link" href="editjadwal">
                          <i class="mdi mdi-settings"></i>
                         </a>
 
