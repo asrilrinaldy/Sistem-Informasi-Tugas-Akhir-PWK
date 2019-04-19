@@ -189,7 +189,9 @@
                 Cek Pesan
               </a>
               <a class="dropdown-item">
-                Keluar
+                <a href="<?php echo base_url().'index.php/login/logout'?>">
+                  Keluar
+                </a>
               </a>
             </div>
           </li>
