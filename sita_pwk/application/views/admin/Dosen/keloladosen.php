@@ -102,7 +102,7 @@
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Tanggal Lahir</label>
                         <div class="col-md-10">
-                          <input type="text" name="tanggal_lahir" id="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir">
+                          <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control">
                         </div>
                     </div>
               </div>
@@ -173,7 +173,7 @@
                 <div class="form-group row">
                     <label class="col-md-2 col-form-label">Tanggal Lahir</label>
                     <div class="col-md-10">
-                      <input type="text" name="tanggal_lahir_edit" id="tanggal_lahir_edit" class="form-control">
+                      <input type="date" name="tanggal_lahir_edit" id="tanggal_lahir_edit" class="form-control">
                     </div>
                 </div>
               </div>
