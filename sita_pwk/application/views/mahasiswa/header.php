@@ -188,8 +188,9 @@
               <a class="dropdown-item">
                 Cek Pesan
               </a>
-              <a class="dropdown-item">
-                Keluar
+              <a class="dropdown-item" href="<?php echo base_url().'index.php/login/logout'?>">
+              <i class="menu-icon mdi mdi-logout"></i>
+                Logout
               </a>
             </div>
           </li>

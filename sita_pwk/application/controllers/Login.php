@@ -44,7 +44,7 @@ class Login extends CI_Controller {
             $this->session->set_userdata('akses','Mahasiswa');
             $this->session->set_userdata('ses_id',$data['NIM']);
             $this->session->set_userdata('ses_nama',$data['Nama']);
-            redirect('page');
+            redirect('berandamahasiswa');
           }else{
             $url=base_url('login');
             redirect($url);
