@@ -47,8 +47,6 @@
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
         <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
-
-
         </ul>
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown">
@@ -68,7 +66,7 @@
                   <img src="<?php base_url() ?>images/faces/face4.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-medium text-dark">David Grey
+                  <h6 class="preview-subject ellipsis font-weight-medium text-dark"> Valentino Rossi
                     <span class="float-right font-weight-light small-text">1 Minutes ago</span>
                   </h6>
                   <p class="font-weight-light small-text">
@@ -82,7 +80,7 @@
                   <img src="<?php base_url() ?>images/faces/face2.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-medium text-dark">Tim Cook
+                  <h6 class="preview-subject ellipsis font-weight-medium text-dark"> Dovi S
                     <span class="float-right font-weight-light small-text">15 Minutes ago</span>
                   </h6>
                   <p class="font-weight-light small-text">
@@ -96,7 +94,7 @@
                   <img src="<?php base_url() ?>images/faces/face3.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-medium text-dark"> Johnson
+                  <h6 class="preview-subject ellipsis font-weight-medium text-dark"> Espargaro
                     <span class="float-right font-weight-light small-text">18 Minutes ago</span>
                   </h6>
                   <p class="font-weight-light small-text">
@@ -163,17 +161,12 @@
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Mahasiswa</span>
-              <img class="img-xs rounded-circle" src="<?php base_url() ?>images/faces/face1.jpg" alt="Profile image">
+              <span class="profile-text">Mahasiswa ITERA</span>
+              <img class="img-xs rounded-circle" src="<?php base_url() ?>images/faces/face10.jpg" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-<<<<<<< HEAD
-              <a class="dropdown-item" href="<?php echo base_url().'index.php/login/logout'?>">
-              <i class="menu-icon mdi mdi-logout"></i>
-                Keluar
-=======
               <a class="dropdown-item p-0">
-                <div class="d-flex border-bottom">
+                <!-- <div class="d-flex border-bottom">
                   <div class="py-3 px-4 d-flex align-items-center justify-content-center">
                     <i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
                   </div>
@@ -183,21 +176,19 @@
                   <div class="py-3 px-4 d-flex align-items-center justify-content-center">
                     <i class="mdi mdi-alarm-check mr-0 text-gray"></i>
                   </div>
-                </div>
+                </div> -->
               </a>
-              <a class="dropdown-item mt-2">
-                Pengaturan Akun
-              </a>
-              <a class="dropdown-item">
-                Ganti Kata Sandi
+              <!-- <a class="dropdown-item mt-2">
+                <i class="menu-icon mdi mdi-account-settings-variant"></i>
+                Manage Accounts
               </a>
               <a class="dropdown-item">
-                Cek Pesan
-              </a>
+              <i class="menu-icon mdi mdi-account-edit"></i>
+                Ubah Password
+              </a> -->
               <a class="dropdown-item" href="<?php echo base_url().'index.php/login/logout'?>">
               <i class="menu-icon mdi mdi-logout"></i>
                 Logout
->>>>>>> 5828fc73a75d11b8fc49a14d1d1cbdf86cadda65
               </a>
             </div>
           </li>
