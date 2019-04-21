@@ -1,10 +1,7 @@
 <!-- partial -->
 <div class="main-panel">
   <div class="content-wrapper">
-    <div class="row">
 
-
-    </div>
 
    <!-- tabel mahasiswa -->
 
@@ -12,8 +9,9 @@
       <div class="col-lg-12 grid-margin">
         <div class="card">
           <div class="card-body">
-            <i class="menu-icon mdi mdi-paperclip"></i>
+
             <span class="judul-title">
+              <i class="menu-icon mdi mdi-paperclip"></i>
               INFORMASI DOSEN
             </span><br></br>
           <div class="row">
@@ -40,7 +38,7 @@
 
             <div class="table-responsive">
               <table class="table table-bordered">
-                <thead class="nama-kolom">
+                <tbody class="nama-kolom">
                   <tr>
                     <th>
                       No
@@ -61,8 +59,8 @@
                       Jadwal
                     </th>
                   </tr>
-                </thead>
-                <tbody>
+                </tbody>
+                <tbody class="isi-tabel">
                   <tr>
                     <td >
                       1
@@ -86,7 +84,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td class="font-weight-medium">
+                    <td>
                       2
                     </td>
                     <td>
@@ -182,5 +180,5 @@
         </div>
       </div>
     </div>
-    </div>
+  </div>
 <!-- main-panel ends -->

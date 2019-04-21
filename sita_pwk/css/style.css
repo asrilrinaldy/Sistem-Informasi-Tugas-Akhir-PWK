@@ -8514,10 +8514,10 @@ pre {
   padding: 0.3rem; }
 
 .table-bordered {
-  border: 1px solid #f2f2f2; }
+  border: 1px solid #000000; }
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #f2f2f2; }
+    border: 1px solid #000000; }
   .table-bordered thead th,
   .table-bordered thead td {
     border-bottom-width: 2px; }
@@ -8700,6 +8700,7 @@ pre {
   .table-responsive > .table-bordered {
     border: 1;
 }
+
 
 .form-control {
   display: block;
@@ -9057,7 +9058,10 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
       margin-bottom: 0; } }
 
 .tombol-tabel{
-	text-align: right;
+	margin-left: 100px;
+}
+.tombol-tambah{
+	float: right;
 }
 a {
 text-decoration: none;
@@ -9075,9 +9079,31 @@ background-color: #4CAF50;
 color: white;
 }
 
+.kirim {
+	column-width: 100px;
+}
+
 .round {
 border-radius: 50%;
 }
+.aksi {
+  background-color: #4CAF50; /* Hijau */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.aksi2 {background-color: #008CBA;} /* Biru */
+.aksi3 {background-color: #f44336;} /* Merah */
+.aksi4 {background-color: #e7e7e7; color: black;} /* Abu-abu */
+.aksi5 {background-color: #555555;} /* Hitam */
+
 
 .btn {
   display: inline-block;
@@ -9130,6 +9156,7 @@ fieldset:disabled a.btn {
     .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
     .show > .btn-primary.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.2rem rgba(48, 142, 224, 0.5); }
+
 
 .btn-secondary {
   color: #212529;
@@ -13542,7 +13569,7 @@ a.text-dark:hover, a.text-dark:focus {
       background-color: #fff !important; }
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #ddd !important; } }
+    border: 1px solid #000000 !important; } }
 
 /*-------------------------------------------------------------------*/
 /* === Template mixins === */
@@ -13872,7 +13899,7 @@ input:focus {
 			.judul-title{
 				color: inherit;
         display: inline-block;
-        font-size: 18px;
+        font-size: 22px;
         line-height: 2;
         vertical-align: middle;
 			}
@@ -16286,7 +16313,7 @@ ul {
     .table.table-borderless tr {
       border: none; }
   .table.table-bordered thead {
-    border: 1px solid #f2f2f2;
+    border: 1px solid #000000;
     border-bottom: none; }
     .table.table-bordered thead tr th {
       border-left: none;

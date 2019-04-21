@@ -7,9 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Sistem Informasi Tugas Akhir PWK</title>
   <!-- plugins:css -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/jquery.dataTables.css'?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/dataTables.bootstrap4.css'?>">
+
   <link rel="stylesheet" href="<?php base_url() ?>assets/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php base_url() ?>assets/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="<?php base_url() ?>assets/css/vendor.bundle.addons.css">
+
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -166,29 +171,8 @@
               <img class="img-xs rounded-circle" src="<?php base_url() ?>images/faces/face1.jpg" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-              <a class="dropdown-item p-0">
-                <div class="d-flex border-bottom">
-                  <div class="py-3 px-4 d-flex align-items-center justify-content-center">
-                    <i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
-                  </div>
-                  <div class="py-3 px-4 d-flex align-items-center justify-content-center border-left border-right">
-                    <i class="mdi mdi-account-outline mr-0 text-gray"></i>
-                  </div>
-                  <div class="py-3 px-4 d-flex align-items-center justify-content-center">
-                    <i class="mdi mdi-alarm-check mr-0 text-gray"></i>
-                  </div>
-                </div>
-              </a>
-              <a class="dropdown-item mt-2">
-                Pengaturan Akun
-              </a>
-              <a class="dropdown-item">
-                Ganti Kata Sandi
-              </a>
-              <a class="dropdown-item">
-                Cek Pesan
-              </a>
-              <a class="dropdown-item">
+              <a class="dropdown-item" href="<?php echo base_url().'index.php/login/logout'?>">
+              <i class="menu-icon mdi mdi-logout"></i>
                 Keluar
               </a>
             </div>

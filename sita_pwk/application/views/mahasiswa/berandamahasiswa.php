@@ -16,8 +16,9 @@
 
           <div class="card-body">
 
-            <i class="menu-icon mdi mdi-paperclip"></i>
+
             <span class="judul-title">
+            <i class="menu-icon mdi mdi-paperclip"></i>
               DATA MAHASISWA
             </span><br></br>
 

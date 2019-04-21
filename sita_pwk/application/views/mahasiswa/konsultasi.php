@@ -33,7 +33,7 @@
                 </div>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  <label class="custom-file-label" for="inputGroupFile01" >Choose file</label>
                 </div>
               </div>
               <br>
@@ -46,12 +46,12 @@
                 </label>
               </div>
               <br>
-              <div class="form-group">
-                <label for="exampleFormControlTextarea2">Keterangan</label>
-                <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" ></textarea>
-              </div>
 
-
+              <label>Keterangan</label>
+              <textarea class="form-control" rows="8"></textarea><br>
+              <center>
+                  <input class="btn btn-primary" type="submit" value="Kirim" ></input>
+              </center>
             </div>
 
           </div>
@@ -61,9 +61,10 @@
       <div class="col-lg-8 grid-margin">
         <div class="card card-statistics">
           <div class="card-body">
-            <i class="menu-icon mdi mdi-paperclip"></i>
+
             <span class="judul-title">
-              JADWAL DOSEN
+              <i class="menu-icon mdi mdi-paperclip"></i>
+              Riwayat Konsultasi
             </span><br></br>
             <div class="row">
               <div class="col-sm-6">
@@ -90,18 +91,21 @@
               <table class="table table-bordered">
                 <thead class="nama-kolom">
                   <tr>
-                    <th>
+                    <td>
                       No
-                    </th>
-                    <th>
-                      Gedung
-                    </th>
-                    <th>
+                    </td>
+                    <td>
                       Tanggal
-                    </th>
-                    <th>
-                      Jam
-                    </th>
+                    </td>
+                    <td>
+                      Status
+                    </td>
+                    <td>
+                      File
+                    </td>
+                    <td>
+                      Detail
+                    </td>
 
                   </tr>
                 </thead>
@@ -111,13 +115,16 @@
                       1
                     </td>
                     <td>
-                      C
+
                     </td>
                     <td>
-                      11 April 2019
+
                     </td>
                     <td>
-                      10.00 - 12.00
+
+                    </td>
+                    <td>
+
                     </td>
 
                   </tr>
@@ -130,7 +137,10 @@
                     </td>
                     <td>
 
-                      </div>
+
+                    </td>
+                    <td>
+
                     </td>
                     <td>
 
@@ -150,11 +160,17 @@
                     <td>
 
                     </td>
+                    <td>
+
+                    </td>
 
                   </tr>
                   <tr>
                     <td class="font-weight-medium">
                       4
+                    </td>
+                    <td>
+
                     </td>
                     <td>
 
