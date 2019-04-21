@@ -5,7 +5,8 @@ class Referensi extends CI_Controller{
 		$this->load->model('referensi_model');
 	}
 	function index(){
-		$this->load->view('admin/referensi_view');
+		$isi['konten'] = 'admin/judulTA';
+		$this->load->view('admin/template', $isi);
 	}
 
 	function lihat_referensi(){
