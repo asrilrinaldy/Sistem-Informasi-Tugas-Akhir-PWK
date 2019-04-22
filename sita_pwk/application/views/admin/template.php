@@ -215,7 +215,7 @@ h3 {
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo base_url('pengaturanadmin') ?>>
+            <a class="nav-link" href=<?php echo base_url('kelolaadmin') ?>>
               <i class="menu-icon mdi mdi-account-location"></i>
               <span class="menu-title">Pengaturan Admin</span>
             </a>
