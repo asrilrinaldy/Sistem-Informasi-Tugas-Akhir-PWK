@@ -246,7 +246,7 @@ h3 {
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('infomahasiswa') ?>"> Info Mahasiswa </a>
+                  <a class="nav-link" href="<?php echo base_url('kelolamahasiswa') ?>"> Info Mahasiswa </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="<?php echo base_url('passmahasiswa') ?>">Ubah Password Mahasiswa </a>

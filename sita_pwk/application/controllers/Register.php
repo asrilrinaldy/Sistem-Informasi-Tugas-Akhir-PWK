@@ -15,11 +15,6 @@ class Login extends CI_Controller {
 		$this->load->view('login_view');
 	}
 
-  public function register()
-  {
-    $this->load->view('register_view');
-  }
-
   public function login (){
     $username = htmlspecialchars($this->input->post('username',TRUE),ENT_QUOTES);
     $password = htmlspecialchars($this->input->post('password',TRUE),ENT_QUOTES);
