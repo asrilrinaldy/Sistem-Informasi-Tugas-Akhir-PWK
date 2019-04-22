@@ -20,9 +20,12 @@
               DATA DOSEN
             </span><br></br>
 
-            <div class="biodata-mahasiswa">
-              <br> Nama       : </br>
-              <br> NIP/NRK    : </br>
+            <div class="biodata-dosen">
+              <pre>
+  Nama    :  
+  
+  NIP/NRK :
+              </pre>
             </div>
           </div>
         </div>
