@@ -21,11 +21,11 @@
 
 <div class="atas">
 <div class="row">
-  
+
 <div class="col-md-2">
   <a>
     <img src="<?php base_url() ?>images/logoitera.png" >
-  </a>  
+  </a>
 </div>
 <div class="col-md-6">
     <h1> Sistem Informasi Tugas Akhir
@@ -36,18 +36,18 @@
 </div>
 
 <body>
-    
+
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 ">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        
+
         <a class="navbar-brand brand-logo-mini">
           <img src="<?php base_url() ?>images/logo-mini.svg" alt="logo" />
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
-        
+
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -161,7 +161,7 @@
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Dosen</span>
+              <span class="profile-text"><?php echo $this->session->userdata('ses_nama')?></span>
               <img class="img-xs rounded-circle" src="<?php base_url() ?>images/faces/face21.jpg" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
@@ -184,8 +184,8 @@
               <a class="dropdown-item">
                 Change Password
               </a>
-              
-              <a class="dropdown-item" href="<?php echo base_url('')?>">
+
+              <a class="dropdown-item" href="<?php echo base_url().'index.php/login/logout'?>">
               <i class="menu-icon mdi mdi-logout"></i>
                 Logout
               </a>
@@ -243,9 +243,8 @@
         </ul>
       </nav>
       <!-- main-panel ends -->
-      
+
       <!-- disini konten -->
-    <!--  ?> -->
     <!-- /.konten -->
 
     </div>
@@ -255,18 +254,16 @@
 
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <footer class="footer">
+        <!-- <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
-              <a>Kelompok 6</a>. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
-              <i class="mdi mdi-heart text-danger"></i>
+              <a>Perencanaan Wilayah dan Kota</a>. All rights reserved.</span>
             </span>
           </div>
-        </footer>
+        </footer> -->
 
         <!-- partial -->
-     
+
   <!-- plugins:js -->
   <script src="<?php base_url() ?>assets/js/vendor.bundle.base.js"></script>
   <script src="<?php base_url() ?>assets/js/vendor.bundle.addons.js"></script>
