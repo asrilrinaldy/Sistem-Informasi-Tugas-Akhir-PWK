@@ -6,6 +6,11 @@ class Mahasiswa_model extends CI_Model {
 		return $hasil->result();
 	}
 
+  function get_mhs_nim($nim){
+      $query = $this->db->get_where('mahasiswa', array('NIM' => $nim));
+      return $query;
+  }
+
 	function save_mahasiswa(){
 		$data = array(
 				'NIM' 	=> $this->input->post('nim'),
