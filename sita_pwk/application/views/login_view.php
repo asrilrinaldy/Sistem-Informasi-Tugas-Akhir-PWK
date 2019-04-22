@@ -42,7 +42,7 @@ if ($this->session->userdata('masuk') == TRUE) {
 
 					<div class="p-b-32">
 						<div>
-							<a href="#" class="txt1">
+							<a href="<?php echo site_url('Register/forgotpassword') ?>" class="txt1">
 								Forgot Password?
 							</a>
 						</div>
