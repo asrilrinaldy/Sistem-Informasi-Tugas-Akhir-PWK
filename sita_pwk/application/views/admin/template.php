@@ -166,7 +166,7 @@ h3 {
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Admin001</span>
+              <span class="profile-text"><?php echo $this->session->userdata('ses_nama')?></span>
               <img class="img-xs rounded-circle" src="<?php base_url() ?>images/faces/face15.jpg" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">

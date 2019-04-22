@@ -23,9 +23,9 @@
             </span><br></br>
 
             <div class="biodata-mahasiswa">
-              <br>Nama</br>
-              <br>NIM</br>
-              <br>Program Studi</br>
+              <br>Nama          :   <?php echo $this->session->userdata('ses_nama')?></br>
+              <br>NIM           :   <?php echo $this->session->userdata('ses_id')?></br>
+              <br>Program Studi :   Perencanaan Wilayah dan Kota</br>
               <br>Dosen TA 1</br>
               <br>Dosen TA 2</br>
             </div>
