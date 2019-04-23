@@ -3,8 +3,8 @@
   <div class="content-wrapper">
   	<div id="header">
             <h1><b>
-        <font color=#12688D>EDIT JADWAL</font></h1></b>
-        <hr width=100% size=8 NOSHADE class="hr hr-primary" style="height: 10px; background-color: #12688D">
+        <font color=#12688D>EDIT DATA JADWAL DOSEN</font></h1></b>
+        <hr width=100% size=8 NOSHADE class="hr hr-prmary" style="height: 10px; background-color: #12688D">
           </div>
     <div class="row">
       <div class="col-lg-12 grid-margin">
