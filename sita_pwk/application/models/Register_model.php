@@ -35,14 +35,6 @@ class Register_model extends CI_Model
     {
         $this->_Password = $Password;
     }
-    public function setTempat_lahir($Tempat_lahir)
-    {
-        $this->_Tempat_lahir = $Tempat_lahir;
-    }
-    public function setTanggal_lahir($Tanggal_lahir)
-    {
-        $this->_Tanggal_lahir = $Tanggal_lahir;
-    }
 
     public function createMahasiswa()
     {
@@ -52,9 +44,7 @@ class Register_model extends CI_Model
             'Email'             => $this->_Email,
             'Password'          => $this->_Password,
             'No_telepon'        => $this->_No_telepon,
-            'Alamat'            => $this->_Alamat,
-            'Tempat_lahir'      => $this->_Tempat_lahir,
-            'Tanggal_lahir'     => $this->_Tanggal_lahir
+            'Alamat'            => $this->_Alamat
         );
         $this->db->insert('mahasiswa', $data);
         if (!empty($this->db->insert_id()) && $this->db->insert_id() > 0) {
