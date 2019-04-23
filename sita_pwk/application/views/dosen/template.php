@@ -265,8 +265,8 @@
         <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
-              <a>Perencanaan Wilayah dan Kota</a> 
-              All rights reserved
+              <a>Kelompok 6</a> 
+              Proyek Perangkat Lunak RA
             </span>
           </div>
         </footer>
