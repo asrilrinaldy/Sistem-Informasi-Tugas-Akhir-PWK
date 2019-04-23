@@ -55,9 +55,6 @@
                     <th>
                       Nama Pembimbing
                     </th>
-                    <th>
-                      Aksi
-                    </th>
 
                   </tr>
                 </tbody>
@@ -78,20 +75,9 @@
                     <td>
                        Goldie Melinda Wijayanti S.T., M.T.
                     </td>
-                    <td>
-                      <center>
-                      <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                      <a href="#" class="btn btn-danger btn-sm">Hapus</a>
-                      </center>
-                    </td>
                   </tr>
-                  
-
                 </tbody>
               </table>
-              <div class="btn">
-                <a  href="#" class="btn btn-success btn-sm">Tambah Aktivitas</a>
-              </div>
             </div>
 
           <br></br>
