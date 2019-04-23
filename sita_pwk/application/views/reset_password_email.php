@@ -6,7 +6,8 @@
 </head>
 
 <body>
-    <?= validation_errors() ?>
+    <?php echo validation_errors(); ?>
+
     <?= form_open('reset_password_user/email_reset_password_validation') ?>
 
     <?= form_input('Email', $this->input->post('Email')) ?>

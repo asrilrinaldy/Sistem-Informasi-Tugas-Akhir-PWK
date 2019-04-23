@@ -19,15 +19,17 @@ class Reset_password_user extends CI_Controller
         $this->load->view('reset_password_email');
     }
 
+
     public function email_reset_password_validation()
     {
+        $this->load->library('form_validation');
         $this->form_validation->set_rules('Email', 'Email', 'required|valid_email|trim');
         if ($this->form_validation->run()) {
 
-            $email = $this->input->post('Email');
+            $Email = $this->input->post('Email');
             $reset_key =  random_string('alnum', 50);
 
-            if ($this->reset_m->update_reset_key($email, $reset_key)) {
+            if ($this->Reset_password->update_reset_key($Email, $reset_key)) {
 
                 $this->load->library('email');
                 $config = array();

@@ -111,31 +111,6 @@
 
 					</div>
 
-					<span class="label-input100">Tempat dan Tanggal Lahir</span>
-					<br>
-					<td>
-						<div class="wrap-input100 validate-input" data-validate="Tempat lahir wajib diisi">
-							<input class="input100" type="text" style="width: 100px" name="Tempat_lahir" id="Tempat_lahir" placeholder="Tempat lahir">
-							<span class="focus-input100"></span>
-							<?= form_error(
-								'Tempat_lahir',
-								'<small class="text-danger pl-5">',
-								'</small>'
-							); ?>
-
-						</div>
-						<div class="wrap-input100 validate-input" data-validate="Tanggal lahir wajib diisi">
-							<input class="input100" type="date" style="width: 150px" name="Tanggal_lahir" id="Tanggal_lahir" placeholder="Tanggal lahir">
-							<span class="focus-input100"></span>
-							<?= form_error(
-								'Tanggal_lahir',
-								'<small class="text-danger pl-5">',
-								'</small>'
-							); ?>
-
-						</div>
-
-					</td>
 
 					<div class="wrap-input100 validate-input" data-validate="Password wajib diisi">
 						<span class="label-input100">Password</span>
@@ -148,6 +123,17 @@
 							'</small>'
 						); ?>
 
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Ulangi password wajib diisi">
+						<span class="label-input100">Ulangi Password</span>
+						<input class="input100" type="password" name="Ulangi_password" id="Ulangi_password" placeholder="*************">
+						<span class="focus-input100"></span>
+						<?= form_error(
+							'Ulangi_password',
+							'<small class="text-danger pl-5">',
+							'</small>'
+						); ?>
 					</div>
 
 					<div class="container-login100-form-btn">
