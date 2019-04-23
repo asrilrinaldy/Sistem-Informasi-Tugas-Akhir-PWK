@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Apr 2019 pada 11.20
--- Versi server: 10.1.35-MariaDB
--- Versi PHP: 7.2.9
+-- Generation Time: Apr 23, 2019 at 06:51 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `nama`, `username`, `password`, `email`, `tempat_lahir`, `tanggal_lahir`, `no_telp`, `alamat`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `admin` (`id_admin`, `nama`, `username`, `password`, `email`, `tempa
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `dosen`
+-- Table structure for table `dosen`
 --
 
 CREATE TABLE `dosen` (
@@ -65,7 +65,7 @@ CREATE TABLE `dosen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `dosen`
+-- Dumping data for table `dosen`
 --
 
 INSERT INTO `dosen` (`Nama`, `NIP`, `password`, `Email`, `No_telepon`, `Alamat`, `Tempat_lahir`, `Tanggal_lahir`) VALUES
@@ -74,7 +74,7 @@ INSERT INTO `dosen` (`Nama`, `NIP`, `password`, `Email`, `No_telepon`, `Alamat`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jadwal_kosong`
+-- Table structure for table `jadwal_kosong`
 --
 
 CREATE TABLE `jadwal_kosong` (
@@ -88,7 +88,7 @@ CREATE TABLE `jadwal_kosong` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jadwal_penting`
+-- Table structure for table `jadwal_penting`
 --
 
 CREATE TABLE `jadwal_penting` (
@@ -102,7 +102,7 @@ CREATE TABLE `jadwal_penting` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `konsultasi`
+-- Table structure for table `konsultasi`
 --
 
 CREATE TABLE `konsultasi` (
@@ -119,7 +119,7 @@ CREATE TABLE `konsultasi` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `logbook`
+-- Table structure for table `logbook`
 --
 
 CREATE TABLE `logbook` (
@@ -133,35 +133,36 @@ CREATE TABLE `logbook` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mahasiswa`
+-- Table structure for table `mahasiswa`
 --
 
 CREATE TABLE `mahasiswa` (
-  `Nama` varchar(25) NOT NULL,
+  `Nama` varchar(50) NOT NULL,
   `NIM` int(15) NOT NULL,
-  `password` varchar(35) NOT NULL,
-  `Alamat` varchar(30) NOT NULL,
+  `Password` varchar(35) NOT NULL,
+  `Alamat` varchar(100) NOT NULL,
   `No_telepon` varchar(15) NOT NULL,
-  `Email` varchar(20) NOT NULL,
-  `Judul_TA` varchar(50) NOT NULL,
-  `NIP/NRK` int(20) NOT NULL,
-  `Tempat_Lahir` varchar(40) NOT NULL,
-  `Tanggal_Lahir` date NOT NULL,
-  `Id_Referensi` varchar(10) NOT NULL
+  `Email` varchar(50) NOT NULL,
+  `Judul_TA` varchar(50) DEFAULT NULL,
+  `NIP/NRK` int(20) DEFAULT NULL,
+  `Id_Referensi` varchar(10) DEFAULT NULL,
+  `Reset_password` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `mahasiswa`
+-- Dumping data for table `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`Nama`, `NIM`, `password`, `Alamat`, `No_telepon`, `Email`, `Judul_TA`, `NIP/NRK`, `Tempat_Lahir`, `Tanggal_Lahir`, `Id_Referensi`) VALUES
-('fahmi', 14116105, '336b1b2d2d862956fc8f5eb8e130d4d6', 'kemiling', '08123456789', 'fahmi@gmail.com', 'apa ya', 0, '', '0000-00-00', ''),
-('Muhammad Ragil', 14116150, '202cb962ac59075b964b07152d234b70', 'ajsdkasjdk', '0808080', 'asdkskdk@kska.com', 'jasdjasjdj', 0, '', '0000-00-00', '');
+INSERT INTO `mahasiswa` (`Nama`, `NIM`, `Password`, `Alamat`, `No_telepon`, `Email`, `Judul_TA`, `NIP/NRK`, `Id_Referensi`, `Reset_password`) VALUES
+('nurmeishy', 1223221, 'e807f1fcf82d132f9bb018ca6738a19f', 'way huwi', '081234567890', 'nurmeishy.1223221@stduent.itera.ac.id', NULL, NULL, NULL, NULL),
+('Febri Dwi Putro', 14116020, 'e807f1fcf82d132f9bb018ca6738a19f', 'permata biru sukarame baru', '089677888558', 'febridwipoethro@gmail.com', NULL, NULL, NULL, NULL),
+('fahmi', 14116105, '336b1b2d2d862956fc8f5eb8e130d4d6', 'kemiling', '08123456789', 'fahmi@gmail.com', 'apa ya', 0, '', NULL),
+('Muhammad Ragil', 14116150, '202cb962ac59075b964b07152d234b70', 'ajsdkasjdk', '0808080', 'asdkskdk@kska.com', 'jasdjasjdj', 0, '', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `referensi`
+-- Table structure for table `referensi`
 --
 
 CREATE TABLE `referensi` (
@@ -174,7 +175,7 @@ CREATE TABLE `referensi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `referensi`
+-- Dumping data for table `referensi`
 --
 
 INSERT INTO `referensi` (`Id_Referensi`, `Judul_TA`, `Penulis`, `Tahun`, `Asal_Referensi`, `Id_admin`) VALUES
@@ -189,64 +190,63 @@ INSERT INTO `referensi` (`Id_Referensi`, `Judul_TA`, `Penulis`, `Tahun`, `Asal_R
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indeks untuk tabel `dosen`
+-- Indexes for table `dosen`
 --
 ALTER TABLE `dosen`
   ADD PRIMARY KEY (`NIP`);
 
 --
--- Indeks untuk tabel `jadwal_kosong`
+-- Indexes for table `jadwal_kosong`
 --
 ALTER TABLE `jadwal_kosong`
   ADD PRIMARY KEY (`Id_Jadwal`);
 
 --
--- Indeks untuk tabel `jadwal_penting`
+-- Indexes for table `jadwal_penting`
 --
 ALTER TABLE `jadwal_penting`
   ADD PRIMARY KEY (`Id_Jadwal`);
 
 --
--- Indeks untuk tabel `konsultasi`
+-- Indexes for table `konsultasi`
 --
 ALTER TABLE `konsultasi`
   ADD PRIMARY KEY (`Id_Konsul`);
 
 --
--- Indeks untuk tabel `logbook`
+-- Indexes for table `logbook`
 --
 ALTER TABLE `logbook`
   ADD PRIMARY KEY (`Id_Log`);
 
 --
--- Indeks untuk tabel `mahasiswa`
+-- Indexes for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`NIM`) USING BTREE;
 
 --
--- Indeks untuk tabel `referensi`
+-- Indexes for table `referensi`
 --
 ALTER TABLE `referensi`
   ADD PRIMARY KEY (`Id_Referensi`),
   ADD KEY `Id_admin` (`Id_admin`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `logbook`
+-- AUTO_INCREMENT for table `logbook`
 --
 ALTER TABLE `logbook`
-  MODIFY `Id_Log` int(3) NOT NULL AUTO_INCREMENT;
-COMMIT;
+  MODIFY `Id_Log` int(3) NOT NULL AUTO_INCREMENT;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
