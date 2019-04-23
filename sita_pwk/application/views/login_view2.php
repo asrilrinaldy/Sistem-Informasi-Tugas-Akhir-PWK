@@ -7,7 +7,7 @@ if ($this->session->userdata('masuk') == TRUE) {
 } ?>
 <html lang="en">
 <head>
-	<title>Login V18</title>
+	<title>Login SITA_PWK</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="<?php echo base_url()?>assets/login/images/icons/favicon.ico" rel="stylesheet">
