@@ -70,7 +70,20 @@ if ($this->session->userdata('masuk') == TRUE) {
 						<input class="input100" type="text" name="repeat-pass" placeholder="Alamat...">
 						<span class="focus-input100"></span>
 					</div>
-					<br>
+
+					<div class="flex-m w-full p-b-33">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								<span class="txt1">
+									Saya setuju dan
+									<a href="#" class="txt2 hov1">
+										Menjamin Kebenaran Informasi diatas
+									</a>
+								</span>
+							</label>
+						</div>	
+					</div>
 					<div class="container-login100-form-btn">
 						<div type="submit">
 							<button class="login100-form-btn">
