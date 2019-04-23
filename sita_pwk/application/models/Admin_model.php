@@ -53,6 +53,19 @@ class Admin_model extends CI_Model {
 		return $result;
 	}
 
+  function cek_pw_lama($pw) {
+    $pw = MD5($pw);
+    $query = $this->db->get_where('admin', array('password' => $pw));
+    return $query;
+  }
+
+  function updatePassword($new_password, $id_admin){
+    $this->db->set('password', MD5($new_password));
+    $this->db->where('id_admin', $id_admin);
+    $result=$this->db->update('admin');
+    return $result;
+  }
+
 
 
 }
