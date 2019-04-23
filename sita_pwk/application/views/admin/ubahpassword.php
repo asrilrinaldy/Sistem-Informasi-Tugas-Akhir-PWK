@@ -1,5 +1,4 @@
 <!-- partial -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/dataTables.bootstrap4.css'?>">
     <div class="main-panel">
       <div class="content-wrapper">
         <div id="header">
@@ -12,9 +11,15 @@
           <div class="col-lg-12 grid-margin">
             <div class="card">
               <div class="card-body">
-                <div class="col-md-12">
-                  <br><br>
-                </div>
+                <?php if ($this->session->flashdata('sukses')){ ?>
+                    <div class="alert alert-success" role="alert">
+                      <?php echo $this->session->flashdata('sukses'); ?>
+                    </div>
+                <?php }elseif ($this->session->flashdata('error')){ ?>
+                    <div class="alert alert-warning" role="alert">
+                    <?php echo $this->session->flashdata('error'); ?>
+                    </div>
+                <?php }; ?>
               	<form action="<?php echo base_url().'ubahpassword/update_password_admin'?>" method="post">
                   <label>Old Password :</label>
                   <input type="password" name="old_pass" id="name" placeholder="Old Pass"/><br /><br />

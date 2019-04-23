@@ -50,4 +50,17 @@ class Dosen_model extends CI_Model {
     return $query;
   }
 
+  function cek_pw_lama($pw) {
+    $pw = MD5($pw);
+    $query = $this->db->get_where('dosen', array('password' => $pw));
+    return $query;
+  }
+
+  function updatePassword($new_password, $nip){
+    $this->db->set('password', MD5($new_password));
+    $this->db->where('NIP', $nip);
+    $result=$this->db->update('dosen');
+    return $result;
+  }
+
 }

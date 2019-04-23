@@ -191,10 +191,15 @@ h3 {
               <i class="menu-icon mdi mdi-account-edit"></i>
                 Ubah Password
               </a> -->
+              <a class="dropdown-item" href="<?php echo base_url().'profile/admin'?>">
+              <i class="menu-icon mdi mdi-account"></i>
+                Profil
+              </a>
               <a class="dropdown-item" href="<?php echo base_url().'index.php/login/logout'?>">
               <i class="menu-icon mdi mdi-logout"></i>
                 Logout
               </a>
+
             </div>
           </li>
         </ul>
@@ -232,7 +237,7 @@ h3 {
                   <a class="nav-link" href="<?php echo base_url('keloladosen') ?>">Info Dosen</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('passdosen') ?>">Ubah Password Dosen</a>
+                  <a class="nav-link" href="<?php echo base_url('ubahpassword') ?>">Ubah Password Dosen</a>
                 </li>
               </ul>
             </div>

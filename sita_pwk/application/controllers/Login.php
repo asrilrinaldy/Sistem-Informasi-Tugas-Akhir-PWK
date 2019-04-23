@@ -35,6 +35,10 @@ class Login extends CI_Controller
       $this->session->set_userdata('akses', 'Admin');
       $this->session->set_userdata('ses_id', $data['id_admin']);
       $this->session->set_userdata('ses_nama', $data['nama']);
+      $this->session->set_userdata('ses_email', $data['email']);
+      $this->session->set_userdata('ses_no_telp', $data['no_telp']);
+      $this->session->set_userdata('ses_alamat', $data['alamat']);
+      $this->session->set_userdata('ses_foto', $data['foto']);
       redirect('berandaadmin');
     } else if ($cek_dosen->num_rows() > 0) {
       $data = $cek_dosen->row_array();

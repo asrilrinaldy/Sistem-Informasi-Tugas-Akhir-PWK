@@ -47,6 +47,16 @@ class Admin_model extends CI_Model {
 		return $result;
 	}
 
+  function update_profile($id_admin,$nama,$email,$no_telepon,$alamat) {
+    $this->db->set('nama', $nama);
+    $this->db->set('email', $email);
+    $this->db->set('no_telp', $no_telepon);
+    $this->db->set('alamat', $alamat);
+    $this->db->where('id_admin', $id_admin);
+		$this->db->update('admin');
+		return $this->db->affected_rows();
+  }
+
   function cek_pw_lama($pw) {
     $pw = MD5($pw);
     $query = $this->db->get_where('admin', array('password' => $pw));
