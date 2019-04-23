@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2019 at 02:13 PM
+-- Generation Time: Apr 23, 2019 at 02:17 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -55,9 +55,9 @@ INSERT INTO `admin` (`id_admin`, `nama`, `username`, `password`, `email`, `no_te
 CREATE TABLE `dosen` (
   `Nama` varchar(40) NOT NULL,
   `NIP` varchar(30) NOT NULL,
-  `password` varchar(35) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `Email` varchar(40) NOT NULL,
-  `No_telepon` int(15) NOT NULL,
+  `No_telepon` varchar(15) NOT NULL,
   `Alamat` varchar(60) NOT NULL,
   `foto` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -67,10 +67,10 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`Nama`, `NIP`, `password`, `Email`, `No_telepon`, `Alamat`, `foto`) VALUES
-('Raagil', '111', '202cb962ac59075b964b07152d234b70', 'ragil.takuga@gmail.com', 123123, 'aasd', NULL),
-('Muhammad Ragil', '11111', '202cb962ac59075b964b07152d234b70', 'ragil', 123, 'askd', NULL),
-('Febri', '123456', '202cb962ac59075b964b07152d234b70', 'febri', 12312, 'aksdka', NULL),
-('Muhammad Ragil', '145', '7363a0d0604902af7b70b271a0b96480', 'mragil@gsd.com', 202, 'alsld', NULL);
+('Raagil', '111', '202cb962ac59075b964b07152d234b70', 'ragil.takuga@gmail.com', '123123', 'aasd', NULL),
+('Muhammad Ragil', '11111', '202cb962ac59075b964b07152d234b70', 'ragil', '123', 'askd', NULL),
+('Febri', '123456', '202cb962ac59075b964b07152d234b70', 'febri', '12312', 'aksdka', NULL),
+('Muhammad Ragil', '145', '7363a0d0604902af7b70b271a0b96480', 'mragil@gsd.com', '202', 'alsld', NULL);
 
 -- --------------------------------------------------------
 
