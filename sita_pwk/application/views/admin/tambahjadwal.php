@@ -13,24 +13,24 @@
 <table border=0><center>
 <div>
 <tr>
-<td>Nama</td>
+<td>NIM</td>
 <td><input type=text name=Nama size=50></td></div>
 </tr>
 <tr>
-<td>NIM</td>
-<td><input type=text name=NIM size=50></td>
+<td>Nama</td>
+<td><input type=text name=NIM size=50 disabled></td>
 </tr>
 <tr>
 <td>Ruang</td>
-<td><input type=textfield name=Ruang size=50></td> 
+<td><input type=textfield name=Ruang size=50></td>
 </tr>
 <tr>
 <td>Tanggal</td>
-<td><input type=date name=tanggal size=50></td> 
+<td><input type=date name=tanggal size=50></td>
 </tr>
 <tr>
 <td>Waktu</td>
-<td><input type=time name=waktu size=50></td> 
+<td><input type=time name=waktu size=50></td>
 </tr></center>
 </table>
 

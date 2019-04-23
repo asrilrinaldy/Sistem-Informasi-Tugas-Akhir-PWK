@@ -4,11 +4,11 @@
   <div class="content-wrapper">
     <div id="header">
             <h1><b>
-        <font color=#12688D> KELOLA DATA MAHASISWA</font></h1></b>
+        <font color=#12688D> KELOLA DATA ADMIN</font></h1></b>
         <hr width=100% size=8 NOSHADE class="hr hr-prmary" style="height: 10px; background-color: #12688D">
     </div>
 
-   <!-- tabel mahasiswa -->
+   <!-- tabel referensi -->
 
     <div class="row">
       <div class="col-lg-12 grid-margin">
@@ -19,11 +19,12 @@
               <br><br>
             </div>
             <div class="table-responsive">
-              <table id="tabelMHS" class="table table-striped">
+              <table id="tabelADM" class="table table-striped">
                 <thead>
                   <tr>
-                    <th>NIM</th>
+                    <th>ID Admin</th>
                     <th>Nama</th>
+                    <th>Username</th>
                     <th>Password</th>
                     <th>Email</th>
                     <th>No. Telepon</th>
@@ -52,22 +53,28 @@
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Mahasiswa Baru</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Admin Baru</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label">NIM</label>
+                        <label class="col-md-2 col-form-label">ID Admin</label>
                         <div class="col-md-10">
-                          <input type="text" name="nim" id="nim" class="form-control" placeholder="NIM">
+                          <input type="text" name="id_admin" id="id_admin" class="form-control" placeholder="ID Admin">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Nama</label>
                         <div class="col-md-10">
                           <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Username</label>
+                        <div class="col-md-10">
+                          <input type="text" name="username" id="username" class="form-control" placeholder="Nama">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -123,22 +130,28 @@
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Mahasiswa</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Admin</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                 <div class="form-group row">
-                    <label class="col-md-2 col-form-label">NIM</label>
+                    <label class="col-md-2 col-form-label">ID Admin</label>
                     <div class="col-md-10">
-                      <input type="text" name="nim_edit" id="nim_edit" class="form-control">
+                      <input type="text" name="id_admin_edit" id="id_admin_edit" class="form-control">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-2 col-form-label">Nama</label>
                     <div class="col-md-10">
                       <input type="text" name="nama_edit" id="nama_edit" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label">Username</label>
+                    <div class="col-md-10">
+                      <input type="text" name="username_edit" id="username_edit" class="form-control">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -203,7 +216,7 @@
                    <strong>Delete ?</strong>
               </div>
               <div class="modal-footer">
-                <input type="hidden" name="nim_delete" id="nim_delete" class="form-control">
+                <input type="hidden" name="id_admin_delete" id="id_admin_delete" class="form-control">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
                 <button type="button" type="submit" id="btn_delete" class="btn btn-primary">Ya</button>
               </div>
@@ -220,14 +233,14 @@
 <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.dataTables.js'?>"></script>
 <script>
   $(document).ready(function(){
-      show_mahasiswa();
-      $('#tabelMHS').dataTable();
+      show_admin();
+      $('#tabelADM').dataTable();
 
       //function show all product
-  		function show_mahasiswa(){
+  		function show_admin(){
   		    $.ajax({
   		        type  : 'ajax',
-  		        url   : '<?php echo site_url('kelolamahasiswa/mahasiswa_data')?>',
+  		        url   : '<?php echo site_url('kelolaadmin/admin_data')?>',
   		        async : false,
   		        dataType : 'json',
   		        success : function(data){
@@ -235,17 +248,18 @@
   		            var i;
   		            for(i=0; i<data.length; i++){
   									html += '<tr>'+
-  												'<td>'+data[i].NIM+'</td>'+
-  													'<td>'+data[i].Nama+'</td>'+
+  												'<td>'+data[i].id_admin+'</td>'+
+  													'<td>'+data[i].nama+'</td>'+
+                            '<td>'+data[i].username+'</td>'+
   													'<td>'+data[i].password+'</td>'+
-  													'<td>'+data[i].Email+'</td>'+
-  													'<td>'+data[i].No_telepon+'</td>'+
-  													'<td>'+data[i].Alamat+'</td>'+
-  													'<td>'+data[i].Tempat_Lahir+'</td>'+
-  													'<td>'+data[i].Tanggal_Lahir+'</td>'+
+  													'<td>'+data[i].email+'</td>'+
+  													'<td>'+data[i].no_telp+'</td>'+
+  													'<td>'+data[i].alamat+'</td>'+
+  													'<td>'+data[i].tempat_lahir+'</td>'+
+  													'<td>'+data[i].tanggal_lahir+'</td>'+
   													'<td style="text-align:right;">'+
-                                      '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-nim="'+data[i].NIM+'" data-nama="'+data[i].Nama+'" data-password="'+data[i].password+'" data-email="'+data[i].Email+'" data-no_telepon="'+data[i].No_telepon+'" data-alamat="'+data[i].Alamat+'" data-tempat_lahir="'+data[i].Tempat_lahir+'" data-tanggal_lahir="'+data[i].Tanggal_lahir+'">Edit</a>'+' '+
-                                      '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-nim="'+data[i].NIM+'">Delete</a>'+
+                                      '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_admin="'+data[i].id_admin+'" data-nama="'+data[i].nama+'" data-username="'+data[i].username+'" data-password="'+data[i].password+'" data-email="'+data[i].email+'" data-no_telepon="'+data[i].no_telp+'" data-alamat="'+data[i].alamat+'" data-tempat_lahir="'+data[i].tempat_lahir+'" data-tanggal_lahir="'+data[i].tanggal_lahir+'">Edit</a>'+' '+
+                                      '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_admin="'+data[i].id_admin+'">Delete</a>'+
                                   '</td>'+
   		                        '</tr>';
   		            }
@@ -257,8 +271,9 @@
 
           //Save product
           $('#btn_save').on('click',function(){
-              var nim = $('#nim').val();
+              var id_admin = $('#id_admin').val();
               var nama = $('#nama').val();
+              var username = $('#username').val();
               var password = $('#password').val();
               var email = $('#email').val();
               var no_telepon = $('#no_telepon').val();
@@ -267,12 +282,13 @@
   						var tanggal_lahir = $('#tanggal_lahir').val();
               $.ajax({
                   type : "POST",
-                  url  : "<?php echo site_url('kelolamahasiswa/save')?>",
+                  url  : "<?php echo site_url('kelolaadmin/save')?>",
                   dataType : "JSON",
-                  data : {nim:nim , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
+                  data : {id_admin:id_admin , nama:nama, username:username, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
                   success: function(data){
-                      $('[name="nim"]').val("");
+                      $('[name="id_admin"]').val("");
                       $('[name="nama"]').val("");
+                      $('[name="username"]').val("");
                       $('[name="password"]').val("");
                       $('[name="email"]').val("");
                       $('[name="no_telepon"]').val("");
@@ -280,7 +296,7 @@
   										$('[name="tempat_lahir"]').val("");
   										$('[name="tanggal_lahir"]').val("");
                       $('#Modal_Add').modal('hide');
-                      show_mahasiswa();
+                      show_admin();
                   }
               });
               return false;
@@ -288,8 +304,9 @@
 
           //get data for update record
           $('#show_data').on('click','.item_edit',function(){
-              var nim = $(this).data('nim');
+              var id_admin = $(this).data('id_admin');
               var nama = $(this).data('nama');
+              var username = $(this).data('username');
               var password  = $(this).data('password');
               var email = $(this).data('email');
               var no_telepon = $(this).data('no_telepon');
@@ -298,8 +315,9 @@
   						var tanggal_lahir = $(this).data('tanggal_lahir');
 
               $('#Modal_Edit').modal('show');
-              $('[name="nim_edit"]').val(nim);
+              $('[name="id_admin_edit"]').val(id_admin);
               $('[name="nama_edit"]').val(nama);
+              $('[name="username_edit"]').val(username);
               $('[name="password_edit"]').val(password);
               $('[name="email_edit"]').val(email);
               $('[name="no_telepon_edit"]').val(no_telepon);
@@ -311,8 +329,9 @@
           //update record to database
            $('#btn_update').on('click',function(){
 
-             var nim = $('#nim_edit').val();
+             var id_admin = $('#id_admin_edit').val();
              var nama = $('#nama_edit').val();
+             var username = $('#username_edit').val();
              var password = $('#password_edit').val();
              var email = $('#email_edit').val();
              var no_telepon = $('#no_telepon_edit').val();
@@ -322,12 +341,13 @@
 
               $.ajax({
                   type : "POST",
-                  url  : "<?php echo site_url('kelolamahasiswa/update')?>",
+                  url  : "<?php echo site_url('kelolaadmin/update')?>",
                   dataType : "JSON",
-                  data : {nim:nim , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
+                  data : {id_admin:id_admin , nama:nama, username:username, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
                   success: function(data){
-                      $('[name="nim_edit"]').val("");
+                      $('[name="id_admin_edit"]').val("");
                       $('[name="nama_edit"]').val("");
+                      $('[name="username_edit"]').val("");
                       $('[name="password_edit"]').val("");
                       $('[name="tahun_edit"]').val("");
                       $('[name="no_telepon_edit"]').val("");
@@ -335,7 +355,7 @@
   									  $('[name="tempat_lahir_edit"]').val("");
   										$('[name="tanggal_lahir_edit"]').val("");
                       $('#Modal_Edit').modal('hide');
-                      show_mahasiswa();
+                      show_admin();
                   }
               });
               return false;
@@ -343,24 +363,24 @@
 
           //get data for delete record
           $('#show_data').on('click','.item_delete',function(){
-              var nim = $(this).data('nim');
+              var id_admin = $(this).data('id_admin');
 
               $('#Modal_Delete').modal('show');
-              $('[name="nim_delete"]').val(nim);
+              $('[name="id_admin_delete"]').val(id_admin);
           });
 
           //delete record to database
            $('#btn_delete').on('click',function(){
-              var nim = $('#nim_delete').val();
+              var id_admin = $('#id_admin_delete').val();
               $.ajax({
                   type : "POST",
-                  url  : "<?php echo site_url('kelolamahasiswa/delete')?>",
+                  url  : "<?php echo site_url('kelolaadmin/delete')?>",
                   dataType : "JSON",
-                  data : {nim:nim},
+                  data : {id_admin:id_admin},
                   success: function(data){
-                      $('[name="nim_delete"]').val("");
+                      $('[name="id_admin_delete"]').val("");
                       $('#Modal_Delete').modal('hide');
-                      show_mahasiswa();
+                      show_admin();
                   }
               });
               return false;
