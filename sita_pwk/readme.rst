@@ -6,6 +6,6 @@ Cara Akses Website
 
 2. Download Database yang ada di Trello Kemudian Import DB Tersebut
 
-3. Untuk menagaksesnya lewat link berikut :  http://localhost/Sistem-Informasi-Tugas-Akhir-PWK/sita_pwk/ 
+3. Untuk mengaksesnya lewat link berikut :  http://localhost/Sistem-Informasi-Tugas-Akhir-PWK/sita_pwk/ 
 
 
