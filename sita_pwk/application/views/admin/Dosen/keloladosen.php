@@ -28,8 +28,6 @@
                     <th>Email</th>
                     <th>No. Telepon</th>
                     <th>Alamat</th>
-                    <th>Tempat Lahir</th>
-                    <th>Tanggal Lahir</th>
                     <th style="text-align: right;">Actions</th>
                   </tr>
                 </thead>
@@ -94,18 +92,6 @@
                           <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Tempat Lahir</label>
-                        <div class="col-md-10">
-                          <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control" placeholder="Tempat Lahir">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Tanggal Lahir</label>
-                        <div class="col-md-10">
-                          <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control">
-                        </div>
-                    </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -163,18 +149,6 @@
                     <label class="col-md-2 col-form-label">Alamat</label>
                     <div class="col-md-10">
                       <input type="text" name="alamat_edit" id="alamat_edit" class="form-control" >
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 col-form-label">Tempat Lahir</label>
-                    <div class="col-md-10">
-                      <input type="text" name="tempat_lahir_edit" id="tempat_lahir_edit" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 col-form-label">Tanggal Lahir</label>
-                    <div class="col-md-10">
-                      <input type="date" name="tanggal_lahir_edit" id="tanggal_lahir_edit" class="form-control">
                     </div>
                 </div>
               </div>
@@ -241,10 +215,8 @@
   													'<td>'+data[i].Email+'</td>'+
   													'<td>'+data[i].No_telepon+'</td>'+
   													'<td>'+data[i].Alamat+'</td>'+
-  													'<td>'+data[i].Tempat_lahir+'</td>'+
-  													'<td>'+data[i].Tanggal_lahir+'</td>'+
   													'<td style="text-align:right;">'+
-                                      '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-nip="'+data[i].NIP+'" data-nama="'+data[i].Nama+'" data-password="'+data[i].password+'" data-email="'+data[i].Email+'" data-no_telepon="'+data[i].No_telepon+'" data-alamat="'+data[i].Alamat+'" data-tempat_lahir="'+data[i].Tempat_lahir+'" data-tanggal_lahir="'+data[i].Tanggal_lahir+'">Edit</a>'+' '+
+                                      '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-nip="'+data[i].NIP+'" data-nama="'+data[i].Nama+'" data-password="'+data[i].password+'" data-email="'+data[i].Email+'" data-no_telepon="'+data[i].No_telepon+'" data-alamat="'+data[i].Alamat+'">Edit</a>'+' '+
                                       '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-nip="'+data[i].NIP+'">Delete</a>'+
                                   '</td>'+
   		                        '</tr>';
@@ -263,13 +235,11 @@
               var email = $('#email').val();
               var no_telepon = $('#no_telepon').val();
               var alamat = $('#alamat').val();
-  						var tempat_lahir = $('#tempat_lahir').val();
-  						var tanggal_lahir = $('#tanggal_lahir').val();
               $.ajax({
                   type : "POST",
                   url  : "<?php echo site_url('keloladosen/save')?>",
                   dataType : "JSON",
-                  data : {nip:nip , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
+                  data : {nip:nip , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat},
                   success: function(data){
                       $('[name="nip"]').val("");
                       $('[name="nama"]').val("");
@@ -277,8 +247,6 @@
                       $('[name="email"]').val("");
                       $('[name="no_telepon"]').val("");
                       $('[name="alamat"]').val("");
-  										$('[name="tempat_lahir"]').val("");
-  										$('[name="tanggal_lahir"]').val("");
                       $('#Modal_Add').modal('hide');
                       show_dosen();
                   }
@@ -294,8 +262,6 @@
               var email = $(this).data('email');
               var no_telepon = $(this).data('no_telepon');
               var alamat = $(this).data('alamat');
-  						var tempat_lahir = $(this).data('tempat_lahir');
-  						var tanggal_lahir = $(this).data('tanggal_lahir');
 
               $('#Modal_Edit').modal('show');
               $('[name="nip_edit"]').val(nip);
@@ -304,8 +270,6 @@
               $('[name="email_edit"]').val(email);
               $('[name="no_telepon_edit"]').val(no_telepon);
               $('[name="alamat_edit"]').val(alamat);
-  						$('[name="tempat_lahir_edit"]').val(tempat_lahir);
-  						$('[name="tanggal_lahir_edit"]').val(tanggal_lahir);
           });
 
           //update record to database
@@ -317,14 +281,12 @@
              var email = $('#email_edit').val();
              var no_telepon = $('#no_telepon_edit').val();
              var alamat = $('#alamat_edit').val();
-  					 var tempat_lahir = $('#tempat_lahir_edit').val();
-  					 var tanggal_lahir = $('#tanggal_lahir_edit').val();
 
               $.ajax({
                   type : "POST",
                   url  : "<?php echo site_url('keloladosen/update')?>",
                   dataType : "JSON",
-                  data : {nip:nip , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
+                  data : {nip:nip , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat},
                   success: function(data){
                       $('[name="nip_edit"]').val("");
                       $('[name="nama_edit"]').val("");
@@ -332,8 +294,6 @@
                       $('[name="tahun_edit"]').val("");
                       $('[name="no_telepon_edit"]').val("");
                       $('[name="alamat_edit"]').val("");
-  									  $('[name="tempat_lahir_edit"]').val("");
-  										$('[name="tanggal_lahir_edit"]').val("");
                       $('#Modal_Edit').modal('hide');
                       show_dosen();
                   }

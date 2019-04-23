@@ -29,8 +29,6 @@
                     <th>Email</th>
                     <th>No. Telepon</th>
                     <th>Alamat</th>
-                    <th>Tempat Lahir</th>
-                    <th>Tanggal Lahir</th>
                     <th style="text-align: right;">Actions</th>
                   </tr>
                 </thead>
@@ -101,18 +99,6 @@
                           <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Tempat Lahir</label>
-                        <div class="col-md-10">
-                          <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control" placeholder="Tempat Lahir">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Tanggal Lahir</label>
-                        <div class="col-md-10">
-                          <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control">
-                        </div>
-                    </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -176,18 +162,6 @@
                     <label class="col-md-2 col-form-label">Alamat</label>
                     <div class="col-md-10">
                       <input type="text" name="alamat_edit" id="alamat_edit" class="form-control" >
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 col-form-label">Tempat Lahir</label>
-                    <div class="col-md-10">
-                      <input type="text" name="tempat_lahir_edit" id="tempat_lahir_edit" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 col-form-label">Tanggal Lahir</label>
-                    <div class="col-md-10">
-                      <input type="date" name="tanggal_lahir_edit" id="tanggal_lahir_edit" class="form-control">
                     </div>
                 </div>
               </div>
@@ -255,10 +229,8 @@
   													'<td>'+data[i].email+'</td>'+
   													'<td>'+data[i].no_telp+'</td>'+
   													'<td>'+data[i].alamat+'</td>'+
-  													'<td>'+data[i].tempat_lahir+'</td>'+
-  													'<td>'+data[i].tanggal_lahir+'</td>'+
   													'<td style="text-align:right;">'+
-                                      '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_admin="'+data[i].id_admin+'" data-nama="'+data[i].nama+'" data-username="'+data[i].username+'" data-password="'+data[i].password+'" data-email="'+data[i].email+'" data-no_telepon="'+data[i].no_telp+'" data-alamat="'+data[i].alamat+'" data-tempat_lahir="'+data[i].tempat_lahir+'" data-tanggal_lahir="'+data[i].tanggal_lahir+'">Edit</a>'+' '+
+                                      '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_admin="'+data[i].id_admin+'" data-nama="'+data[i].nama+'" data-username="'+data[i].username+'" data-password="'+data[i].password+'" data-email="'+data[i].email+'" data-no_telepon="'+data[i].no_telp+'" data-alamat="'+data[i].alamat+'">Edit</a>'+' '+
                                       '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_admin="'+data[i].id_admin+'">Delete</a>'+
                                   '</td>'+
   		                        '</tr>';
@@ -278,13 +250,11 @@
               var email = $('#email').val();
               var no_telepon = $('#no_telepon').val();
               var alamat = $('#alamat').val();
-  						var tempat_lahir = $('#tempat_lahir').val();
-  						var tanggal_lahir = $('#tanggal_lahir').val();
               $.ajax({
                   type : "POST",
                   url  : "<?php echo site_url('kelolaadmin/save')?>",
                   dataType : "JSON",
-                  data : {id_admin:id_admin , nama:nama, username:username, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
+                  data : {id_admin:id_admin , nama:nama, username:username, password:password, email:email, no_telepon:no_telepon, alamat:alamat},
                   success: function(data){
                       $('[name="id_admin"]').val("");
                       $('[name="nama"]').val("");
@@ -293,8 +263,6 @@
                       $('[name="email"]').val("");
                       $('[name="no_telepon"]').val("");
                       $('[name="alamat"]').val("");
-  										$('[name="tempat_lahir"]').val("");
-  										$('[name="tanggal_lahir"]').val("");
                       $('#Modal_Add').modal('hide');
                       show_admin();
                   }
@@ -311,8 +279,6 @@
               var email = $(this).data('email');
               var no_telepon = $(this).data('no_telepon');
               var alamat = $(this).data('alamat');
-  						var tempat_lahir = $(this).data('tempat_lahir');
-  						var tanggal_lahir = $(this).data('tanggal_lahir');
 
               $('#Modal_Edit').modal('show');
               $('[name="id_admin_edit"]').val(id_admin);
@@ -322,8 +288,6 @@
               $('[name="email_edit"]').val(email);
               $('[name="no_telepon_edit"]').val(no_telepon);
               $('[name="alamat_edit"]').val(alamat);
-  						$('[name="tempat_lahir_edit"]').val(tempat_lahir);
-  						$('[name="tanggal_lahir_edit"]').val(tanggal_lahir);
           });
 
           //update record to database
@@ -336,14 +300,12 @@
              var email = $('#email_edit').val();
              var no_telepon = $('#no_telepon_edit').val();
              var alamat = $('#alamat_edit').val();
-  					 var tempat_lahir = $('#tempat_lahir_edit').val();
-  					 var tanggal_lahir = $('#tanggal_lahir_edit').val();
 
               $.ajax({
                   type : "POST",
                   url  : "<?php echo site_url('kelolaadmin/update')?>",
                   dataType : "JSON",
-                  data : {id_admin:id_admin , nama:nama, username:username, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
+                  data : {id_admin:id_admin , nama:nama, username:username, password:password, email:email, no_telepon:no_telepon, alamat:alamat},
                   success: function(data){
                       $('[name="id_admin_edit"]').val("");
                       $('[name="nama_edit"]').val("");
@@ -352,8 +314,6 @@
                       $('[name="tahun_edit"]').val("");
                       $('[name="no_telepon_edit"]').val("");
                       $('[name="alamat_edit"]').val("");
-  									  $('[name="tempat_lahir_edit"]').val("");
-  										$('[name="tanggal_lahir_edit"]').val("");
                       $('#Modal_Edit').modal('hide');
                       show_admin();
                   }

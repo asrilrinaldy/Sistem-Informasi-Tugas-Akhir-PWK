@@ -62,7 +62,7 @@
                             <select class="form-control" name="mahasiswa" id="mahasiswa" required>
                             <option value="">No Selected</option>
                             <?php foreach($mahasiswa as $row):?>
-                            <option value="<?php echo $row->NIM;?>"><?php echo $row->Nama;?></option>
+                            <option value="<?= $row->NIM;?>"><?= $row->Nama;?></option>
                             <?php endforeach;?>
                     </select>
                         </div>
