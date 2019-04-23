@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Sistem Informasi Tugas Akhir</title>
+  <title>Sistem Informasi Tugas Akhir PWK</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?php base_url() ?>assets/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php base_url() ?>assets/css/vendor.bundle.base.css">
@@ -17,6 +17,13 @@
   <link rel="stylesheet" href="<?php base_url() ?>css/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="<?php base_url() ?>images/logoitera.png" />
+
+  <style>
+    h3 {
+      background-color: #12688D;
+    }
+  </style>
+
 </head>
 
 <div class="atas">
@@ -41,11 +48,8 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 ">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-
-        <a class="navbar-brand brand-logo-mini">
-          <img src="<?php base_url() ?>images/logo-mini.svg" alt="logo" />
-        </a>
       </div>
+
       <div class="navbar-menu-wrapper d-flex align-items-center">
 
         <ul class="navbar-nav navbar-nav-right">
@@ -161,7 +165,7 @@
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text"><?php echo $this->session->userdata('ses_nama')?></span>
+              <span class="profile-text">Dosen</span>
               <img class="img-xs rounded-circle" src="<?php base_url() ?>images/faces/face21.jpg" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
@@ -197,23 +201,27 @@
         </button>
       </div>
     </nav>
+
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
+          
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('berandadosen') ?>">
+            <a class="nav-link" href="<?php echo base_url ('berandadosen')?>">
               <i class="menu-icon mdi mdi-signal"></i>
               <span class="menu-title">Beranda</span>
             </a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href=<?php echo base_url('jadwaldosen') ?>>
               <i class="menu-icon mdi mdi-calendar"></i>
               <span class="menu-title">Jadwal</span>
             </a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-email-outline"></i>
@@ -231,21 +239,20 @@
               </ul>
             </div>
           </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('logbookdosen') ?>">
               <i class="menu-icon mdi mdi-file-document-box"></i>
               <span class="menu-title">Logbook  Mahasiswa</span>
             </a>
           </li>
-              </ul>
-            </div>
           </li>
         </ul>
       </nav>
       <!-- main-panel ends -->
 
       <!-- disini konten -->
-
+    <?php $this->load->view($konten); ?>
     <!-- /.konten -->
 
     </div>
@@ -255,13 +262,14 @@
 
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <!-- <footer class="footer">
+        <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
-              <a>Perencanaan Wilayah dan Kota</a>. All rights reserved.</span>
+              <a>Perencanaan Wilayah dan Kota</a> 
+              All rights reserved
             </span>
           </div>
-        </footer> -->
+        </footer>
 
         <!-- partial -->
 
