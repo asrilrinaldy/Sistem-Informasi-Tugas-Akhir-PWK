@@ -44,7 +44,10 @@
                       No
                     </th>
                     <th>
-                      Hari,Tanggal
+                      Nama
+                    </th>
+                    <th>
+                      NIM
                     </th>
                     <th>
                       Deskripsi
@@ -55,6 +58,9 @@
                     <th>
                       Nama Pembimbing
                     </th>
+                    <th>
+                      Aksi
+                    </th>
 
                   </tr>
                 </tbody>
@@ -64,7 +70,10 @@
                       1
                     </td>
                     <td>
-                      Selasa,12 Maret 2019
+                      Mahasiswa1
+                    </td>
+                    <td>
+                      24116002
                     </td>
                     <td>
                       Memperbaiki Bab 1
@@ -75,7 +84,14 @@
                     <td>
                        Goldie Melinda Wijayanti S.T., M.T.
                     </td>
+                    <td>
+                      <center>
+                      <a href="#" class="btn btn-danger btn-sm">Hapus</a>
+                      </center>
+                    </td>
                   </tr>
+                  
+
                 </tbody>
               </table>
             </div>
