@@ -2,9 +2,10 @@
 <!doctype html>
 <html lang="en">
 <head>
+	<base href="<?php echo $this->config->base_url(); ?>" />
 	<meta charset="utf-8" />
 	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="http://sso.itera.ac.id/assets2/img/itera.png">
+  <link rel="shortcut icon" href="<?php base_url() ?>images/logoitera.png" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>Edit Profile</title>
@@ -63,14 +64,24 @@
                 		</div>
                 </center>
             </div>
-
-            <ul class="nav">
+						<ul class="nav">
                 <li class=" ">
-                    <a href="<?php echo base_url('berandaadmin') ?>">
-                        <i class="menu-icon mdi mdi-account"></i>
-                        <p>Kembali ke Beranda</p>
-                    </a>
-
+                  <a href="<?php echo base_url('berandaadmin') ?>">
+                      <i class="menu-icon mdi mdi-home"></i>
+                      <p>Kembali ke Beranda</p>
+                  </a>
+								</li>
+                <li class="active">
+                  <a href="<?php echo base_url('profile/admin') ?>">
+                      <i class="menu-icon mdi mdi-account"></i>
+                      <p>Edit Profile</p>
+                  </a>
+                </li>
+								<li class="">
+									<a href="<?php echo base_url('ubahpassword') ?>">
+											<i class="menu-icon mdi mdi-textbox-password"></i>
+											<p>Ubah Password</p>
+									</a>
             </ul>
     	</div>
     </div>
@@ -98,7 +109,7 @@
               </div>
           <?php }; ?>
 					<div class="content">
-						<form id="form_edit_profil" action="<?php echo base_url() . 'profile/update_admin' ?>" method="POST">
+						<?php echo form_open_multipart('profile/update_admin');?>
 							<div class="tab-content">
 									<div id="home" class="tab-pane fade in active">
 										<table class="table table-striped">
@@ -132,16 +143,13 @@
 											<tr>
 												<td>Foto</td>
 												<td>:</td>
-												<td colspan="2"><input type="file" name="foto" id="foto" class="form-control"></td>
+												<td colspan="2"><input type="file" name="foto" id="foto" value="<?php echo $this->session->userdata('ses_foto')?>" enctype="multipart/form-data"></td>
 											</tr>
-
-
-												</table>
+										</table>
 									</div>
 							</div>
 						<button type="submit" class="btn btn-warning pull-right"><i class="mdi mdi-content-save" ></i> Simpan</button>
 						<br/><br/>
-						<div id="notif"></div>
 						</form>
 					</div>
 				</div>

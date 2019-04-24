@@ -5,8 +5,7 @@ class Ubahpassword extends CI_Controller {
 
 	public function index()
 	{
-    $isi['konten'] = 'admin/ubahpassword';
-    $this->load->view('admin/template', $isi);
+    $this->load->view('admin/ubahpassword');
 	}
 
   public function update_password_admin(){
@@ -46,7 +45,7 @@ class Ubahpassword extends CI_Controller {
         $this->session->set_flashdata('sukses', 'Sukses!');
         // redirect(base_url('ubahpassword'));
       }else {
-        $this->session->set_flashdata('error', 'Confirm Password & New Password Harus Sama!');
+        $this->session->set_flashdata('error', 'Password Baru & Konfirmasi Harus Sama!');
         // redirect(base_url('ubahpassword'));
       }
     }else {
