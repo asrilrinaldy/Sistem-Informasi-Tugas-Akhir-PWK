@@ -45,6 +45,17 @@ class Dosen_model extends CI_Model {
 		return $result;
 	}
 
+  function update_profile($nip,$nama,$email,$no_telepon,$alamat,$foto) {
+    $this->db->set('Nama', $nama);
+    $this->db->set('Email', $email);
+    $this->db->set('No_telepon', $no_telepon);
+    $this->db->set('Alamat', $alamat);
+    $this->db->set('foto', $foto);
+    $this->db->where('NIP', $nip);
+    $this->db->update('dosen');
+    return $this->db->affected_rows();
+  }
+
   function get_dosen($nip) {
     $query = $this->db->get_where('dosen', array('NIP' => $nip));
     return $query;

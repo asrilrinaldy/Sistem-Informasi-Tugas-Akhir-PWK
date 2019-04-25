@@ -46,6 +46,10 @@ class Login extends CI_Controller
       $this->session->set_userdata('akses', 'Dosen');
       $this->session->set_userdata('ses_id', $data['NIP']);
       $this->session->set_userdata('ses_nama', $data['Nama']);
+      $this->session->set_userdata('ses_email', $data['Email']);
+      $this->session->set_userdata('ses_no_telp', $data['No_telepon']);
+      $this->session->set_userdata('ses_alamat', $data['Alamat']);
+      $this->session->set_userdata('ses_foto', $data['foto']);
       redirect('berandadosen');
     } else {
       $cek_mahasiswa = $this->login_model->cek_mhs($username, $password);
@@ -55,6 +59,13 @@ class Login extends CI_Controller
         $this->session->set_userdata('akses', 'Mahasiswa');
         $this->session->set_userdata('ses_id', $data['NIM']);
         $this->session->set_userdata('ses_nama', $data['Nama']);
+        $this->session->set_userdata('ses_email', $data['Email']);
+        $this->session->set_userdata('ses_no_telp', $data['No_telepon']);
+        $this->session->set_userdata('ses_alamat', $data['Alamat']);
+        $this->session->set_userdata('ses_judulta', $data['Judul_TA']);
+        $this->session->set_userdata('ses_tempatlahir', $data['Tempat_Lahir']);
+        $this->session->set_userdata('ses_tanggallahir', $data['Tanggal_Lahir']);
+        $this->session->set_userdata('ses_foto', $data['foto']);
         redirect('berandamahasiswa');
       } else {
         $url = base_url('login');

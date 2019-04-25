@@ -61,7 +61,7 @@
                 <center>
                     <div class="circular--portrait">
 											<?php if($this->session->userdata('ses_foto')!= null){?>
-												<img class="img-responsive" src="<?php echo base_url()?>assets/upload/foto/<?php echo $this->session->userdata('ses_foto')  ?>" alt="User profile picture">
+												<img class="img-responsive" src="<?php echo base_url()?>assets/upload/foto/dosen/<?php echo $this->session->userdata('ses_foto')  ?>" alt="User profile picture">
 											<?php }else{?>
                     	<img class="img-responsive" src="<?php echo base_url()?>assets/profil/default-profile.png" alt="User profile picture">
 											<<?php } ?>
@@ -70,13 +70,13 @@
             </div>
 						<ul class="nav">
                 <li class=" ">
-                  <a href="<?php echo base_url('berandaadmin') ?>">
+                  <a href="<?php echo base_url('berandadosen') ?>">
                       <i class="menu-icon mdi mdi-home"></i>
                       <p>Kembali ke Beranda</p>
                   </a>
 								</li>
                 <li class="active">
-                  <a href="<?php echo base_url('profile/admin') ?>">
+                  <a href="<?php echo base_url('profile/dosen') ?>">
                       <i class="menu-icon mdi mdi-account"></i>
                       <p>Edit Profile</p>
                   </a>
@@ -113,14 +113,14 @@
               </div>
           <?php }; ?>
 					<div class="content">
-						<?php echo form_open_multipart('profile/update_admin');?>
+						<?php echo form_open_multipart('profile/update_dosen');?>
 							<div class="tab-content">
 									<div id="home" class="tab-pane fade in active">
 										<table class="table table-striped">
 											<tr>
-												<td width="200px;">ID Admin</td>
+												<td width="200px;">NIP</td>
 												<td>:</td>
-												<td colspan="2"><input type="text" name="id_admin" id="id_admin" placeholder="Username" class="form-control" value="<?php echo $this->session->userdata('ses_id')?>" readonly></td>
+												<td colspan="2"><input type="text" name="nip" id="nip" placeholder="Username" class="form-control" value="<?php echo $this->session->userdata('ses_id')?>" readonly></td>
 											</tr>
 											<tr>
 												<td>E-mail</td>
@@ -130,7 +130,7 @@
 											<tr>
 												<td>Nama </td>
 												<td>:</td>
-												<td colspan="2"><input type="text" name="nama" id="nm_pd" placeholder="Nama" class="form-control" value="<?php echo $this->session->userdata('ses_nama')?>" ></td>
+												<td colspan="2"><input type="text" name="nama" id="nama" placeholder="Nama" class="form-control" value="<?php echo $this->session->userdata('ses_nama')?>" ></td>
 											</tr>
 											<tr>
 												<td width="200px;">Telepon</td>
