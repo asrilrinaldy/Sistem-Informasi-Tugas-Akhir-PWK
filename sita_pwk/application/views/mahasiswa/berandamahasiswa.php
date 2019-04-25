@@ -28,11 +28,11 @@
 
   NIM             : <?php echo $this->session->userdata('ses_id')?>
 
-  Program Studi   : <?php echo $this->session->userdata('')?>
+  Program Studi   : <?php echo "Perencanaan Wilayah dan Kota"?>
 
-  Dosen TA 1      : <?php echo $this->session->userdata('')?>
+  Dosen TA 1      : <?php echo $this->session->userdata('ses_pembimbing')?>
 
-  Dosen TA 2      : <?php echo $this->session->userdata('')?>
+  Dosen TA 2      : <?php echo $this->session->userdata('ses_pembimbing2')?>
               </pre>
 
             </div>

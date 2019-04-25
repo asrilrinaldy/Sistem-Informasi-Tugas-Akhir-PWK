@@ -55,6 +55,21 @@ class Mahasiswa_model extends CI_Model {
 		return $result;
 	}
 
+  function update_profile($nim,$nama,$email,$no_telepon,$alamat,$foto,$tempat_lahir,$tanggal_lahir) {
+    $this->db->set('Nama', $nama);
+    $this->db->set('Email', $email);
+    $this->db->set('No_telepon', $no_telepon);
+    $this->db->set('Alamat', $alamat);
+    $this->db->set('Tempat_Lahir', $tempat_lahir);
+    $this->db->set('Tanggal_Lahir', $tanggal_lahir);
+    $this->db->set('foto', $foto);
+
+    $this->db->where('NIM', $nim);
+    $this->db->update('mahasiswa');
+    return $this->db->affected_rows();
+  }
+
+
 
 
 }
