@@ -27,6 +27,7 @@
                       <th>Penulis</th>
                       <th>Tahun</th>
                       <th>Asal Referensi</th>
+                      <th>File</th>
                       <th style="text-align: right;">Actions</th>
                   </tr>
                 </thead>
@@ -43,7 +44,7 @@
 <!-- main-panel ends -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
 <!-- MODAL ADD -->
-        <form>
+        <form id="submit">
         <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -84,10 +85,16 @@
                           <input type="text" name="asal_referensi" id="asal_referensi" class="form-control" placeholder="Asal Referensi">
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">File</label>
+                        <div class="col-md-10">
+                          <input type="file" name="file" id="file" class="form-control">
+                        </div>
+                    </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" type="submit" id="btn_save" class="btn btn-primary">Save</button>
+                <button type="submit " type="submit" id="btn_save" class="btn btn-primary">Save</button>
               </div>
             </div>
           </div>
@@ -193,45 +200,44 @@
                   var html = '';
                   var i;
                   for(i=0; i<data.length; i++){
+                    var link_file = '<?php echo site_url('assets/upload/referensi/')?>'+data[i].file;
+                    var download = 'Download'
                       html += '<tr>'+
                             '<td>'+data[i].Id_Referensi+'</td>'+
                               '<td>'+data[i].Judul_TA+'</td>'+
                               '<td>'+data[i].Penulis+'</td>'+
                               '<td>'+data[i].Tahun+'</td>'+
                               '<td>'+data[i].Asal_Referensi+'</td>'+
+                              '<td>'+'<a href="'+link_file+'" target="_blank">'+download+'</a>'+'</td>'+
                               '<td style="text-align:right;">'+
                                       '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_referensi="'+data[i].Id_Referensi+'" data-judul_ta="'+data[i].Judul_TA+'" data-penulis="'+data[i].Penulis+'" data-tahun="'+data[i].Tahun+'" data-asal_referensi="'+data[i].Asal_Referensi+'" >Edit</a>'+' '+
                                       '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_referensi="'+data[i].Id_Referensi+'">Delete</a>'+
                                   '</td>'+
                               '</tr>';
+
                   }
                   $('#show_data').html(html);
               }
           });
       }
-      $('#btn_save').on('click',function(){
-          var id_referensi = $('#id_referensi').val();
-          var judul_ta = $('#judul_ta').val();
-          var penulis = $('#penulis').val();
-          var tahun = $('#tahun').val();
-          var asal_referensi = $('#asal_referensi').val();
-          $.ajax({
-              type : "POST",
-              url  : "<?php echo site_url('referensi/save')?>",
-              dataType : "JSON",
-              data : {id_referensi:id_referensi , judul_ta:judul_ta, penulis:penulis, tahun:tahun, asal_referensi:asal_referensi},
-              success: function(data){
-                  $('[name="id_referensi"]').val("");
-                  $('[name="judul_ta"]').val("");
-                  $('[name="penulis"]').val("");
-                  $('[name="tahun"]').val("");
-                  $('[name="asal_referensi"]').val("");
-                  $('#Modal_Add').modal('hide');
-                  show_referensi();
-              }
-          });
-          return false;
-      });
+
+      $('#submit').submit(function(e){
+            e.preventDefault();
+                 $.ajax({
+                     url:'<?php echo base_url();?>referensi/upload',
+                     type:"post",
+                     data:new FormData(this),
+                     processData:false,
+                     contentType:false,
+                     cache:false,
+                     async:false,
+                      success: function(data){
+                          $('#Modal_Add').modal('hide');
+                          show_referensi();
+                   }
+                 });
+            });
+
       //get data for update record
       $('#show_data').on('click','.item_edit',function(){
           var id_referensi = $(this).data('id_referensi');
@@ -292,6 +298,7 @@
           });
           return false;
       });
+
   });
 </script>
 

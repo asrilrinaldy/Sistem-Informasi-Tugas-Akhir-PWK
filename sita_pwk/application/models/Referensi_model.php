@@ -19,6 +19,20 @@ class Referensi_model extends CI_Model {
 		return $result;
 	}
 
+  function tambah_referensi($id,$judul,$penulis,$tahun,$asal,$file,$id_admin){
+    $data = array(
+      'Id_Referensi' 	=> $id,
+      'Judul_TA' 	=> $judul,
+      'Penulis' => $penulis,
+      'Tahun' => $tahun,
+      'Asal_Referensi' => $asal,
+      'file' => $file,
+      'Id_admin' => $id_admin
+    );
+    $result = $this->db->insert('referensi',$data);
+    return $result;
+  }
+
 	function update_referensi(){
     $id_referensi=$this->input->post('id_referensi');
 		$judul_ta=$this->input->post('judul_ta');
