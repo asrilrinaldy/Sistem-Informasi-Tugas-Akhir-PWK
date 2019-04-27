@@ -17,6 +17,7 @@ if ($this->session->userdata('masuk') == TRUE) {
 </head>
 
 <body style="background-color: #666666;">
+
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -42,7 +43,7 @@ if ($this->session->userdata('masuk') == TRUE) {
 
 					<div class="p-b-32">
 						<div>
-							<a href="#" class="txt1">
+							<a href="<?= site_url('reset_password_user/reset_password_email') ?>" class="txt1">
 								Forgot Password?
 							</a>
 						</div>
