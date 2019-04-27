@@ -251,7 +251,10 @@ if ($this->session->userdata('masuk') == TRUE) {
 					</div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/febridwiputro
 					<div type="submit" class="container-login100-form-btn">
 						<button class="login100-form-btn">
 							Register
@@ -261,7 +264,7 @@ if ($this->session->userdata('masuk') == TRUE) {
 
 					<hr>
 					<div class="text-center">
-						<a class="small" href="forgot-password.html">Forgot Password ?</a>
+						<a class="small" href="<?php echo site_url('Register/forgotpassword') ?>">Forgot Password ?</a>
 					</div>
 
 					<div class="text-center">

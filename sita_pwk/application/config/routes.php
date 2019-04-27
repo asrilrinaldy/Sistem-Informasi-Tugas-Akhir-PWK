@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -50,5 +50,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'Login';
+$route['signup'] = 'Register';
+$route['signin'] = 'Login';
+$route['profile'] = 'auth/index';
+$route['setting'] = 'auth/change_password';
+$route['profile/edit'] = 'auth/edit';
+$route['forgotpwd'] = 'auth/forgot_password';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
