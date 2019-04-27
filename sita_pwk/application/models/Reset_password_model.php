@@ -1,12 +1,12 @@
 <?php
-class Reset_password extends CI_Model
+class Reset_password_model extends CI_Model
 {
     public function get_member_by_username($Email)
     {
         return $this->db->get_where('mahasiswa', array('Email' => $Email, 'activation' => '1'))->row();
     }
 
-    public function update_reset_key($email, $reset_key)
+    public function update_reset_key($Email, $reset_key)
     {
         $this->db->where('Email', $Email);
         $data = array('Reset_password' => $reset_key);
