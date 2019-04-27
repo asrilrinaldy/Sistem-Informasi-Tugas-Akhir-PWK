@@ -33,7 +33,7 @@
   Dosen TA 1      : <?php echo $this->session->userdata('ses_pembimbing')?>
 
   Dosen TA 2      : <?php echo $this->session->userdata('ses_pembimbing2')?>
-              </pre> 
+              </pre>
 
             </div>
 
