@@ -3,6 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Reset_password_user extends CI_Controller
 {
+
     public function index()
     {
 
@@ -19,7 +20,6 @@ class Reset_password_user extends CI_Controller
         $this->load->view('reset_password_email');
     }
 
-
     public function email_reset_password_validation()
     {
         $this->load->library('form_validation');
@@ -29,7 +29,8 @@ class Reset_password_user extends CI_Controller
             $Email = $this->input->post('Email');
             $reset_key =  random_string('alnum', 50);
 
-            if ($this->Reset_password->update_reset_key($Email, $reset_key)) {
+            $this->load->model('Reset_password_model');
+            if ($this->Reset_password_model->update_reset_key($Email, $reset_key)) {
 
                 $this->load->library('email');
                 $config = array();
@@ -50,7 +51,7 @@ class Reset_password_user extends CI_Controller
                 $this->email->initialize($config);
                 //konfigurasi pengiriman
                 $this->email->from($config['smtp_user']);
-                $this->email->to($this->input->post('email'));
+                $this->email->to($this->input->post('Email'));
                 $this->email->subject("Reset your password");
 
                 $message = "<p>Anda melakukan permintaan reset password</p>";
@@ -58,7 +59,7 @@ class Reset_password_user extends CI_Controller
                 $this->email->message($message);
 
                 if ($this->email->send()) {
-                    echo "silahkan cek email <b>" . $this->input->post('email') . '</b> untuk melakukan reset password';
+                    echo "silahkan cek email <b>" . $this->input->post('Email') . '</b> untuk melakukan reset password';
                 } else {
                     echo "Berhasil melakukan registrasi, gagal mengirim verifikasi email";
                 }
@@ -80,7 +81,7 @@ class Reset_password_user extends CI_Controller
             die('Jangan Dihapus');
         }
 
-        if ($this->reset_m->check_reset_key($reset_key) == 1) {
+        if ($this->Reset_password->check_reset_key($reset_key) == 1) {
             $this->load->view('reset_password');
         } else {
             die("reset key salah");
