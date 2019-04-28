@@ -3,6 +3,7 @@
 
 <head>
   <!-- Required meta tags -->
+  <base href="<?php echo $this->config->base_url(); ?>" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Sistem Informasi Tugas Akhir PWK</title>
@@ -146,7 +147,7 @@ h3 {
                   <a class="nav-link" href="<?php echo base_url('kelolamahasiswa') ?>"> Info Mahasiswa </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('passmahasiswa') ?>">Ubah Password Mahasiswa </a>
+                  <a class="nav-link" href="<?php echo base_url('kelolamahasiswa/tunjukpembimbing') ?>">Pilih Dosen Pembimbing </a>
                 </li>
               </ul>
             </div>

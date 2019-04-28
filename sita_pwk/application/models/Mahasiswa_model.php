@@ -67,4 +67,29 @@ class Mahasiswa_model extends CI_Model
     $this->db->update('mahasiswa');
     return $this->db->affected_rows();
   }
+
+  function update_pembimbing()
+  {
+    $nim = $this->input->post('nim');
+    $dosen1 = $this->input->post('dosen1');
+    $dosen2 = $this->input->post('dosen2');
+
+    $this->db->set('Pembimbing', $dosen1);
+    $this->db->set('Pembimbing2', $dosen2);
+    $this->db->where('NIM', $nim);
+    $result = $this->db->update('mahasiswa');
+    return $result;
+  }
+
+  function delete_pembimbing()
+  {
+    $nim = $this->input->post('nim');
+    $belum = "Belum Dipilih";
+    $this->db->set('Pembimbing', $belum);
+    $this->db->set('Pembimbing2', $belum);
+    $this->db->where('NIM', $nim);
+    $result = $this->db->update('mahasiswa');
+    return $result;
+  }
+
 }

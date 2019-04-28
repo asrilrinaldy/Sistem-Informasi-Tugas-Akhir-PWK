@@ -64,7 +64,7 @@
                             <?php foreach($mahasiswa as $row):?>
                             <option value="<?= $row->NIM;?>"><?= $row->Nama;?></option>
                             <?php endforeach;?>
-                    </select>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">

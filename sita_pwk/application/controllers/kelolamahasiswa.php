@@ -29,4 +29,22 @@ class Kelolamahasiswa extends CI_Controller{
 		echo json_encode($data);
 	}
 
+	function tunjukpembimbing(){
+		$this->load->model('dosen_model');
+		$isi['mahasiswa'] = $this->mahasiswa_model->mahasiswa_list();
+		$isi['dosen'] = $this->dosen_model->dosen_list();
+		$isi['konten'] = 'admin/Mahasiswa/tunjukpembimbing';
+		$this->load->view('admin/template', $isi);
+	}
+
+	function update_pembimbing(){
+		$data=$this->mahasiswa_model->update_pembimbing();
+		echo json_encode($data);
+	}
+
+	function delete_pembimbing(){
+		$data=$this->mahasiswa_model->update_pembimbing();
+		echo json_encode($data);
+	}
+
 }
