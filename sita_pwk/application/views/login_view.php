@@ -43,11 +43,7 @@ if ($this->session->userdata('masuk') == TRUE) {
 
 					<div class="p-b-32">
 						<div>
-<<<<<<< HEAD
-							<a href="<?= site_url('reset_password_user/reset_password_email') ?>" class="txt1">
-=======
 							<a href="<?php echo site_url('Register/forgotpassword') ?>" class="txt1">
->>>>>>> origin/febridwiputro
 								Forgot Password?
 							</a>
 						</div>

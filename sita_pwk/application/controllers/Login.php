@@ -63,8 +63,6 @@ class Login extends CI_Controller
         $this->session->set_userdata('ses_no_telp', $data['No_telepon']);
         $this->session->set_userdata('ses_alamat', $data['Alamat']);
         $this->session->set_userdata('ses_judulta', $data['Judul_TA']);
-        $this->session->set_userdata('ses_tempatlahir', $data['Tempat_Lahir']);
-        $this->session->set_userdata('ses_tanggallahir', $data['Tanggal_Lahir']);
         $this->session->set_userdata('ses_pembimbing', $data['Pembimbing']);
         $this->session->set_userdata('ses_pembimbing2', $data['Pembimbing2']);
         $this->session->set_userdata('ses_foto', $data['foto']);

@@ -6,10 +6,6 @@ class Register extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/febridwiputro
     //load model
     $this->load->library('form_validation');
     $this->load->model('Mail', 'mail');
@@ -23,7 +19,7 @@ class Register extends CI_Controller
     $data['title'] = 'Dashboard - SITA PWK';
     $data['metaDescription'] = 'Dashboard';
     $data['metaKeywords'] = 'Dashboard';
-    $this->load->view('login_view', $data);
+    $this->load->view('login_view2', $data);
   }
 
   public function register()
@@ -31,11 +27,9 @@ class Register extends CI_Controller
     $data['title'] = 'Register - SITA PWK';
     $data['metaDescription'] = 'Register';
     $data['metaKeywords'] = 'Register';
-    $this->load->view('register_view', $data);
+    $this->load->view('daftar_view', $data);
   }
 
-<<<<<<< HEAD
-=======
   // edit method
   public function edit()
   {
@@ -52,22 +46,6 @@ class Register extends CI_Controller
       $data['userInfo'] = $this->auth->getUserDetails();
       $this->load->view('auth/edit', $data);
     }
-  }
-
-  // login method
-  public function login()
-  {
-    if (!empty($this->input->get('usid'))) {
-      $verificationCode = urldecode(base64_decode($this->input->get('usid')));
-      $this->auth->setVerificationCode($verificationCode);
-      $this->auth->activate();
-    }
-    $data = array();
-    $data['metaDescription'] = 'Login';
-    $data['metaKeywords'] = 'Login';
-    $data['title'] = "Login - TechArise";
-    $data['breadcrumbs'] = array('Login' => '#');
-    $this->page_construct('auth/login', $data);
   }
 
   // edit method
@@ -99,7 +77,6 @@ class Register extends CI_Controller
     }
   }
 
->>>>>>> origin/febridwiputro
   // action register
   public function actionRegister()
   {
@@ -123,12 +100,6 @@ class Register extends CI_Controller
       $Password       = $this->input->post('Password');
       $Alamat         = $this->input->post('Alamat');
       $No_telepon     = $this->input->post('No_telepon');
-<<<<<<< HEAD
-
-=======
-      $Tempat_lahir   = $this->input->post('Tempat_lahir');
-      $Tanggal_lahir  = $this->input->post('Tanggal_lahir');
->>>>>>> origin/febridwiputro
       // set post values
       $this->mahasiswa->setNama($Nama);
       $this->mahasiswa->setNIM($NIM);
@@ -138,13 +109,17 @@ class Register extends CI_Controller
       $this->mahasiswa->setNo_telepon($No_telepon);
       // insert values in database
       $this->mahasiswa->createMahasiswa();
-      $this->session->set_flashdata('success', 'Account Create Succcess');
+      $this->session->set_flashdata(
+        'msg',
+        '<div class="alert alert-success">
+          <h4>Berhasil ! </h4>
+          <p>Anda berhasil melakukan pendaftaran.</p>
+      </div>'
+      );
       redirect('register/index');
     }
   }
 
-<<<<<<< HEAD
-=======
   // action create user method
   public function actionCreate()
   {
@@ -348,7 +323,6 @@ class Register extends CI_Controller
     return $Password;
   }
 
->>>>>>> origin/febridwiputro
 
   function logout()
   {
