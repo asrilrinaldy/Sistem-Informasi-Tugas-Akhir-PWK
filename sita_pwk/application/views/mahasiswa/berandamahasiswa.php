@@ -22,8 +22,8 @@
               DATA MAHASISWA
             </span><br></br>
 
-            <div class="biodata-mahasiswa">
-              <pre>
+            <div>
+              <pre class="biodata-mahasiswa" >
   Nama            : <?php echo $this->session->userdata('ses_nama')?>
 
   NIM             : <?php echo $this->session->userdata('ses_id')?>

@@ -9,9 +9,9 @@
 
           <div class="card-body">
 
-            <h5>
+            <h4>
               <i class="menu-icon mdi mdi-paperclip"></i>DATA DOSEN
-            </h5>
+            </h4>
 
             <div class="biodata-dosen">
               <br>Nama</br>
