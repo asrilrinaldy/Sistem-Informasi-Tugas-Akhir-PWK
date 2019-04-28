@@ -22,9 +22,9 @@
 
             <div class="biodata-dosen">
               <pre>
-  Nama    :  
-  
-  NIP/NRK :
+Nama    :  <?php echo $this->session->userdata("ses_nama") ?>
+
+NIP/NRK : <?php echo $this->session->userdata("ses_id"); ?>
               </pre>
             </div>
           </div>
