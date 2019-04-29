@@ -101,6 +101,31 @@
 
    <!-- tabel mahasiswa -->
 
+   <!--MODAL DELETE-->
+    <form>
+       <div class="modal fade" id="Modal_Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Delete Jadwal</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">
+                  <strong>Delete ?</strong>
+             </div>
+             <div class="modal-footer">
+               <input type="hidden" name="id_jadwal_delete" id="id_jadwal_delete" class="form-control">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+               <button type="button" type="submit" id="btn_delete" class="btn btn-primary">Ya</button>
+             </div>
+           </div>
+         </div>
+       </div>
+       </form>
+   <!--END MODAL DELETE-->
+
 
     </div>
 <!-- main-panel ends -->
@@ -152,12 +177,38 @@
             data : {gedung:gedung , jam:jam, tanggal:tanggal},
             success: function(data){
                 $('[name="jam"]').val("");
-                $('[name="nama"]').val("");
+                $('[name="tanggal"]').val("");
                 show_jadwal();
             }
         });
         return false;
     });
+
+    //get data for delete record
+    $('#show_data').on('click','.item_delete',function(){
+        var id_jadwal = $(this).data('id_jadwal');
+
+        $('#Modal_Delete').modal('show');
+        $('[name="id_jadwal_delete"]').val(id_jadwal);
+    });
+
+    //delete record to database
+     $('#btn_delete').on('click',function(){
+        var id_jadwal = $('#id_jadwal_delete').val();
+        $.ajax({
+            type : "POST",
+            url  : "<?php echo site_url('jadwaldosen/delete_jadwal')?>",
+            dataType : "JSON",
+            data : {id_jadwal:id_jadwal},
+            success: function(data){
+                $('[name="id_jadwal_delete"]').val("");
+                $('#Modal_Delete').modal('hide');
+                show_jadwal();
+            }
+        });
+        return false;
+    });
+
 
 
   });

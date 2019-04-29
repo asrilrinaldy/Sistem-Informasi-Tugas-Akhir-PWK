@@ -95,5 +95,6 @@ class Dosen_model extends CI_Model {
     $this->db->where('Id_Jadwal', $id_jadwal);
     $result=$this->db->delete('jadwal_kosong');
     return $result;
+  }
 
 }

@@ -23,5 +23,11 @@ class Jadwaldosen extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	function delete_jadwal(){
+		$this->load->model('dosen_model');
+		$data=$this->dosen_model->delete_jadwal();
+		echo json_encode($data);
+	}
+
 
 }
