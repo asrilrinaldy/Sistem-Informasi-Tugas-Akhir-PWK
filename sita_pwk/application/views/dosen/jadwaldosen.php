@@ -1,4 +1,5 @@
 <!-- partial -->
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/dataTables.bootstrap4.css'?>">
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="row">
@@ -18,7 +19,7 @@
               <br>Tempat</br>
               <div class="input-group">
                 <label>
-                  <select name="kelas_length" aria-controls="kelas" class="form-control input-sm">
+                  <select name="gedung" id="gedung" aria-controls="kelas" class="form-control input-sm">
                     <option value="Gedung C">Gedung C</option>
                     <option value="Gedung D">Gedung D</option>
                     <option value="Gedung E">Gedung E</option>
@@ -27,17 +28,17 @@
                 </label>
               </div>
 
-              <br><div id="kelas_length">Tanggal</br>
-                  <input type="date" style="width: 200px";>
+              <br><div >Tanggal</br>
+                  <input id="tanggal" type="date" style="width: 200px";>
               </div>
 
-              <br><div id="kelas_length">Jam</br>
-                  <input type="time" style="width: 200px";>
+              <br><div >Jam</br>
+                  <input id="jam" type="time" style="width: 200px";>
               </div>
 
               <br></br>
                 <center>
-                  <input class="btn btn-primary" type="submit" value="Simpan" ></input>
+                  <input class="btn btn-primary" id="btn_save" type="submit" value="Simpan" ></input>
                 </center>
 
 
@@ -57,27 +58,11 @@
             </span><br></br>
             <div class="row">
               <div class="col-sm-6">
-                <div class="jumlah-tampilan" id="kelas_length">Show
-                  <label> <select name="kelas_length" aria-controls="kelas" class="form-control input-sm">
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                    </select>
-                  </label> Entries
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div  class="dataTables_filter"> Search
-                  <label>
-                   <input type="search" class="form-control input-sm" placeholder="" aria-controls="kelas">
-                  </label>
-                </div>
               </div>
             </div>
 
             <div class="table-responsive">
-              <table class="table table-bordered">
+              <table id="tabelJWL" class="table table-bordered">
                 <thead class="nama-kolom">
                   <tr>
                     <td>
@@ -92,80 +77,19 @@
                     <td>
                       Jam
                     </td>
-
-
+                    <td>
+                      Aksi
+                    </td>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td >
-                      1
-                    </td>
-                    <td>
 
-                    </td>
-                    <td>
+                <tbody id="show_data">
 
-                    </td>
-                    <td>
-
-                    </td>
-
-
-                  </tr>
-                  <tr>
-                    <td class="font-weight-medium">
-                      2
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-
-                    </td>
-                    <td>
-
-                    </td>
-
-
-                  </tr>
-                  <tr>
-                    <td class="font-weight-medium">
-                      3
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    
-                  </tr>
 
                 </tbody>
               </table>
             </div>
             <br></br>
-
-            <div class="row">
-              <div class="col-sm-5">
-                <div class="dataTables_info" id="kelas_info" role="status" aria-live="polite">Showing 1 to 10 of 743 entries
-                </div>
-              </div>
-
-              <div class="col-sm-7">
-
-                  <ul class="tombol-tabel">
-                    <a href="#" class="previous">&laquo; Previous</a>
-                    <a href="#" class="next">Next &raquo;</a>
-                  </ul>
-
-              </div>
-            </div>
 
           </div>
         </div>
@@ -177,6 +101,116 @@
 
    <!-- tabel mahasiswa -->
 
+   <!--MODAL DELETE-->
+    <form>
+       <div class="modal fade" id="Modal_Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Delete Jadwal</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">
+                  <strong>Delete ?</strong>
+             </div>
+             <div class="modal-footer">
+               <input type="hidden" name="id_jadwal_delete" id="id_jadwal_delete" class="form-control">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+               <button type="button" type="submit" id="btn_delete" class="btn btn-primary">Ya</button>
+             </div>
+           </div>
+         </div>
+       </div>
+       </form>
+   <!--END MODAL DELETE-->
+
 
     </div>
 <!-- main-panel ends -->
+<!-- Buat DataTable-->
+<script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-3.2.1.js'?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.dataTables.js'?>"></script>
+
+<script>
+  $(document).ready(function(){
+    show_jadwal();
+    $('#tabelJWL').dataTable();
+
+    function show_jadwal(){
+        $.ajax({
+            type  : 'ajax',
+            url   : '<?php echo site_url('jadwaldosen/jadwal_data')?>',
+            async : false,
+            dataType : 'json',
+            success : function(data){
+                var html = '';
+                var i;
+                for(i=0; i<data.length; i++){
+                  var no = i+1;
+                  html += '<tr>'+
+                        '<td>'+no+'</td>'+
+                          '<td>'+data[i].Gedung+'</td>'+
+                          '<td>'+data[i].Tanggal+'</td>'+
+                          '<td>'+data[i].Jam+'</td>'+
+                          '<td style="text-align:right;">'+
+                                    '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_jadwal="'+data[i].Id_Jadwal+'">Delete</a>'+
+                                '</td>'+
+                            '</tr>';
+                }
+                $('#show_data').html(html);
+            }
+
+        });
+    }
+
+    $('#btn_save').on('click',function(){
+        var gedung = $("#gedung").val();
+        var jam = $('#jam').val();
+        var tanggal = $('#tanggal').val();
+
+        $.ajax({
+            type : "POST",
+            url  : "<?php echo site_url('jadwaldosen/input_jadwal')?>",
+            dataType : "JSON",
+            data : {gedung:gedung , jam:jam, tanggal:tanggal},
+            success: function(data){
+                $('[name="jam"]').val("");
+                $('[name="tanggal"]').val("");
+                show_jadwal();
+            }
+        });
+        return false;
+    });
+
+    //get data for delete record
+    $('#show_data').on('click','.item_delete',function(){
+        var id_jadwal = $(this).data('id_jadwal');
+
+        $('#Modal_Delete').modal('show');
+        $('[name="id_jadwal_delete"]').val(id_jadwal);
+    });
+
+    //delete record to database
+     $('#btn_delete').on('click',function(){
+        var id_jadwal = $('#id_jadwal_delete').val();
+        $.ajax({
+            type : "POST",
+            url  : "<?php echo site_url('jadwaldosen/delete_jadwal')?>",
+            dataType : "JSON",
+            data : {id_jadwal:id_jadwal},
+            success: function(data){
+                $('[name="id_jadwal_delete"]').val("");
+                $('#Modal_Delete').modal('hide');
+                show_jadwal();
+            }
+        });
+        return false;
+    });
+
+
+
+  });
+
+</script>

@@ -88,4 +88,29 @@ class Dosen_model extends CI_Model
     $hasil = $this->db->get('dosen');
     return $hasil->result();
   }
+  function jadwal_list_nip($nip)
+  {
+    $query = $this->db->get_where('jadwal_kosong', array('NIP' => $nip));
+    return $query->result();
+  }
+
+  function jadwal_kosong($nip)
+  {
+    $data = array(
+      'NIP'   => $nip,
+      'Gedung'   => $this->input->post('gedung'),
+      'Tanggal' => $this->input->post('tanggal'),
+      'Jam' => $this->input->post('jam')
+    );
+    $result = $this->db->insert('jadwal_kosong', $data);
+    return $result;
+  }
+
+  function delete_jadwal()
+  {
+    $id_jadwal = $this->input->post('id_jadwal');
+    $this->db->where('Id_Jadwal', $id_jadwal);
+    $result = $this->db->delete('jadwal_kosong');
+    return $result;
+  }
 }
