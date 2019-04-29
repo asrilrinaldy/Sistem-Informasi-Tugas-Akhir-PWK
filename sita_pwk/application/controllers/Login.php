@@ -9,6 +9,7 @@ class Login extends CI_Controller
     parent::__construct();
 
     $this->load->model('login_model');
+    $this->load->model('dosen_model');
   }
 
   public function index()
@@ -63,9 +64,11 @@ class Login extends CI_Controller
         $this->session->set_userdata('ses_no_telp', $data['No_telepon']);
         $this->session->set_userdata('ses_alamat', $data['Alamat']);
         $this->session->set_userdata('ses_judulta', $data['Judul_TA']);
-        $this->session->set_userdata('ses_pembimbing', $data['Pembimbing']);
-        $this->session->set_userdata('ses_pembimbing2', $data['Pembimbing2']);
         $this->session->set_userdata('ses_foto', $data['foto']);
+        $dosen1 = $this->dosen_model->get_dosen($data['Pembimbing'])->row_array();
+        $dosen2 = $this->dosen_model->get_dosen($data['Pembimbing2'])->row_array();
+        $this->session->set_userdata('ses_pembimbing', $dosen1['Nama']);
+        $this->session->set_userdata('ses_pembimbing2', $dosen2['Nama']);
         redirect('berandamahasiswa');
       } else {
         $url = base_url('login');
