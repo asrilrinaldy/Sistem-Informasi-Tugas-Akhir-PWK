@@ -92,4 +92,60 @@ class Mahasiswa_model extends CI_Model
     return $result;
   }
 
+  //logbook
+  function logbook_mahasiswa_list()
+  {
+    $hasil = $this->db->get('logbook');
+    return $hasil->result();
+  }
+
+  function logbook_mahasiswa_list_nama()
+  {
+    $query = $this->db->query("SELECT logbook.Id_Log, logbook.Tanggal, logbook.Deskripsi, logbook.Keterangan, dosen.Nama FROM dosen JOIN logbook ON dosen.NIP = logbook.NIP Join mahasiswa ON logbook.NIM = mahasiswa.NIM");
+    return $query->result();
+  }
+
+  public function get_logbook_mahasiswa_by_Id_Log($id_log)
+  {
+    $query = $this->db->get_where('logbook', array('Id_Log' => $id_log));
+    return $query;
+  }
+
+
+  function save_logbook_mahasiswa()
+  {
+    $data = array(
+      'Tanggal'     => $this->input->post('tanggal'),
+      'Deskripsi'   => $this->input->post('deskripsi'),
+      'Keterangan'  => $this->input->post('keterangan'),
+      'NIP'         => $this->input->post('nip'),
+    );
+    $result = $this->db->insert('logbook', $data);
+    return $result;
+  }
+
+  function update_logbook_mahasiswa()
+  {
+    $id_log           = $this->input->post('id_log');
+    $tanggal          = $this->input->post('tanggal');
+    $deskripsi        = $this->input->post('deskripsi');
+    $keterangan       = $this->input->post('keterangan');
+    $nama_pembimbing  = $this->input->post('nama_pembimbing');
+
+    $this->db->set('Tanggal', $tanggal);
+    $this->db->set('Deskripsi', $deskripsi);
+    $this->db->set('Keterangan', $keterangan);
+    $this->db->set('NIP', $nama_pembimbing);
+    $this->db->where('Id_Log', $id_log);
+    $result = $this->db->update('logbook');
+    return $result;
+  }
+
+  function delete_logbook_mahasiswa()
+  {
+    $id_log = $this->input->post('id_log');
+    $this->db->where('Id_Log', $id_log);
+    $result = $this->db->delete('logbook');
+    return $result;
+  }
 }

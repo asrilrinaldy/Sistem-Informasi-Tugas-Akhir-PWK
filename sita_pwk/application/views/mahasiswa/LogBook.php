@@ -2,13 +2,10 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/css/dataTables.bootstrap4.css' ?>">
 <div class="main-panel">
   <div class="content-wrapper">
-
     <!-- tabel referensi -->
 
     <div class="row">
-
       <div class="col-lg-12 grid-margin">
-
         <div class="card">
           <div class="card-body">
 
@@ -16,30 +13,9 @@
               <i class="menu-icon mdi mdi-paperclip"></i>
               Logbook Mahasiswa
             </span><br></br>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="jumlah-tampilan" id="kelas_length">Show
-                  <label> <select name="kelas_length" aria-controls="kelas" class="form-control input-sm">
-                      <option value="10">10</option>
-                      <option value="25">25</option>
-                      <option value="50">50</option>
-                      <option value="100">100</option>
-                    </select>
-                  </label> Entries
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="dataTables_filter"> Search
-                  <label>
-                    <input type="search" class="form-control input-sm" placeholder="" aria-controls="kelas">
-                  </label>
-                </div>
-              </div>
-            </div>
-
 
             <div class="table-responsive">
-              <table id="tabelJWL" class="table table-striped">
+              <table id="tabel_logbook" class="table table-striped">
                 <thead>
                   <tr>
                     <th>No</th>
@@ -47,7 +23,7 @@
                     <th>Deskripsi</th>
                     <th>Keterangan</th>
                     <th>Nama Pembimbing</th>
-                    <th style="text-align: right;">Aksi</th>
+                    <th style="text-align: right;">Actions</th>
                   </tr>
                 </thead>
                 <tbody id="show_data">
@@ -60,6 +36,7 @@
               <br><br>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -206,14 +183,14 @@
   <script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.dataTables.js' ?>"></script>
   <script>
     $(document).ready(function() {
-      show_jadwal();
-      $('#tabelJWL').dataTable();
+      show_logbook();
+      $('#tabel_logbook').dataTable();
 
       //function show all product
       function show_logbook() {
         $.ajax({
           type: 'ajax',
-          url: '<?php echo site_url('kelolajadwalpenting/jadwal_data') ?>',
+          url: '<?php echo site_url('logbookmahasiswa/logbook_mahasiswa_data') ?>',
           async: false,
           dataType: 'json',
           success: function(data) {
@@ -221,12 +198,11 @@
             var i;
             for (i = 0; i < data.length; i++) {
               html += '<tr>' +
-                '<td>' + data[i].Id_Jadwal + '</td>' +
-                '<td>' + data[i].NIM + '</td>' +
-                '<td>' + data[i].Nama + '</td>' +
-                '<td>' + data[i].Ruangan + '</td>' +
-                '<td>' + data[i].Waktu + '</td>' +
+                '<td>' + data[i].Id_Log + '</td>' +
                 '<td>' + data[i].Tanggal + '</td>' +
+                '<td>' + data[i].Deskripsi + '</td>' +
+                '<td>' + data[i].Keterangan + '</td>' +
+                '<td>' + data[i].Nama + '</td>' +
                 '<td style="text-align:right;">' +
                 '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_jadwal="' + data[i].Id_Jadwal + '" data-ruangan="' + data[i].Ruangan + '" data-waktu="' + data[i].Waktu + '" data-tanggal="' + data[i].Tanggal + '">Edit</a>' + ' ' +
                 '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_jadwal="' + data[i].Id_Jadwal + '">Delete</a>' +
@@ -352,125 +328,6 @@
 
     });
   </script>
-
-
-
-
   <!-- Buat DataTable-->
 
-  <!-- tabel mahasiswa -->
-
-  <div class="row">
-    <div class="col-lg-12 grid-margin">
-      <div class="card">
-        <div class="card-body">
-
-          <span class="judul-title">
-            <i class="menu-icon mdi mdi-paperclip"></i>
-            Logbook Mahasiswa
-          </span><br></br>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="jumlah-tampilan" id="kelas_length">Show
-                <label> <select name="kelas_length" aria-controls="kelas" class="form-control input-sm">
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                  </select>
-                </label> Entries
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="dataTables_filter"> Search
-                <label>
-                  <input type="search" class="form-control input-sm" placeholder="" aria-controls="kelas">
-                </label>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="table-responsive">
-            <table class="table table-bordered">
-              <tbody class="nama-kolom">
-                <tr>
-                  <th>
-                    No
-                  </th>
-                  <th>
-                    Hari,Tanggal
-                  </th>
-                  <th>
-                    Deskripsi
-                  </th>
-                  <th>
-                    Keterangan
-                  </th>
-                  <th>
-                    Nama Pembimbing
-                  </th>
-                  <th>
-                    Aksi
-                  </th>
-
-                </tr>
-              </tbody>
-              <tbody class="isi-tabel">
-                <tr>
-                  <td>
-                    1
-                  </td>
-                  <td>
-                    Selasa,12 Maret 2019
-                  </td>
-                  <td>
-                    Memperbaiki Bab 1
-                  </td>
-                  <td>
-                    Revisi
-                  </td>
-                  <td>
-                    Goldie Melinda Wijayanti S.T., M.T.
-                  </td>
-                  <td>
-                    <center>
-                      <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                      <a href="#" class="btn btn-danger btn-sm">Hapus</a>
-                    </center>
-                  </td>
-                </tr>
-
-
-              </tbody>
-            </table>
-            <div class="btn">
-              <a href="#" class="btn btn-success btn-sm">Tambah Aktivitas</a>
-            </div>
-          </div>
-
-          <br></br>
-
-          <div class="row">
-            <div class="col-sm-5">
-              <div class="dataTables_info" id="kelas_info" role="status" aria-live="polite">Showing 1 to 10 of 743 entries
-              </div>
-            </div>
-
-            <div class="col-sm-7">
-
-              <ul class="tombol-tabel">
-                <a href="#" class="previous">&laquo; Previous</a>
-                <a href="#" class="next">Next &raquo;</a>
-              </ul>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
-</div>
-<!-- main-panel ends -->

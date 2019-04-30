@@ -17,34 +17,34 @@ class LogBookMahasiswa extends CI_Controller
 		$this->load->view('mahasiswa/header', $isi);
 	}
 
-	public function getmahasiswa()
+	public function get_logbook_mahasiswa()
 	{
-		$nim = $this->input->post('nim', TRUE);
-		$data = $this->jadwalpenting_model->get_mhs_by_nim($nim)->result();
+		$nim = $this->input->post('Id_Log', TRUE);
+		$data = $this->mahasiswa_model->get_logbook_mahasiswa_by_Id_Log($id_log)->result();
 		echo json_encode($data);
 	}
 
-	function jadwal_data()
+	function logbook_mahasiswa_data()
 	{
-		$data = $this->jadwalpenting_model->jadwal_list_nama();
+		$data = $this->mahasiswa_model->logbook_mahasiswa_list_nama();
 		echo json_encode($data);
 	}
 
 	function save()
 	{
-		$data = $this->jadwalpenting_model->save_jadwalpenting();
+		$data = $this->logbook_mahasiswa_model->save_logbook_mahasiswa();
 		echo json_encode($data);
 	}
 
 	function update()
 	{
-		$data = $this->jadwalpenting_model->update_jadwalpenting();
+		$data = $this->logbook_mahasiswa_model->update_logbook_mahasiswa();
 		echo json_encode($data);
 	}
 
 	function delete()
 	{
-		$data = $this->jadwalpenting_model->delete_jadwalpenting();
+		$data = $this->logbook_mahasiswa_model->delete_logbook_mahasiswa();
 		echo json_encode($data);
 	}
 }
