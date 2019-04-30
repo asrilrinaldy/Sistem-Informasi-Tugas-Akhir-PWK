@@ -42,14 +42,14 @@ if ($this->session->userdata('masuk') == TRUE) {
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="username" required="Harus Diisi">
+						<input class="input100" type="text" name="username" required>
 						<span class="focus-input100"></span>
 						<span class="label-input100">Email</span>
 					</div>
 
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="password">
+						<input class="input100" type="password" name="password" required>
 						<span class="focus-input100"></span>
 						<span class="label-input100">Password</span>
 					</div>
@@ -64,7 +64,7 @@ if ($this->session->userdata('masuk') == TRUE) {
 
 						<div>
 							<a href="#" class="txt1">
-								Forgot Password?
+								Lupa Kata Sandi?
 							</a>
 						</div>
 					</div>
