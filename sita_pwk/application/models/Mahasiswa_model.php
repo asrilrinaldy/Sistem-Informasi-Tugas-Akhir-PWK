@@ -101,7 +101,7 @@ class Mahasiswa_model extends CI_Model
 
   function logbook_mahasiswa_list_nama()
   {
-    $query = $this->db->query("SELECT logbook.Id_Log, logbook.Tanggal, logbook.Deskripsi, logbook.Keterangan, dosen.Nama FROM dosen JOIN logbook ON dosen.NIP = logbook.NIP Join mahasiswa ON logbook.NIM = mahasiswa.NIM");
+    $query = $this->db->query("SELECT logbook.*, mahasiswa.Nama AS nama_mahasiswa, dosen.Nama AS nama_dosen FROM logbook INNER JOIN mahasiswa ON logbook.NIM=mahasiswa.NIM INNER JOIN dosen ON logbook.NIP=dosen.NIP");
     return $query->result();
   }
 
@@ -118,8 +118,10 @@ class Mahasiswa_model extends CI_Model
       'Tanggal'     => $this->input->post('tanggal'),
       'Deskripsi'   => $this->input->post('deskripsi'),
       'Keterangan'  => $this->input->post('keterangan'),
-      'NIP'         => $this->input->post('nip'),
+      'NIP'         => $this->input->post('dosen'),
+      'NIM'         => $this->session->userdata(ses_id)
     );
+
     $result = $this->db->insert('logbook', $data);
     return $result;
   }

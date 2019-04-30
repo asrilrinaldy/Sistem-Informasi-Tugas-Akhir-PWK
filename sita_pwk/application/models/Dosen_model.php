@@ -83,7 +83,7 @@ class Dosen_model extends CI_Model
     return $result;
   }
 
-  function dosen_pembimbing($nip1,$nip2)
+  function dosen_pembimbing($nip1, $nip2)
   {
     $query = $this->db->query(" SELECT * FROM dosen WHERE NIP='$nip1' OR NIP='$nip2' ");
     return $query->result();

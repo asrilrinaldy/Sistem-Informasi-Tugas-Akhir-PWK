@@ -85,19 +85,6 @@
                 </select>
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-md-2 col-form-label">NIP</label>
-              <div class="col-md-10">
-                <input type="text" name="nip" id="nip" class="form-control" disabled>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-2 col-form-label">Nama</label>
-              <div class="col-md-10">
-                <input type="text" name="Nama" id="Nama" class="form-control" disabled>
-              </div>
-            </div>
-
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -217,30 +204,27 @@
 
       //Save product
       $('#btn_save').on('click', function() {
-        var nim = $('#nim').val();
-        var ruangan = $('#ruangan').val();
-        var waktu = $('#waktu').val();
-        var tanggal = $('#tanggal').val();
-
+        var tanggal = $('#Tanggal').val();
+        var deskripsi = $('#Deskripsi').val();
+        var keterangan = $('#Keterangan').val();
+        var dosen = $('#dosen').val();
         $.ajax({
           type: "POST",
-          url: "<?php echo site_url('kelolajadwalpenting/save') ?>",
+          url: "<?php echo site_url('logbookmahasiswa/save') ?>",
           dataType: "JSON",
           data: {
-            nim: nim,
-            ruangan: ruangan,
-            waktu: waktu,
-            tanggal: tanggal
+            tanggal: tanggal,
+            deskripsi: deskripsi,
+            keterangan: keterangan,
+            dosen: dosen
           },
           success: function(data) {
-            $('[name="id_jadwal"]').val("");
-            $('[name="nim"]').val("");
-            $('[name="nama"]').val("");
-            $('[name="ruangan"]').val("");
-            $('[name="waktu"]').val("");
-            $('[name="tanggal"]').val("");
+            $('[name="Tanggal"]').val("");
+            $('[name="Deskripsi"]').val("");
+            $('[name="Keterangan"]').val("");
+            $('[name="dosen"]').val("");
             $('#Modal_Add').modal('hide');
-            show_jadwal();
+            show_logbook();
           }
         });
         return false;
@@ -294,7 +278,7 @@
 
       //get data for delete record
       $('#show_data').on('click', '.item_delete', function() {
-        var id_jadwal = $(this).data('id_jadwal');
+        var id_log = $(this).data('id_log');
 
         $('#Modal_Delete').modal('show');
         $('[name="id_logbook_delete"]').val(id_logbook);

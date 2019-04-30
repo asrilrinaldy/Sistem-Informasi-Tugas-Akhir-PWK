@@ -7,13 +7,16 @@ class LogBookMahasiswa extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('mahasiswa_model');
+		$this->load->model('dosen_model');
 		$this->load->model('logbook_mahasiswa_model');
 	}
 
 	public function index()
 	{
+		$nip1 = $this->session->userdata('ses_nippembimbing');
+		$nip2 = $this->session->userdata('ses_nippembimbing2');
 		$isi['konten'] = 'mahasiswa/LogBook';
-		$isi['mahasiswa'] = $this->mahasiswa_model->mahasiswa_list();
+		$isi['dosen'] = $this->dosen_model->dosen_pembimbing($nip1, $nip2);
 		$this->load->view('mahasiswa/header', $isi);
 	}
 
@@ -32,19 +35,19 @@ class LogBookMahasiswa extends CI_Controller
 
 	function save()
 	{
-		$data = $this->logbook_mahasiswa_model->save_logbook_mahasiswa();
+		$data = $this->mahasiswa_model->save_logbook_mahasiswa();
 		echo json_encode($data);
 	}
 
 	function update()
 	{
-		$data = $this->logbook_mahasiswa_model->update_logbook_mahasiswa();
+		$data = $this->mahasiswa_model->update_logbook_mahasiswa();
 		echo json_encode($data);
 	}
 
 	function delete()
 	{
-		$data = $this->logbook_mahasiswa_model->delete_logbook_mahasiswa();
+		$data = $this->mahasiswa_model->delete_logbook_mahasiswa();
 		echo json_encode($data);
 	}
 }
