@@ -96,50 +96,6 @@
   </form>
   <!--END MODAL ADD-->
 
-  <!-- MODAL EDIT -->
-  <form>
-    <div class="modal fade" id="Modal_Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Edit Logbook aja</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <input type="hidden" name="id_logbook_edit" id="id_logbook_edit" class="form-control" disabled>
-
-            <div class="form-group row">
-              <label class="col-md-2 col-form-label">Tanggal</label>
-              <div class="col-md-10">
-                <input type="date" name="tanggal_edit" id="tanggal_edit" class="form-control">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-2 col-form-label">Deskripsi</label>
-              <div class="col-md-10">
-                <input type="text" name="ruangan_edit" id="ruangan_edit" class="form-control" placeholder="Ruangan">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-2 col-form-label">Keterangan</label>
-              <div class="col-md-10">
-                <input type=time name="Keterangan_edit" id="Keterangan_edit" class="form-control">
-              </div>
-            </div>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" type="submit" id="btn_update" class="btn btn-primary">Update</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
-  <!--END MODAL EDIT-->
-
   <!--MODAL DELETE-->
   <form>
     <div class="modal fade" id="Modal_Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -191,7 +147,6 @@
                 '<td>' + data[i].Keterangan + '</td>' +
                 '<td>' + data[i].Nama + '</td>' +
                 '<td style="text-align:right;">' +
-                '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_jadwal="' + data[i].Id_Jadwal + '" data-ruangan="' + data[i].Ruangan + '" data-waktu="' + data[i].Waktu + '" data-tanggal="' + data[i].Tanggal + '">Edit</a>' + ' ' +
                 '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_jadwal="' + data[i].Id_Jadwal + '">Delete</a>' +
                 '</td>' +
                 '</tr>';
