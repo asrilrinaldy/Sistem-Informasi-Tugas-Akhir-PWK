@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class InformasiDosen2 extends CI_Controller {
+class InformasiDosen2 extends CI_Controller
+{
 
 	public function index()
 	{

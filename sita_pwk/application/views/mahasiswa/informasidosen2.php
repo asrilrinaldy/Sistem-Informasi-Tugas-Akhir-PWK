@@ -13,11 +13,18 @@
               <i class="menu-icon mdi mdi-paperclip"></i>DATA DOSEN
             </h4>
 
-            <div class="biodata-dosen">
-              <br>Nama</br>
-              <br>NIP</br>
-              <br>Email</br>
-              <br>No Telp</br>
+            <div>
+              <pre class="biodata-mahasiswa">
+  Nama            : <?php echo $this->session->userdata('ses_nama') ?>
+
+  NIP             : <?php echo $this->session->userdata('ses_id') ?>
+
+  Email           : <?php echo "Perencanaan Wilayah dan Kota" ?>
+
+  No. Telp.       : <?php echo $this->session->userdata('ses_pembimbing') ?>
+
+            </pre>
+
             </div>
 
           </div>
@@ -35,18 +42,18 @@
               <div class="col-sm-6">
                 <div class="jumlah-tampilan" id="kelas_length">Show
                   <label> <select name="kelas_length" aria-controls="kelas" class="form-control input-sm">
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
+                      <option value="10">10</option>
+                      <option value="25">25</option>
+                      <option value="50">50</option>
+                      <option value="100">100</option>
                     </select>
                   </label> Entries
                 </div>
               </div>
               <div class="col-sm-6">
-                <div  class="dataTables_filter"> Search
+                <div class="dataTables_filter"> Search
                   <label>
-                   <input type="search" class="form-control input-sm" placeholder="" aria-controls="kelas">
+                    <input type="search" class="form-control input-sm" placeholder="" aria-controls="kelas">
                   </label>
                 </div>
               </div>
@@ -73,7 +80,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td >
+                    <td>
                       1
                     </td>
                     <td>
@@ -96,72 +103,72 @@
                     </td>
                     <td>
 
-                      </div>
-                    </td>
-                    <td>
-
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <td class="font-weight-medium">
-                      3
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <td class="font-weight-medium">
-                      4
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
-              <br></br>
+            </td>
+            <td>
 
-            <div class="row">
-              <div class="col-sm-5">
-                <div class="dataTables_info" id="kelas_info" role="status" aria-live="polite">Showing 1 to 10 of 743 entries
-                </div>
+            </td>
+
+            </tr>
+            <tr>
+              <td class="font-weight-medium">
+                3
+              </td>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+
+            </tr>
+            <tr>
+              <td class="font-weight-medium">
+                4
+              </td>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+            </tr>
+            </tbody>
+            </table>
+          </div>
+          <br></br>
+
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="dataTables_info" id="kelas_info" role="status" aria-live="polite">Showing 1 to 10 of 743 entries
               </div>
+            </div>
 
-              <div class="col-sm-7">
+            <div class="col-sm-7">
 
-                  <ul class="tombol-tabel">
-                    <a href="#" class="previous">&laquo; Previous</a>
-                    <a href="#" class="next">Next &raquo;</a>
-                  </ul>
+              <ul class="tombol-tabel">
+                <a href="#" class="previous">&laquo; Previous</a>
+                <a href="#" class="next">Next &raquo;</a>
+              </ul>
 
-              </div>
+            </div>
 
           </div>
         </div>
       </div>
 
 
-      </div>
     </div>
+  </div>
 
-   <!-- tabel mahasiswa -->
+  <!-- tabel mahasiswa -->
 
 
-    </div>
+</div>
 <!-- main-panel ends -->
