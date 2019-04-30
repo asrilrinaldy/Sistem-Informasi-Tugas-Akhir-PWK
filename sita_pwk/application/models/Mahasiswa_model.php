@@ -150,4 +150,23 @@ class Mahasiswa_model extends CI_Model
     $result = $this->db->delete('logbook');
     return $result;
   }
+
+  function konsul_list($nim){
+    $hasil = $this->db->get_where('konsultasi', array('NIM' => $nim));
+    return $hasil->result();
+  }
+
+  function tambah_konsul($nim,$nip,$tanggal,$judul_ta,$file,$keterangan){
+    $data = array(
+      'NIM' 	=> $nim,
+      'NIP' 	=> $nip,
+      'Tanggal' => $tanggal,
+      'Judul_TA' => $judul_ta,
+      'file' => $file,
+      'Keterangan' => $keterangan
+    );
+    $result = $this->db->insert('konsultasi',$data);
+    return $result;
+  }
+
 }
