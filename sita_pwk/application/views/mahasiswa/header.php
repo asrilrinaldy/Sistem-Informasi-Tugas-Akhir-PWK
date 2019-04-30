@@ -56,7 +56,7 @@
               <img class="img-xs rounded-circle" src="<?php echo base_url()?>assets/upload/foto/mahasiswa/<?php echo $this->session->userdata('ses_foto')  ?>" alt="Profile image">
               <?php }else{?>
                 <img class="img-xs rounded-circle" src="<?php echo base_url()?>assets/profil/default-profile.png"alt="User profile picture">
-                <<?php } ?>
+                <?php } ?>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <a class="dropdown-item p-0">
