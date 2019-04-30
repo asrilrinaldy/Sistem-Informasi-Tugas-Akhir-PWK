@@ -12,8 +12,11 @@ class InformasiDosen extends CI_Controller
 	}
 	public function data_dosen()
 	{
+		$nip1 = $this->session->userdata('ses_nippembimbing');
+		$nip2 = $this->session->userdata('ses_nippembimbing2');
+
 		$this->load->model('dosen_model');
-		$data = $this->dosen_model->dosen_pembimbing();
+		$data = $this->dosen_model->dosen_pembimbing($nip1,$nip2);
 		echo json_encode($data);
 	}
 }
