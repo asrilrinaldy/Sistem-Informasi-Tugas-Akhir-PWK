@@ -233,6 +233,12 @@
                      async:false,
                       success: function(data){
                           $('#Modal_Add').modal('hide');
+                          $('[name="id_referensi"]').val("");
+                          $('[name="judul_ta"]').val("");
+                          $('[name="penulis"]').val("");
+                          $('[name="tahun"]').val("");
+                          $('[name="asal_referensi"]').val("");
+                          $('[name="file"]').val("");
                           show_referensi();
                    }
                  });
