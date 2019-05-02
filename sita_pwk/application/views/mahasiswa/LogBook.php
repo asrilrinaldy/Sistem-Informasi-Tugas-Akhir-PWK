@@ -193,7 +193,7 @@
               '<td>' + data[i].nama_dosen + '</td>' +
               '<td style="text-align:right;">' +
               '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_jadwal="' + data[i].Id_Jadwal + '" data-ruangan="' + data[i].Ruangan + '" data-waktu="' + data[i].Waktu + '" data-tanggal="' + data[i].Tanggal + '">Edit</a>' + ' ' +
-              '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_jadwal="' + data[i].Id_Jadwal + '">Delete</a>' +
+              '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_logbook="' + data[i].Id_Log + '">Delete</a>' +
               '</td>' +
               '</tr>';
           }
