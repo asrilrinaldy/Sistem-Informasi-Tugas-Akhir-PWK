@@ -57,12 +57,6 @@
           </div>
           <div class="modal-body">
             <div class="form-group row">
-              <label class="col-md-2 col-form-label">Tanggal</label>
-              <div class="col-md-10">
-                <input type="date" name="Tanggal" id="Tanggal" class="form-control">
-              </div>
-            </div>
-            <div class="form-group row">
               <label class="col-md-2 col-form-label">Deskripsi</label>
               <div class="col-md-10">
                 <input type="text" name="Deskripsi" id="Deskripsi" class="form-control" placeholder="Deskripsi">
@@ -95,50 +89,6 @@
     </div>
   </form>
   <!--END MODAL ADD-->
-
-  <!-- MODAL EDIT -->
-  <form>
-    <div class="modal fade" id="Modal_Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Edit Logbook</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <input type="hidden" name="id_logbook_edit" id="id_logbook_edit" class="form-control" disabled>
-
-            <div class="form-group row">
-              <label class="col-md-2 col-form-label">Tanggal</label>
-              <div class="col-md-10">
-                <input type="date" name="tanggal_edit" id="tanggal_edit" class="form-control">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-2 col-form-label">Deskripsi</label>
-              <div class="col-md-10">
-                <input type="text" name="ruangan_edit" id="ruangan_edit" class="form-control" placeholder="Ruangan">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-2 col-form-label">Keterangan</label>
-              <div class="col-md-10">
-                <input type=time name="Keterangan_edit" id="Keterangan_edit" class="form-control">
-              </div>
-            </div>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" type="submit" id="btn_update" class="btn btn-primary">Update</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
-  <!--END MODAL EDIT-->
 
   <!--MODAL DELETE-->
   <form>
@@ -184,15 +134,16 @@
         success: function(data) {
           var html = '';
           var i;
+          var no;
           for (i = 0; i < data.length; i++) {
+            no = i + 1;
             html += '<tr>' +
-              '<td>' + data[i].Id_Log + '</td>' +
+              '<td>' + no + '</td>' +
               '<td>' + data[i].Tanggal + '</td>' +
               '<td>' + data[i].Deskripsi + '</td>' +
               '<td>' + data[i].Keterangan + '</td>' +
               '<td>' + data[i].nama_dosen + '</td>' +
-              '<td style="text-align:right;">' +
-              '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_jadwal="' + data[i].Id_Log + '" data-ruangan="' + data[i].Ruangan + '" data-waktu="' + data[i].Waktu + '" data-tanggal="' + data[i].Tanggal + '">Edit</a>' + ' ' +
+              '<td style="text-align:center;">' +
               '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_logbook="' + data[i].Id_Log + '">Delete</a>' +
               '</td>' +
               '</tr>';
@@ -205,7 +156,6 @@
 
     //Save product
     $('#btn_save').on('click', function() {
-      var tanggal = $('#Tanggal').val();
       var deskripsi = $('#Deskripsi').val();
       var keterangan = $('#Keterangan').val();
       var dosen = $('#dosen').val();
@@ -214,7 +164,6 @@
         url: "<?php echo site_url('logbookmahasiswa/save') ?>",
         dataType: "JSON",
         data: {
-          tanggal: tanggal,
           deskripsi: deskripsi,
           keterangan: keterangan,
           dosen: dosen
@@ -226,52 +175,9 @@
           $('[name="dosen"]').val("");
           $('#Modal_Add').modal('hide');
           show_logbook();
-        }
-      });
-      return false;
-    });
-
-    //get data for update record
-    $('#show_data').on('click', '.item_edit', function() {
-      var id_jadwal = $(this).data('id_jadwal');
-      var nim = $(this).data('nim');
-      var ruangan = $(this).data('ruangan');
-      var waktu = $(this).data('waktu');
-      var tanggal = $(this).data('tanggal');
-
-      $('#Modal_Edit').modal('show');
-      $('[name="id_jadwal_edit"]').val(id_jadwal);
-      $('[name="ruangan_edit"]').val(ruangan);
-      $('[name="waktu_edit"]').val(waktu);
-      $('[name="tanggal_edit"]').val(tanggal);
-    });
-
-    //update record to database
-    $('#btn_update').on('click', function() {
-
-      var id_jadwal = $('#id_jadwal_edit').val();
-      var ruangan = $('#ruangan_edit').val();
-      var waktu = $('#waktu_edit').val();
-      var tanggal = $('#tanggal_edit').val();
-
-
-      $.ajax({
-        type: "POST",
-        url: "<?php echo site_url('logbookmahasiswa/update') ?>",
-        dataType: "JSON",
-        data: {
-          id_logbook: id_logbook,
-          deskripsi: deskripsi,
-          keterangan: keterangan,
-          tanggal: tanggal
         },
-        success: function(data) {
-          $('[name="id_logbook_edit"]').val("");
-          $('[name="ruangan_edit"]').val("");
-          $('[name="waktu_edit"]').val("");
-          $('[name="tanggal_edit"]').val("");
-          $('#Modal_Edit').modal('hide');
-          show_jadwal();
+        error: function(jqXHR, textStatus, errorThrown) {
+          console.log(textStatus, errorThrown);
         }
       });
       return false;

@@ -115,31 +115,14 @@ class Mahasiswa_model extends CI_Model
   function save_logbook_mahasiswa()
   {
     $data = array(
-      'Tanggal'     => $this->input->post('tanggal'),
+      'Tanggal'     => date("Y-m-d"),
       'Deskripsi'   => $this->input->post('deskripsi'),
       'Keterangan'  => $this->input->post('keterangan'),
       'NIP'         => $this->input->post('dosen'),
-      'NIM'         => $this->session->userdata(ses_id)
+      'NIM'         => $this->session->userdata("ses_id"),
     );
 
     $result = $this->db->insert('logbook', $data);
-    return $result;
-  }
-
-  function update_logbook_mahasiswa()
-  {
-    $id_log           = $this->input->post('id_log');
-    $tanggal          = $this->input->post('tanggal');
-    $deskripsi        = $this->input->post('deskripsi');
-    $keterangan       = $this->input->post('keterangan');
-    $nama_pembimbing  = $this->input->post('nama_pembimbing');
-
-    $this->db->set('Tanggal', $tanggal);
-    $this->db->set('Deskripsi', $deskripsi);
-    $this->db->set('Keterangan', $keterangan);
-    $this->db->set('NIP', $nama_pembimbing);
-    $this->db->where('Id_Log', $id_log);
-    $result = $this->db->update('logbook');
     return $result;
   }
 

@@ -20,13 +20,6 @@ class LogBookMahasiswa extends CI_Controller
 		$this->load->view('mahasiswa/header', $isi);
 	}
 
-	public function get_logbook_mahasiswa()
-	{
-		$nim = $this->input->post('Id_Log', TRUE);
-		$data = $this->mahasiswa_model->get_logbook_mahasiswa_by_Id_Log($id_log)->result();
-		echo json_encode($data);
-	}
-
 	function logbook_mahasiswa_data()
 	{
 		$data = $this->mahasiswa_model->logbook_mahasiswa_list_nama();
