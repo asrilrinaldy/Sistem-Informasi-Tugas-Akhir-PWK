@@ -155,7 +155,7 @@
             <strong>Delete ?</strong>
           </div>
           <div class="modal-footer">
-            <input type="hidden" name="id_jadwal_delete" id="id_jadwal_delete" class="form-control">
+            <input type="hidden" name="id_logbook_delete" id="id_logbook_delete" class="form-control">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
             <button type="button" type="submit" id="btn_delete" class="btn btn-primary">Ya</button>
           </div>
@@ -164,154 +164,153 @@
     </div>
   </form>
   <!--END MODAL DELETE-->
+</div>
 
-  <!-- Buat DataTable-->
-  <script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery-3.2.1.js' ?>"></script>
-  <script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.dataTables.js' ?>"></script>
-  <script>
-    $(document).ready(function() {
-      show_logbook();
-      $('#tabel_logbook').dataTable();
+<!-- Buat DataTable-->
+<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery-3.2.1.js' ?>"></script>
+<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.dataTables.js' ?>"></script>
+<script>
+  $(document).ready(function() {
+    show_logbook();
+    $('#tabel_logbook').dataTable();
 
-      //function show all product
-      function show_logbook() {
-        $.ajax({
-          type: 'ajax',
-          url: '<?php echo site_url('logbookmahasiswa/logbook_mahasiswa_data') ?>',
-          async: false,
-          dataType: 'json',
-          success: function(data) {
-            var html = '';
-            var i;
-            for (i = 0; i < data.length; i++) {
-              html += '<tr>' +
-                '<td>' + data[i].Id_Log + '</td>' +
-                '<td>' + data[i].Tanggal + '</td>' +
-                '<td>' + data[i].Deskripsi + '</td>' +
-                '<td>' + data[i].Keterangan + '</td>' +
-                '<td>' + data[i].Nama + '</td>' +
-                '<td style="text-align:right;">' +
-                '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_jadwal="' + data[i].Id_Jadwal + '" data-ruangan="' + data[i].Ruangan + '" data-waktu="' + data[i].Waktu + '" data-tanggal="' + data[i].Tanggal + '">Edit</a>' + ' ' +
-                '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_jadwal="' + data[i].Id_Jadwal + '">Delete</a>' +
-                '</td>' +
-                '</tr>';
-            }
-            $('#show_data').html(html);
+    //function show all product
+    function show_logbook() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo site_url('logbookmahasiswa/logbook_mahasiswa_data') ?>',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          var html = '';
+          var i;
+          for (i = 0; i < data.length; i++) {
+            html += '<tr>' +
+              '<td>' + data[i].Id_Log + '</td>' +
+              '<td>' + data[i].Tanggal + '</td>' +
+              '<td>' + data[i].Deskripsi + '</td>' +
+              '<td>' + data[i].Keterangan + '</td>' +
+              '<td>' + data[i].nama_dosen + '</td>' +
+              '<td style="text-align:right;">' +
+              '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_jadwal="' + data[i].Id_Jadwal + '" data-ruangan="' + data[i].Ruangan + '" data-waktu="' + data[i].Waktu + '" data-tanggal="' + data[i].Tanggal + '">Edit</a>' + ' ' +
+              '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_jadwal="' + data[i].Id_Jadwal + '">Delete</a>' +
+              '</td>' +
+              '</tr>';
           }
-
-        });
-      }
-
-      //Save product
-      $('#btn_save').on('click', function() {
-        var tanggal = $('#Tanggal').val();
-        var deskripsi = $('#Deskripsi').val();
-        var keterangan = $('#Keterangan').val();
-        var dosen = $('#dosen').val();
-        $.ajax({
-          type: "POST",
-          url: "<?php echo site_url('logbookmahasiswa/save') ?>",
-          dataType: "JSON",
-          data: {
-            tanggal: tanggal,
-            deskripsi: deskripsi,
-            keterangan: keterangan,
-            dosen: dosen
-          },
-          success: function(data) {
-            $('[name="Tanggal"]').val("");
-            $('[name="Deskripsi"]').val("");
-            $('[name="Keterangan"]').val("");
-            $('[name="dosen"]').val("");
-            $('#Modal_Add').modal('hide');
-            show_logbook();
-          }
-        });
-        return false;
-      });
-
-      //get data for update record
-      $('#show_data').on('click', '.item_edit', function() {
-        var id_jadwal = $(this).data('id_jadwal');
-        var nim = $(this).data('nim');
-        var ruangan = $(this).data('ruangan');
-        var waktu = $(this).data('waktu');
-        var tanggal = $(this).data('tanggal');
-
-        $('#Modal_Edit').modal('show');
-        $('[name="id_jadwal_edit"]').val(id_jadwal);
-        $('[name="ruangan_edit"]').val(ruangan);
-        $('[name="waktu_edit"]').val(waktu);
-        $('[name="tanggal_edit"]').val(tanggal);
-      });
-
-      //update record to database
-      $('#btn_update').on('click', function() {
-
-        var id_jadwal = $('#id_jadwal_edit').val();
-        var ruangan = $('#ruangan_edit').val();
-        var waktu = $('#waktu_edit').val();
-        var tanggal = $('#tanggal_edit').val();
-
-
-        $.ajax({
-          type: "POST",
-          url: "<?php echo site_url('logbookmahasiswa/update') ?>",
-          dataType: "JSON",
-          data: {
-            id_logbook: id_logbook,
-            deskripsi: deskripsi,
-            keterangan: keterangan,
-            tanggal: tanggal
-          },
-          success: function(data) {
-            $('[name="id_logbook_edit"]').val("");
-            $('[name="ruangan_edit"]').val("");
-            $('[name="waktu_edit"]').val("");
-            $('[name="tanggal_edit"]').val("");
-            $('#Modal_Edit').modal('hide');
-            show_jadwal();
-          }
-        });
-        return false;
-      });
-
-      //get data for delete record
-      $('#show_data').on('click', '.item_delete', function() {
-        var id_log = $(this).data('id_log');
-
-        $('#Modal_Delete').modal('show');
-        $('[name="id_logbook_delete"]').val(id_logbook);
-      });
-
-      //delete record to database
-      $('#btn_delete').on('click', function() {
-        var id_jadwal = $('#id_logbook_delete').val();
-        $.ajax({
-          type: "POST",
-          url: "<?php echo site_url('logbookmahasiswa/delete') ?>",
-          dataType: "JSON",
-          data: {
-            id_logbook: id_logbook
-          },
-          success: function(data) {
-            $('[name="id_logbook_delete"]').val("");
-            $('#Modal_Delete').modal('hide');
-            show_logbook();
-          }
-        });
-        return false;
-      });
-
-      $('#dosen').change(function() {
-
-        $("#nip").val($("#dosen").val());
-        $("#nama").val($("#dosen option:selected").text());
+          $('#show_data').html(html);
+        }
 
       });
+    }
+
+    //Save product
+    $('#btn_save').on('click', function() {
+      var tanggal = $('#Tanggal').val();
+      var deskripsi = $('#Deskripsi').val();
+      var keterangan = $('#Keterangan').val();
+      var dosen = $('#dosen').val();
+      $.ajax({
+        type: "POST",
+        url: "<?php echo site_url('logbookmahasiswa/save') ?>",
+        dataType: "JSON",
+        data: {
+          tanggal: tanggal,
+          deskripsi: deskripsi,
+          keterangan: keterangan,
+          dosen: dosen
+        },
+        success: function(data) {
+          $('[name="Tanggal"]').val("");
+          $('[name="Deskripsi"]').val("");
+          $('[name="Keterangan"]').val("");
+          $('[name="dosen"]').val("");
+          $('#Modal_Add').modal('hide');
+          show_logbook();
+        }
+      });
+      return false;
+    });
+
+    //get data for update record
+    $('#show_data').on('click', '.item_edit', function() {
+      var id_jadwal = $(this).data('id_jadwal');
+      var nim = $(this).data('nim');
+      var ruangan = $(this).data('ruangan');
+      var waktu = $(this).data('waktu');
+      var tanggal = $(this).data('tanggal');
+
+      $('#Modal_Edit').modal('show');
+      $('[name="id_jadwal_edit"]').val(id_jadwal);
+      $('[name="ruangan_edit"]').val(ruangan);
+      $('[name="waktu_edit"]').val(waktu);
+      $('[name="tanggal_edit"]').val(tanggal);
+    });
+
+    //update record to database
+    $('#btn_update').on('click', function() {
+
+      var id_jadwal = $('#id_jadwal_edit').val();
+      var ruangan = $('#ruangan_edit').val();
+      var waktu = $('#waktu_edit').val();
+      var tanggal = $('#tanggal_edit').val();
+
+
+      $.ajax({
+        type: "POST",
+        url: "<?php echo site_url('logbookmahasiswa/update') ?>",
+        dataType: "JSON",
+        data: {
+          id_logbook: id_logbook,
+          deskripsi: deskripsi,
+          keterangan: keterangan,
+          tanggal: tanggal
+        },
+        success: function(data) {
+          $('[name="id_logbook_edit"]').val("");
+          $('[name="ruangan_edit"]').val("");
+          $('[name="waktu_edit"]').val("");
+          $('[name="tanggal_edit"]').val("");
+          $('#Modal_Edit').modal('hide');
+          show_jadwal();
+        }
+      });
+      return false;
+    });
+
+    //get data for delete record
+    $('#show_data').on('click', '.item_delete', function() {
+      var id_log = $(this).data('id_log');
+
+      $('#Modal_Delete').modal('show');
+      $('[name="id_logbook_delete"]').val(id_log);
+    });
+
+    //delete record to database
+    $('#btn_delete').on('click', function() {
+      var id_log = $('#id_logbook_delete').val();
+      $.ajax({
+        type: "POST",
+        url: "<?php echo site_url('logbookmahasiswa/delete') ?>",
+        dataType: "JSON",
+        data: {
+          id_log: id_log
+        },
+        success: function(data) {
+          $('[name="id_logbook_delete"]').val("");
+          $('#Modal_Delete').modal('hide');
+          show_logbook();
+        }
+      });
+      return false;
+    });
+
+    $('#dosen').change(function() {
+
+      $("#nip").val($("#dosen").val());
+      $("#nama").val($("#dosen option:selected").text());
 
     });
-  </script>
-  <!-- Buat DataTable-->
 
-</div>
+  });
+</script>
+<!-- Buat DataTable-->
