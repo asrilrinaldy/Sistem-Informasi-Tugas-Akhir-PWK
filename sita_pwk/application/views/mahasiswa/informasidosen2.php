@@ -1,9 +1,11 @@
 <!-- partial -->
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/css/dataTables.bootstrap4.css' ?>">
+
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="row">
       <div class="col-lg-4  grid-margin">
-        <img class="img-xs2 rounded-circle2" src="<?php base_url() ?>images/faces/usertes.jpg" alt="Profile image">
+        <img class="img-xs2 rounded-circle2" src="<?php base_url() ?>assets/upload/foto/dosen/<?php echo $dosen['foto']; ?>" alt="Profile image">
         <br></br>
         <div class="card card-statistics">
 
@@ -15,18 +17,18 @@
 
             <div>
               <pre class="biodata-mahasiswa">
-  Nama            : <?php echo $this->session->userdata('ses_nama') ?>
+  Nama            : <?php echo $dosen['Nama'] ?>
 
-  NIP             : <?php echo $this->session->userdata('ses_id') ?>
+  NIP             : <?php echo $dosen['NIP'] ?>
 
-  Email           : <?php echo "Perencanaan Wilayah dan Kota" ?>
+  Email           : <?php echo $dosen['Email'] ?>
 
-  No. Telp.       : <?php echo $this->session->userdata('ses_pembimbing') ?>
+  No. Telp.       : <?php echo $dosen['No_telepon'] ?>
 
             </pre>
 
             </div>
-
+            <input type="hidden" name="nip_dosen" id="nip_dosen" value="<?php echo $dosen['NIP'] ?>">
           </div>
         </div>
       </div>
@@ -38,36 +40,16 @@
             <span class="judul-title">
               JADWAL DOSEN
             </span><br></br>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="jumlah-tampilan" id="kelas_length">Show
-                  <label> <select name="kelas_length" aria-controls="kelas" class="form-control input-sm">
-                      <option value="10">10</option>
-                      <option value="25">25</option>
-                      <option value="50">50</option>
-                      <option value="100">100</option>
-                    </select>
-                  </label> Entries
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="dataTables_filter"> Search
-                  <label>
-                    <input type="search" class="form-control input-sm" placeholder="" aria-controls="kelas">
-                  </label>
-                </div>
-              </div>
-            </div>
 
             <div class="table-responsive">
-              <table class="table table-bordered">
+              <table id="tabelJWL" class="table table-bordered">
                 <thead class="nama-kolom">
                   <tr>
                     <th>
                       No
                     </th>
                     <th>
-                      Gedung
+                      Tempat
                     </th>
                     <th>
                       Tanggal
@@ -78,97 +60,61 @@
 
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      1
-                    </td>
-                    <td>
-                      C
-                    </td>
-                    <td>
-                      11 April 2019
-                    </td>
-                    <td>
-                      10.00 - 12.00
-                    </td>
+                <tbody id="show_data">
 
-                  </tr>
-                  <tr>
-                    <td class="font-weight-medium">
-                      2
-                    </td>
-                    <td>
+                </tbody>
+              </table>
+            </div>
+            <br></br>
 
-                    </td>
-                    <td>
+            <div class="row">
+
+
 
             </div>
-            </td>
-            <td>
-
-            </td>
-
-            </tr>
-            <tr>
-              <td class="font-weight-medium">
-                3
-              </td>
-              <td>
-
-              </td>
-              <td>
-
-              </td>
-              <td>
-
-              </td>
-
-            </tr>
-            <tr>
-              <td class="font-weight-medium">
-                4
-              </td>
-              <td>
-
-              </td>
-              <td>
-
-              </td>
-              <td>
-
-              </td>
-            </tr>
-            </tbody>
-            </table>
-          </div>
-          <br></br>
-
-          <div class="row">
-            <div class="col-sm-5">
-              <div class="dataTables_info" id="kelas_info" role="status" aria-live="polite">Showing 1 to 10 of 743 entries
-              </div>
-            </div>
-
-            <div class="col-sm-7">
-
-              <ul class="tombol-tabel">
-                <a href="#" class="previous">&laquo; Previous</a>
-                <a href="#" class="next">Next &raquo;</a>
-              </ul>
-
-            </div>
-
           </div>
         </div>
+
+
       </div>
-
-
     </div>
+
   </div>
+  <!-- main-panel ends -->
+  <script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery-3.2.1.js' ?>"></script>
+  <script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.dataTables.js' ?>"></script>
 
-  <!-- tabel mahasiswa -->
+  <script>
+    $(document).ready(function() {
+      show_jadwal();
+      $('#tabelJWL').dataTable();
 
+      function show_jadwal() {
+        var nip_dosen = $("#nip_dosen").val();
+        $.ajax({
+          type: 'ajax',
+          url: '<?php echo site_url("jadwaldosen/jadwal_data_mhs?nip='+ nip_dosen +'") ?>',
+          async: false,
+          dataType: 'json',
+          success: function(data) {
+            var html = '';
+            var i;
+            for (i = 0; i < data.length; i++) {
+              var no = i + 1;
+              html += '<tr>' +
+                '<td>' + no + '</td>' +
+                '<td>' + data[i].Gedung + '</td>' +
+                '<td>' + data[i].Tanggal + '</td>' +
+                '<td>' + data[i].Jam + '</td>' +
+                '</tr>';
+            }
+            $('#show_data').html(html);
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+          }
+        });
+      }
 
-</div>
-<!-- main-panel ends -->
+    });
+  </script>

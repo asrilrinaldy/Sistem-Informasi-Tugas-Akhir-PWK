@@ -71,7 +71,7 @@
                 '<td>' + data[i].No_telepon + '</td>' +
                 '<td>' + data[i].Email + '</td>' +
                 '<td style="text-align:right;">' +
-                '<a href="informasidosen2" class="btn btn-info btn-sm item_edit" >Jadwal</a>' + ' ' +
+                '<a href="informasidosen2?nip=' + data[i].NIP + '" class="btn btn-info btn-sm item_edit" id="jadwal" data-nip="' + data[i].NIP + '" >Jadwal</a>' + ' ' +
                 '</td>' +
                 '</tr>';
             }
@@ -79,5 +79,11 @@
           }
         });
       }
+
+      $('#show_data').on('click', '.item_edit', function() {
+        var nip = $(this).data('nip');
+
+      });
+
     });
   </script>
