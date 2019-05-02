@@ -145,28 +145,29 @@ class Mahasiswa_model extends CI_Model
 
   function delete_logbook_mahasiswa()
   {
-    $id_log = $this->input->post('id_log');
-    $this->db->where('Id_Log', $id_log);
+    $id_logbook = $this->input->post('id_logbook');
+    $this->db->where('Id_Log', $id_logbook);
     $result = $this->db->delete('logbook');
     return $result;
   }
 
-  function konsul_list($nim){
+  function konsul_list($nim)
+  {
     $hasil = $this->db->get_where('konsultasi', array('NIM' => $nim));
     return $hasil->result();
   }
 
-  function tambah_konsul($nim,$nip,$tanggal,$judul_ta,$file,$keterangan){
+  function tambah_konsul($nim, $nip, $tanggal, $judul_ta, $file, $keterangan)
+  {
     $data = array(
-      'NIM' 	=> $nim,
-      'NIP' 	=> $nip,
+      'NIM'   => $nim,
+      'NIP'   => $nip,
       'Tanggal' => $tanggal,
       'Judul_TA' => $judul_ta,
       'file' => $file,
       'Keterangan' => $keterangan
     );
-    $result = $this->db->insert('konsultasi',$data);
+    $result = $this->db->insert('konsultasi', $data);
     return $result;
   }
-
 }

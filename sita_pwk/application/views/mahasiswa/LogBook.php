@@ -192,7 +192,7 @@
               '<td>' + data[i].Keterangan + '</td>' +
               '<td>' + data[i].nama_dosen + '</td>' +
               '<td style="text-align:right;">' +
-              '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_jadwal="' + data[i].Id_Jadwal + '" data-ruangan="' + data[i].Ruangan + '" data-waktu="' + data[i].Waktu + '" data-tanggal="' + data[i].Tanggal + '">Edit</a>' + ' ' +
+              '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_jadwal="' + data[i].Id_Log + '" data-ruangan="' + data[i].Ruangan + '" data-waktu="' + data[i].Waktu + '" data-tanggal="' + data[i].Tanggal + '">Edit</a>' + ' ' +
               '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_logbook="' + data[i].Id_Log + '">Delete</a>' +
               '</td>' +
               '</tr>';
@@ -279,21 +279,21 @@
 
     //get data for delete record
     $('#show_data').on('click', '.item_delete', function() {
-      var id_log = $(this).data('id_log');
+      var id_logbook = $(this).data('id_logbook');
 
       $('#Modal_Delete').modal('show');
-      $('[name="id_logbook_delete"]').val(id_log);
+      $('[name="id_logbook_delete"]').val(id_logbook);
     });
 
     //delete record to database
     $('#btn_delete').on('click', function() {
-      var id_log = $('#id_logbook_delete').val();
+      var id_logbook = $('#id_logbook_delete').val();
       $.ajax({
         type: "POST",
         url: "<?php echo site_url('logbookmahasiswa/delete') ?>",
         dataType: "JSON",
         data: {
-          id_log: id_log
+          id_logbook: id_logbook
         },
         success: function(data) {
           $('[name="id_logbook_delete"]').val("");
