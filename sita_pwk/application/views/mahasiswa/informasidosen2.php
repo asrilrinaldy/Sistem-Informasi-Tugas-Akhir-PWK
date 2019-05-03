@@ -5,7 +5,11 @@
   <div class="content-wrapper">
     <div class="row">
       <div class="col-lg-4  grid-margin">
-        <img class="img-xs2 rounded-circle2" src="<?php base_url() ?>assets/upload/foto/dosen/<?php echo $dosen['foto']; ?>" alt="Profile image">
+        <?php if ($dosen['foto']!=null){?>
+          <img class="img-xs2 rounded-circle2" src="<?php base_url() ?>assets/upload/foto/dosen/<?php echo $dosen['foto']; ?>" alt="Profile image">
+        <?php }else{?>
+          <img class="img-xs2 rounded-circle2" src="<?php echo base_url()?>images/faces/usertes.jpg" alt="Profile image">
+        <?php } ?>
         <br></br>
         <div class="card card-statistics">
 
