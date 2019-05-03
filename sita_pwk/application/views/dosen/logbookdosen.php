@@ -1,8 +1,8 @@
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/dataTables.bootstrap4.css'?>">
+
 <!-- partial -->
 <div class="main-panel">
   <div class="content-wrapper">
-
-
    <!-- tabel mahasiswa -->
 
     <div class="row">
@@ -14,31 +14,9 @@
                 <i class="menu-icon mdi mdi-paperclip"></i>
               Logbook Mahasiswa
             </span><br></br>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="jumlah-tampilan" id="kelas_length">Show
-                <label> <select name="kelas_length" aria-controls="kelas" class="form-control input-sm">
-                  <option value="10">10</option>
-                  <option value="25">25</option>
-                  <option value="50">50</option>
-                  <option value="100">100</option>
-                  </select>
-                </label> Entries
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div  class="dataTables_filter"> Search
-                <label>
-                 <input type="search" class="form-control input-sm" placeholder="" aria-controls="kelas">
-                </label>
-              </div>
-            </div>
-          </div>
-
-
             <div class="table-responsive">
-              <table class="table table-bordered">
-                <tbody class="nama-kolom">
+              <table id="tabelLog" class="table table-bordered">
+                <thead class="nama-kolom">
                   <tr>
                     <th>
                       No
@@ -50,47 +28,17 @@
                       NIM
                     </th>
                     <th>
-                      Deskripsi
+                      E - mail
                     </th>
                     <th>
-                      Keterangan
+                      Judul TA
                     </th>
                     <th>
-                      Nama Pembimbing
+                      Logbook
                     </th>
-                    <th>
-                      Aksi
-                    </th>
-
                   </tr>
-                </tbody>
-                <tbody class="isi-tabel">
-                  <tr>
-                    <td >
-                      1
-                    </td>
-                    <td>
-                      Mahasiswa1
-                    </td>
-                    <td>
-                      24116002
-                    </td>
-                    <td>
-                      Memperbaiki Bab 1
-                    </td>
-                    <td>
-                     Revisi
-                    </td>
-                    <td>
-                       Goldie Melinda Wijayanti S.T., M.T.
-                    </td>
-                    <td>
-                      <center>
-                      <a href="#" class="btn btn-danger btn-sm">Hapus</a>
-                      </center>
-                    </td>
-                  </tr>
-                  
+                </thead>
+                <tbody id="show_data">
 
                 </tbody>
               </table>
@@ -98,21 +46,6 @@
 
           <br></br>
 
-            <div class="row">
-              <div class="col-sm-5">
-                <div class="dataTables_info" id="kelas_info" role="status" aria-live="polite">Showing 1 to 10 of 743 entries
-                </div>
-              </div>
-
-              <div class="col-sm-7">
-
-                  <ul class="tombol-tabel">
-                    <a href="#" class="previous">&laquo; Previous</a>
-                    <a href="#" class="next">Next &raquo;</a>
-                  </ul>
-
-              </div>
-            </div>
 
           </div>
         </div>
@@ -120,3 +53,43 @@
     </div>
   </div>
 <!-- main-panel ends -->
+<script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-3.2.1.js'?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.dataTables.js'?>"></script>
+
+
+<script>
+$(document).ready(function(){
+  show_logbook();
+  $('#tabelLog').dataTable();
+
+  function show_logbook(){
+      $.ajax({
+          type  : 'ajax',
+          url   : '<?php echo site_url('logbookdosen/mahasiswa_data')?>',
+          async : false,
+          dataType : 'json',
+          success : function(data){
+              var html = '';
+              var i;
+              for(i=0; i<data.length; i++){
+                var no = i+1;
+                html += '<tr>'+
+                      '<td>'+no+'</td>'+
+                        '<td>'+data[i].Nama+'</td>'+
+                        '<td>'+data[i].NIM+'</td>'+
+                        '<td>'+data[i].Email+'</td>'+
+                        '<td>'+data[i].Judul_TA+'</td>'+
+                        '<td style="text-align:center;">' +
+                        '<a href="logbookdosen/detail_logbook?nim=' + data[i].NIM + '" class="btn btn-info btn-sm item_edit" id="jadwal" data-nim="' + data[i].NIM + '" >Logbook</a>' + ' ' +
+                        '</td>' +
+                          '</tr>';
+              }
+              $('#show_data').html(html);
+          }
+
+      });
+  }
+
+});
+
+</script>
