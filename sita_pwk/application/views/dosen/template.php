@@ -3,6 +3,7 @@
 
 <head>
   <!-- Required meta tags -->
+  <base href="<?php echo $this->config->base_url(); ?>" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Sistem Informasi Tugas Akhir PWK</title>
