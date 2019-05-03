@@ -20,6 +20,9 @@
               <div class="input-group">
                 <label>
                   <select name="gedung" id="gedung" aria-controls="kelas" class="form-control input-sm">
+                    <option value=""></option>
+                    <option value="Gedung A">Gedung A</option>
+                    <option value="Gedung B">Gedung B</option>
                     <option value="Gedung C">Gedung C</option>
                     <option value="Gedung D">Gedung D</option>
                     <option value="Gedung E">Gedung E</option>
@@ -33,7 +36,7 @@
               </div>
 
               <br><div >Jam</br>
-                  <input id="jam" type="time" style="width: 200px";>
+                  <input  id="jam" type="time" style="width: 200px";>
               </div>
 
               <br></br>
