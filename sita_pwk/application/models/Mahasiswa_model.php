@@ -92,11 +92,16 @@ class Mahasiswa_model extends CI_Model
     return $result;
   }
 
+  function get_mhs_nip($nip){
+    $query = $this->db->query(" SELECT * FROM mahasiswa WHERE Pembimbing='$nip' OR Pembimbing2='$nip' ");
+    return $query->result();
+  }
+
   //logbook
-  function logbook_mahasiswa_list()
+  function logbook_mahasiswa_by_NIM($nim)
   {
-    $hasil = $this->db->get('logbook');
-    return $hasil->result();
+    $query = $this->db->query("SELECT logbook.*, mahasiswa.foto, mahasiswa.Email, mahasiswa.No_telepon, mahasiswa.Nama AS nama_mahasiswa, dosen.Nama AS nama_dosen FROM logbook INNER JOIN mahasiswa ON logbook.NIM=mahasiswa.NIM INNER JOIN dosen ON logbook.NIP=dosen.NIP WHERE logbook.NIM='$nim'");
+    return $query->result();
   }
 
   function logbook_mahasiswa_list_nama()
