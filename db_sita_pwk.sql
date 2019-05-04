@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2019 at 02:17 PM
+-- Generation Time: May 03, 2019 at 08:57 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -44,7 +44,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `nama`, `username`, `password`, `email`, `no_telp`, `alamat`, `foto`) VALUES
-('Adm001', 'Muhammad Ragil Trireza R', 'mragil', '202cb962ac59075b964b07152d234b70', 'mragill98@gmail.com', '1234567890', 'asdasd', NULL);
+('Adm004', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '123', '123admin', NULL);
 
 -- --------------------------------------------------------
 
@@ -67,10 +67,8 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`Nama`, `NIP`, `password`, `Email`, `No_telepon`, `Alamat`, `foto`) VALUES
-('Raagil', '111', '202cb962ac59075b964b07152d234b70', 'ragil.takuga@gmail.com', '123123', 'aasd', NULL),
-('Muhammad Ragil', '11111', '202cb962ac59075b964b07152d234b70', 'ragil', '123', 'askd', NULL),
-('Febri', '123456', '202cb962ac59075b964b07152d234b70', 'febri', '12312', 'aksdka', NULL),
-('Muhammad Ragil', '145', '7363a0d0604902af7b70b271a0b96480', 'mragil@gsd.com', '202', 'alsld', NULL);
+('Dosen S.T.,M.T.', '111', 'f499263a253447dd5cb68dafb9f13235', 'dosen1', '123', '123asd', NULL),
+('Dosen2 S.T.,M.T.', '222', 'ac41c4e0e6ef7ac51f0c8f3895f82ce5', 'dosen2', '123', 'dosen2123', NULL);
 
 -- --------------------------------------------------------
 
@@ -79,19 +77,12 @@ INSERT INTO `dosen` (`Nama`, `NIP`, `password`, `Email`, `No_telepon`, `Alamat`,
 --
 
 CREATE TABLE `jadwal_kosong` (
-  `Id_Jadwal` varchar(20) NOT NULL,
+  `Id_Jadwal` int(20) NOT NULL,
   `NIP` varchar(30) NOT NULL,
   `Gedung` varchar(15) NOT NULL,
   `Tanggal` date NOT NULL,
   `Jam` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `jadwal_kosong`
---
-
-INSERT INTO `jadwal_kosong` (`Id_Jadwal`, `NIP`, `Gedung`, `Tanggal`, `Jam`) VALUES
-('1', '111', 'E113', '2019-04-01', '14:04:00');
 
 -- --------------------------------------------------------
 
@@ -107,15 +98,6 @@ CREATE TABLE `jadwal_penting` (
   `Tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `jadwal_penting`
---
-
-INSERT INTO `jadwal_penting` (`Id_Jadwal`, `NIM`, `Ruangan`, `Waktu`, `Tanggal`) VALUES
-(1, 14116068, 'E311', '10:00', '2019-04-24'),
-(3, 14116150, 'C102', '10:10', '1998-02-21'),
-(4, 14116105, 'D102', '11:11', '2019-01-01');
-
 -- --------------------------------------------------------
 
 --
@@ -123,14 +105,16 @@ INSERT INTO `jadwal_penting` (`Id_Jadwal`, `NIM`, `Ruangan`, `Waktu`, `Tanggal`)
 --
 
 CREATE TABLE `konsultasi` (
-  `Id_Konsul` varchar(11) NOT NULL,
+  `Id_Konsul` int(11) NOT NULL,
   `NIM` int(15) NOT NULL,
-  `Komentar` text NOT NULL,
+  `Komentar` text,
   `NIP` varchar(30) NOT NULL,
   `Tanggal` date NOT NULL,
+  `Tanggal_diperiksa` date DEFAULT NULL,
   `Judul_TA` varchar(50) NOT NULL,
   `File` varchar(20) NOT NULL,
-  `Keterangan` varchar(50) NOT NULL
+  `Keterangan` varchar(50) NOT NULL,
+  `Status` varchar(50) NOT NULL DEFAULT 'Belum Diperiksa'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -144,7 +128,8 @@ CREATE TABLE `logbook` (
   `NIP` varchar(30) NOT NULL,
   `Keterangan` varchar(100) NOT NULL,
   `NIM` int(15) NOT NULL,
-  `Deskripsi` varchar(100) NOT NULL
+  `Deskripsi` varchar(100) NOT NULL,
+  `Tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -173,9 +158,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`Nama`, `NIM`, `password`, `Alamat`, `No_telepon`, `Email`, `Judul_TA`, `Tempat_Lahir`, `Tanggal_Lahir`, `Pembimbing`, `Pembimbing2`, `foto`) VALUES
-('Atun', 14116068, '202cb962ac59075b964b07152d234b70', 'Indonesia', '123', 'atun@itera.ac.id', NULL, 'Indonesia', '1998-12-12', NULL, NULL, ''),
-('fahmi', 14116105, '202cb962ac59075b964b07152d234b70', 'kemiling', '08123456789', 'fahmi@gmail.com', 'apa ya', 'Indonesia', '2012-12-12', NULL, NULL, ''),
-('Muhammad Ragil', 14116150, '202cb962ac59075b964b07152d234b70', 'Gunter', '123', 'mragiltrirezar@gmail', NULL, 'Indonesia', '2222-02-22', NULL, NULL, '');
+('Mahasiswa1', 14116150, '8eac357684eb8c36513235c7e77bfdfb', '123asd', '123', 'mahasiswa1', NULL, '', '0000-00-00', '111', '222', NULL);
 
 -- --------------------------------------------------------
 
@@ -184,11 +167,12 @@ INSERT INTO `mahasiswa` (`Nama`, `NIM`, `password`, `Alamat`, `No_telepon`, `Ema
 --
 
 CREATE TABLE `referensi` (
-  `Id_Referensi` varchar(20) NOT NULL,
+  `Id_Referensi` int(20) NOT NULL,
   `Judul_TA` varchar(300) NOT NULL,
   `Penulis` varchar(30) NOT NULL,
   `Tahun` int(5) NOT NULL,
   `Asal_Referensi` varchar(50) NOT NULL,
+  `file` varchar(255) DEFAULT NULL,
   `Id_admin` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -196,16 +180,16 @@ CREATE TABLE `referensi` (
 -- Dumping data for table `referensi`
 --
 
-INSERT INTO `referensi` (`Id_Referensi`, `Judul_TA`, `Penulis`, `Tahun`, `Asal_Referensi`, `Id_admin`) VALUES
-('1', 'ANALISIS DAMPAK EKONOMI DESA WISATA WUKIRSARI KECAMATAN IMOGIRI, KABUPATEN BANTUL, DAERAH ISTIMEWA YOGYAKARTA', 'Nazovah Ummudiyah', 2016, 'Universitas Muhammadiyah Yogyakarta ', 'Adm001'),
-('2', 'ANALISIS DAMPAK EKONOMI WISATA BAHARI TERHADAP PENDAPATAN MASYARAKAT LOKAL STUDI KASUS PANTAI BANDULU KABUPATEN SERANG PROVINSI BANTEN ', 'Meita Amanda', 2009, 'Institut Pertanian Bogor', 'Adm001'),
-('3', 'ANALISI PENGARUH SEKTOR PARIWISATA TERHADAP PENYERAPAN TENAGA KERJA DI 5 KABUPATEN / KOTA DAERAH ISTIMEWA YOGYAKARTA', 'M. Zukfi Rahadi', 2018, 'Universitas Muhammadiyah Surakarta', 'Adm001'),
-('4', 'DAMPAK EKONOMI PENGEMBANGAN KAWASAN EKOWISATA KEPULAUAN SERIBU', 'Hanny Aryunda', 2011, 'Institut Teknologi Bandung', 'Adm001'),
-('5', 'LOCAL ECONOMIC IMPACTS OF DRAGON TORISM IN INDONESIA', 'Mtthew J. Walpole', 2000, 'University of Kent', 'Adm001'),
-('6', 'TA KE ENAM', 'Muhammad', 2016, 'ITERA', 'Adm001'),
-('7', 'TA KE TUJUH', 'Ragil', 2017, 'ITERA', 'Adm001'),
-('8', 'TA KE DELAPAN', 'Trireza', 2018, 'ITERA', 'Adm001'),
-('9', 'TA KE SEMBILAN', 'Ramadhan', 2015, 'ITERA', 'Adm001');
+INSERT INTO `referensi` (`Id_Referensi`, `Judul_TA`, `Penulis`, `Tahun`, `Asal_Referensi`, `file`, `Id_admin`) VALUES
+(1, 'ANALISIS DAMPAK EKONOMI DESA WISATA WUKIRSARI KECAMATAN IMOGIRI, KABUPATEN BANTUL, DAERAH ISTIMEWA YOGYAKARTA', 'Nazovah Ummudiyah', 2016, 'Universitas Muhammadiyah Yogyakarta ', '', 'Adm001'),
+(2, 'ANALISIS DAMPAK EKONOMI WISATA BAHARI TERHADAP PENDAPATAN MASYARAKAT LOKAL STUDI KASUS PANTAI BANDULU KABUPATEN SERANG PROVINSI BANTEN ', 'Meita Amanda', 2009, 'Institut Pertanian Bogor', NULL, 'Adm001'),
+(3, 'ANALISI PENGARUH SEKTOR PARIWISATA TERHADAP PENYERAPAN TENAGA KERJA DI 5 KABUPATEN / KOTA DAERAH ISTIMEWA YOGYAKARTA', 'M. Zukfi Rahadi', 2018, 'Universitas Muhammadiyah Surakarta', NULL, 'Adm001'),
+(4, 'DAMPAK EKONOMI PENGEMBANGAN KAWASAN EKOWISATA KEPULAUAN SERIBU', 'Hanny Aryunda', 2011, 'Institut Teknologi Bandung', NULL, 'Adm001'),
+(5, 'LOCAL ECONOMIC IMPACTS OF DRAGON TORISM IN INDONESIA', 'Mtthew J. Walpole', 2000, 'University of Kent', NULL, 'Adm001'),
+(6, 'TA KE ENAM', 'Muhammad', 2016, 'ITERA', NULL, 'Adm001'),
+(7, 'TA KE TUJUH', 'Ragil', 2017, 'ITERA', NULL, 'Adm001'),
+(8, 'TA KE DELAPAN', 'Trireza', 2018, 'ITERA', NULL, 'Adm001'),
+(9, 'TA KE SEMBILAN', 'Ramadhan', 2018, 'ITERA', NULL, '');
 
 --
 -- Indexes for dumped tables
@@ -273,16 +257,34 @@ ALTER TABLE `referensi`
 --
 
 --
+-- AUTO_INCREMENT for table `jadwal_kosong`
+--
+ALTER TABLE `jadwal_kosong`
+  MODIFY `Id_Jadwal` int(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `jadwal_penting`
 --
 ALTER TABLE `jadwal_penting`
-  MODIFY `Id_Jadwal` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id_Jadwal` int(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `konsultasi`
+--
+ALTER TABLE `konsultasi`
+  MODIFY `Id_Konsul` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `logbook`
 --
 ALTER TABLE `logbook`
   MODIFY `Id_Log` int(3) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `referensi`
+--
+ALTER TABLE `referensi`
+  MODIFY `Id_Referensi` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
