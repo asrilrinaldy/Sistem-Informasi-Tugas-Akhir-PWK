@@ -28,8 +28,6 @@
                     <th>Email</th>
                     <th>No. Telepon</th>
                     <th>Alamat</th>
-                    <th>Tempat Lahir</th>
-                    <th>Tanggal Lahir</th>
                     <th style="text-align: right;">Actions</th>
                   </tr>
                 </thead>
@@ -94,18 +92,7 @@
                           <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Tempat Lahir</label>
-                        <div class="col-md-10">
-                          <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control" placeholder="Tempat Lahir">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Tanggal Lahir</label>
-                        <div class="col-md-10">
-                          <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control">
-                        </div>
-                    </div>
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -165,18 +152,7 @@
                       <input type="text" name="alamat_edit" id="alamat_edit" class="form-control" >
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="col-md-2 col-form-label">Tempat Lahir</label>
-                    <div class="col-md-10">
-                      <input type="text" name="tempat_lahir_edit" id="tempat_lahir_edit" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 col-form-label">Tanggal Lahir</label>
-                    <div class="col-md-10">
-                      <input type="date" name="tanggal_lahir_edit" id="tanggal_lahir_edit" class="form-control">
-                    </div>
-                </div>
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -241,8 +217,6 @@
   													'<td>'+data[i].Email+'</td>'+
   													'<td>'+data[i].No_telepon+'</td>'+
   													'<td>'+data[i].Alamat+'</td>'+
-  													'<td>'+data[i].Tempat_Lahir+'</td>'+
-  													'<td>'+data[i].Tanggal_Lahir+'</td>'+
   													'<td style="text-align:right;">'+
                                       '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-nim="'+data[i].NIM+'" data-nama="'+data[i].Nama+'" data-password="'+data[i].password+'" data-email="'+data[i].Email+'" data-no_telepon="'+data[i].No_telepon+'" data-alamat="'+data[i].Alamat+'" data-tempat_lahir="'+data[i].Tempat_lahir+'" data-tanggal_lahir="'+data[i].Tanggal_lahir+'">Edit</a>'+' '+
                                       '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-nim="'+data[i].NIM+'">Delete</a>'+
