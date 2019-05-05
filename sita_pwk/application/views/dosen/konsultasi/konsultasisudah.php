@@ -1,47 +1,21 @@
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/dataTables.bootstrap4.css'?>">
+
 <!-- partial -->
 <div class="main-panel">
   <div class="content-wrapper">
-    <div id="header">
-            <h1><b>
-        <font color=#12688D>Daftar Konsultasi Mahasiswa yang Sudah Diperiksa</font></h1></b>
-        <hr width=100% size=8 NOSHADE class="hr hr-prmary" style="height: 10px; background-color: #12688D">
-          </div>
-    <div class="row">
-
-
-    </div>
-
-   <!-- tabel dosen -->
+   <!-- tabel mahasiswa -->
 
     <div class="row">
       <div class="col-lg-12 grid-margin">
         <div class="card">
           <div class="card-body">
 
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="jumlah-tampilan" id="kelas_length">Display
-                <label> <select name="kelas_length" aria-controls="kelas" class="form-control input-sm">
-                  <option value="5">5</option>
-                  <option value="10">10</option>
-                  <option value="15">15</option>
-                  </select>
-                </label> Record
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div  class="dataTables_filter"> Search
-                <label>
-
-                 <input type="search" class="form-control input-sm" placeholder="" aria-controls="kelas">
-                </label>
-              </div>
-            </div>
-          </div>
-
-
+            <span class="judul-title">
+                <i class="menu-icon mdi mdi-paperclip"></i>
+              Konsultasi Mahasiswa
+            </span><br></br>
             <div class="table-responsive">
-              <table class="table table-bordered">
+              <table id="tabelLog" class="table table-bordered">
                 <thead class="nama-kolom">
                   <tr>
                     <th>
@@ -54,110 +28,70 @@
                       Nama
                     </th>
                     <th>
+                      Judul TA
+                    </th>
+                    <th>
                       Tanggal
                     </th>
                     <th>
-                      Judul
+                      File
                     </th>
                     <th>
                       Komentar
                     </th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td >
-                      1
-                    </td>
-                    <td>
-                      12345678
-                    </td>
-                    <td>
-                      Mahasiswa
-                    </td>
-                    <td>
-                      23-04-2019
-                    </td>
-                    <td>
-                      Judul TA
-                    </td>
-                    <td>
-                      Tolong perbaiki BAB I pada bagian metode penelitian
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="font-weight-medium">
-                      2
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="font-weight-medium">
-                      3
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="font-weight-medium">
-                      4
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                  </tr>
+                <tbody id="show_data">
 
                 </tbody>
               </table>
             </div>
 
           <br></br>
-            <div class="row">
-              <div class="col-sm-5">
-                <div class="dataTables_info" id="kelas_info" role="status" aria-live="polite">Showing 1 to 4 of 10 entries
-                </div>
-              </div>
 
-              <div class="col-sm-7">
-                  <ul class="tombol-tabel">
-                    <a href="#" class="previous">&laquo; Previous</a>
-                    <a href="#" class="next">Next &raquo;</a>
-                  </ul>
 
-              </div>
-            </div>
-</div></div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 <!-- main-panel ends -->
+<script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-3.2.1.js'?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.dataTables.js'?>"></script>
+
+
+<script>
+$(document).ready(function(){
+  show_konsul();
+  $('#tabelLog').dataTable();
+
+  function show_konsul(){
+      $.ajax({
+          type  : 'ajax',
+          url   : '<?php echo site_url('konsultasisudah/konsul_data')?>',
+          async : false,
+          dataType : 'json',
+          success : function(data){
+              var html = '';
+              var i;
+              for(i=0; i<data.length; i++){
+                var no = i+1;
+                html += '<tr>'+
+                      '<td>'+no+'</td>'+
+                      '<td>' + data[i].NIM + '</td>' +
+                      '<td>' + data[i].Nama + '</td>' +
+                      '<td>' + data[i].Judul_TA + '</td>' +
+                      '<td>' + data[i].Tanggal_diperiksa + '</td>' +
+                      '<td>' + data[i].File + '</td>' +
+                      '<td>' + data[i].Komentar + '</td>' +
+                      '</tr>';
+              }
+              $('#show_data').html(html);
+          }
+
+      });
+  }
+
+});
+
+</script>

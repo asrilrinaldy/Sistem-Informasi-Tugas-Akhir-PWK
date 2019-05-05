@@ -21,7 +21,7 @@
               <table id="tabelREF" class="table table-striped">
                 <thead>
                   <tr>
-                      <th>ID Referensi</th>
+                      <th>No</th>
                       <th>Judul TA</th>
                       <th>Penulis</th>
                       <th>Tahun</th>
@@ -56,10 +56,11 @@
               dataType : 'json',
               success : function(data){
                   var html = '';
-                  var i;
+                  var i,nomor;
                   for(i=0; i<data.length; i++){
+                    nomor=i+1;
                       html += '<tr>'+
-                            '<td>'+data[i].Id_Referensi+'</td>'+
+                            '<td>'+nomor+'</td>'+
                               '<td>'+data[i].Judul_TA+'</td>'+
                               '<td>'+data[i].Penulis+'</td>'+
                               '<td>'+data[i].Tahun+'</td>'+

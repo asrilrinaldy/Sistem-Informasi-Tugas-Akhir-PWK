@@ -114,10 +114,10 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('konsultasibelum') ?>">Daftar Konsultasi yang Belum Diperiksa</a>
+                  <a class="nav-link" href="<?php echo base_url('konsultasibelum') ?>">Belum Diperiksa<span class="badge badge-dark"><?php echo $jumlah_konsul ?></span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('konsultasisudah') ?>">Daftar Konsultasi yang Sudah Diperiksa</a>
+                  <a class="nav-link" href="<?php echo base_url('konsultasisudah') ?>">Sudah Diperiksa</a>
                 </li>
               </ul>
             </div>

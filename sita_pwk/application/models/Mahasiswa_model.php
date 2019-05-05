@@ -158,4 +158,38 @@ class Mahasiswa_model extends CI_Model
     $result = $this->db->insert('konsultasi', $data);
     return $result;
   }
+
+  function jumlah_konsul($nip){
+    $belum = "Belum Diperiksa";
+    $array = array('NIP' => $nip, 'Status' => $belum);
+    $this->db->select('Id_Konsul');
+    $this->db->from('konsultasi');
+    $this->db->where($array);
+    $num_results = $this->db->count_all_results();
+    return $num_results;
+  }
+
+  function get_konsul_nip($nip){
+    $query = $this->db->query("SELECT konsultasi.*, mahasiswa.Nama FROM konsultasi INNER JOIN mahasiswa ON konsultasi.NIM=mahasiswa.NIM WHERE NIP = '$nip' AND Status = 'Belum Diperiksa'");
+    return $query->result();
+  }
+
+  function get_konsul_nip_sudah($nip){
+    $query = $this->db->query("SELECT konsultasi.*, mahasiswa.Nama FROM konsultasi INNER JOIN mahasiswa ON konsultasi.NIM=mahasiswa.NIM WHERE NIP = '$nip' AND Status = 'Sudah Diperiksa'");
+    return $query->result();
+  }
+
+  function periksa_konsul(){
+    $id_konsul = $this->input->post('id_konsul');
+    $komentar = $this->input->post('komentar');
+    $tgl_periksa = date("Y-m-d");
+    $sudah = "Sudah Diperiksa";
+    $this->db->set('Tanggal_diperiksa' , $tgl_periksa);
+    $this->db->set('Komentar', $komentar);
+    $this->db->set('Status' , $sudah);
+    $this->db->where('Id_Konsul', $id_konsul);
+    $result = $this->db->update('konsultasi');
+    return $result;
+  }
+
 }

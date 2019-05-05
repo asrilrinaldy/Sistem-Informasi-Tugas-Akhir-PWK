@@ -46,7 +46,7 @@
 
 <!-- MODAL ADD -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
-        <form>
+        <form id="form_admin">
         <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -66,37 +66,37 @@
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Nama</label>
                         <div class="col-md-10">
-                          <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama">
+                          <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Username</label>
                         <div class="col-md-10">
-                          <input type="text" name="username" id="username" class="form-control" placeholder="Nama">
+                          <input type="text" name="username" id="username" class="form-control" placeholder="Nama" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Password</label>
                         <div class="col-md-10">
-                          <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                          <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Email</label>
                         <div class="col-md-10">
-                          <input type="text" name="email" id="email" class="form-control" placeholder="Email">
+                          <input type="text" name="email" id="email" class="form-control" placeholder="Email" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">No. Telepon</label>
                         <div class="col-md-10">
-                          <input type="text" name="no_telepon" id="no_telepon" class="form-control" placeholder="No. Telepon">
+                          <input type="text" name="no_telepon" id="no_telepon" class="form-control" placeholder="No. Telepon" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Alamat</label>
                         <div class="col-md-10">
-                          <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat">
+                          <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat" required>
                         </div>
                     </div>
               </div>
@@ -240,6 +240,30 @@
 
   		    });
   		}
+
+      $('#form_admin').validate({
+          rules: {
+              id_admin: {
+                  required: true
+              },
+              nama: {
+                  required: true
+              },
+              email: {
+                  required: true,
+                  email: true
+              }
+          },
+          highlight: function (element) {
+              $(element).closest('.control-group').removeClass('success').addClass('error');
+          },
+          success: function (element) {
+              element.text('OK!').addClass('valid')
+                  .closest('.control-group').removeClass('error').addClass('success');
+          }
+      });
+
+
 
           //Save product
           $('#btn_save').on('click',function(){

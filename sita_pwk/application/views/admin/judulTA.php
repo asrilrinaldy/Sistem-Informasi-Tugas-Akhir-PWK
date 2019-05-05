@@ -22,7 +22,7 @@
               <table id="tabelREF" class="table table-striped">
                 <thead>
                   <tr>
-                      <th>ID Referensi</th>
+                      <th>No</th>
                       <th>Judul TA</th>
                       <th>Penulis</th>
                       <th>Tahun</th>
@@ -56,39 +56,33 @@
               </div>
               <div class="modal-body">
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label">ID Referensi</label>
-                        <div class="col-md-10">
-                          <input type="text" name="id_referensi" id="id_referensi" class="form-control" placeholder="ID Referensi">
-                        </div>
-                    </div>
-                    <div class="form-group row">
                         <label class="col-md-2 col-form-label">Judul TA</label>
                         <div class="col-md-10">
-                          <input type="text" name="judul_ta" id="judul_ta" class="form-control" placeholder="Judul TA">
+                          <input type="text" name="judul_ta" id="judul_ta" class="form-control" placeholder="Judul TA" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Penulis</label>
                         <div class="col-md-10">
-                          <input type="text" name="penulis" id="penulis" class="form-control" placeholder="Penulis">
+                          <input type="text" name="penulis" id="penulis" class="form-control" placeholder="Penulis"required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Tahun</label>
                         <div class="col-md-10">
-                          <input type="text" name="tahun" id="tahun" class="form-control" placeholder="Tahun">
+                          <input type="text" name="tahun" id="tahun" class="form-control" placeholder="Tahun"required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Asal Referensi</label>
                         <div class="col-md-10">
-                          <input type="text" name="asal_referensi" id="asal_referensi" class="form-control" placeholder="Asal Referensi">
+                          <input type="text" name="asal_referensi" id="asal_referensi" class="form-control" placeholder="Asal Referensi"required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">File</label>
                         <div class="col-md-10">
-                          <input type="file" name="file" id="file" class="form-control">
+                          <input type="file" name="file" id="file" class="form-control"required>
                         </div>
                     </div>
               </div>
@@ -114,34 +108,29 @@
                 </button>
               </div>
               <div class="modal-body">
-                <div class="form-group row">
-                    <label class="col-md-2 col-form-label">ID Referensi</label>
-                    <div class="col-md-10">
-                      <input type="text" name="id_referensi_edit" id="id_referensi_edit" class="form-control" placeholder="ID Referensi">
-                    </div>
-                </div>
+                <input type="hidden" name="id_referensi_edit" id="id_referensi_edit" class="form-control" placeholder="ID Referensi"required>
                 <div class="form-group row">
                     <label class="col-md-2 col-form-label">Judul TA</label>
                     <div class="col-md-10">
-                      <input type="text" name="judul_ta_edit" id="judul_ta_edit" class="form-control" placeholder="Judul TA">
+                      <input type="text" name="judul_ta_edit" id="judul_ta_edit" class="form-control" placeholder="Judul TA"required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-2 col-form-label">Penulis</label>
                     <div class="col-md-10">
-                      <input type="text" name="penulis_edit" id="penulis_edit" class="form-control" placeholder="Price">
+                      <input type="text" name="penulis_edit" id="penulis_edit" class="form-control" placeholder="Price" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-2 col-form-label">Tahun</label>
                     <div class="col-md-10">
-                      <input type="text" name="tahun_edit" id="tahun_edit" class="form-control" placeholder="Tahun">
+                      <input type="text" name="tahun_edit" id="tahun_edit" class="form-control" placeholder="Tahun" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-2 col-form-label">Asal Referensi</label>
                     <div class="col-md-10">
-                      <input type="text" name="asal_referensi_edit" id="asal_referensi_edit" class="form-control" placeholder="Asal Referensi">
+                      <input type="text" name="asal_referensi_edit" id="asal_referensi_edit" class="form-control" placeholder="Asal Referensi" required>
                     </div>
                 </div>
               </div>
@@ -198,12 +187,13 @@
               dataType : 'json',
               success : function(data){
                   var html = '';
-                  var i;
+                  var i,nomor;
                   for(i=0; i<data.length; i++){
                     var link_file = '<?php echo site_url('assets/upload/referensi/')?>'+data[i].file;
-                    var download = 'Download'
+                    var download = 'Download';
+                    nomor = i+1;
                       html += '<tr>'+
-                            '<td>'+data[i].Id_Referensi+'</td>'+
+                            '<td>'+nomor+'</td>'+
                               '<td>'+data[i].Judul_TA+'</td>'+
                               '<td>'+data[i].Penulis+'</td>'+
                               '<td>'+data[i].Tahun+'</td>'+
