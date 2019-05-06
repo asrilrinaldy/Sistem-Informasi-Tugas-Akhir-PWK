@@ -40,7 +40,15 @@ if ($this->session->userdata('masuk') == TRUE) {
 					<span class="login100-form-title2 p-b-30">
 						Selamat Datang, Silahkan Masuk Untuk Melanjutkan
 					</span>
-
+					<?php if ($this->session->flashdata('sukses')){ ?>
+							<div class="alert alert-success" role="alert">
+								<?php echo $this->session->flashdata('sukses'); ?>
+							</div>
+					<?php }elseif ($this->session->flashdata('error')){ ?>
+							<div class="alert alert-warning" role="alert">
+							<?php echo "Username / Password Salah!"; ?>
+							</div>
+					<?php }; ?>
 					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="username" required>
 						<span class="focus-input100"></span>
