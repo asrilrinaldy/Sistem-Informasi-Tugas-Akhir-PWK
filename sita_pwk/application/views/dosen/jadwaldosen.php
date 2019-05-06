@@ -12,6 +12,7 @@
 
 
         <br></br>
+        <form id="form_jadwal">
         <div class="card card-statistics">
           <div class="card-body">
 
@@ -32,24 +33,22 @@
               </div>
 
               <br><div >Tanggal</br>
-                  <input id="tanggal" type="date" style="width: 200px";>
+                  <input name="tanggal" id="tanggal" type="date" style="width: 200px";>
               </div>
 
               <br><div >Jam</br>
-                  <input  id="jam" type="time" style="width: 200px";>
+                  <input name="jam" id="jam" type="time" style="width: 200px";>
               </div>
 
               <br></br>
                 <center>
                   <input class="btn btn-primary" id="btn_save" type="submit" value="Simpan" ></input>
                 </center>
-
-
             </div>
-
           </div>
         </div>
-      </div>
+      </form>
+    </div>
 
       <div class="col-lg-8 grid-margin">
         <div class="card card-statistics">
@@ -168,23 +167,50 @@
         });
     }
 
-    $('#btn_save').on('click',function(){
-        var gedung = $("#gedung").val();
-        var jam = $('#jam').val();
-        var tanggal = $('#tanggal').val();
+    $('#form_jadwal').validate({ // initialize plugin
+       // rules & options,
+       errorPlacement: function(error, element) {
+       error.insertBefore(element);
+       },
+       rules: {
+          gedung: "required",
+          tanggal: "required",
+          jam: "required"
+       },
+       messages: {
+         gedung: {
+           required: "Kolom Ini Harus Diisi"
+         },
+         tanggal: {
+           required: "Kolom Ini Harus Diisi"
+         },
+         jam: {
+           required: "Kolom Ini Harus Diisi"
+         },
+       },
+       submitHandler: function(form) {
+           // your ajax would go here
+           var gedung = $("#gedung").val();
+           var jam = $('#jam').val();
+           var tanggal = $('#tanggal').val();
 
-        $.ajax({
-            type : "POST",
-            url  : "<?php echo site_url('dosen/jadwaldosen/input_jadwal')?>",
-            dataType : "JSON",
-            data : {gedung:gedung , jam:jam, tanggal:tanggal},
-            success: function(data){
-                $('[name="jam"]').val("");
-                $('[name="tanggal"]').val("");
-                show_jadwal();
-            }
-        });
-        return false;
+           $.ajax({
+               type : "POST",
+               url  : "<?php echo site_url('dosen/jadwaldosen/input_jadwal')?>",
+               dataType : "JSON",
+               data : {gedung:gedung , jam:jam, tanggal:tanggal},
+               success: function(data){
+                   $('[name="jam"]').val("");
+                   $('[name="tanggal"]').val("");
+                   show_jadwal();
+               }
+           });
+           return false;  // blocks regular submit since you have ajax
+       }
+   });
+
+    $('#btn_save').on('click',function(){
+        $('#form_jadwal').submit();
     });
 
     //get data for delete record

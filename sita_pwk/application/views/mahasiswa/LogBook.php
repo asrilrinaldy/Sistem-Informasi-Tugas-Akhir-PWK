@@ -45,7 +45,7 @@
 
   <!-- MODAL ADD -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/css/bootstrap.css' ?>">
-  <form>
+  <form id="form_logbook">
     <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -154,33 +154,60 @@
       });
     }
 
+    $('#form_logbook').validate({ // initialize plugin
+       // rules & options,
+       errorPlacement: function(error, element) {
+       error.insertBefore(element);
+       },
+       rules: {
+          Deskripsi: "required",
+          Keterangan: "required",
+          dosen: "required"
+       },
+       messages: {
+         Deskripsi: {
+           required: "Kolom Ini Harus Diisi"
+         },
+         Keterangan: {
+           required: "Kolom Ini Harus Diisi"
+         },
+         dosen: {
+           required: "Kolom Ini Harus Diisi"
+         },
+       },
+       submitHandler: function(form) {
+           // your ajax would go here
+           var deskripsi = $('#Deskripsi').val();
+           var keterangan = $('#Keterangan').val();
+           var dosen = $('#dosen').val();
+           $.ajax({
+             type: "POST",
+             url: "<?php echo site_url('mahasiswa/logbookmahasiswa/save') ?>",
+             dataType: "JSON",
+             data: {
+               deskripsi: deskripsi,
+               keterangan: keterangan,
+               dosen: dosen
+             },
+             success: function(data) {
+               $('[name="Tanggal"]').val("");
+               $('[name="Deskripsi"]').val("");
+               $('[name="Keterangan"]').val("");
+               $('[name="dosen"]').val("");
+               $('#Modal_Add').modal('hide');
+               show_logbook();
+             },
+             error: function(jqXHR, textStatus, errorThrown) {
+               console.log(textStatus, errorThrown);
+             }
+           });
+           return false;  // blocks regular submit since you have ajax
+       }
+   });
+
     //Save product
     $('#btn_save').on('click', function() {
-      var deskripsi = $('#Deskripsi').val();
-      var keterangan = $('#Keterangan').val();
-      var dosen = $('#dosen').val();
-      $.ajax({
-        type: "POST",
-        url: "<?php echo site_url('mahasiswa/logbookmahasiswa/save') ?>",
-        dataType: "JSON",
-        data: {
-          deskripsi: deskripsi,
-          keterangan: keterangan,
-          dosen: dosen
-        },
-        success: function(data) {
-          $('[name="Tanggal"]').val("");
-          $('[name="Deskripsi"]').val("");
-          $('[name="Keterangan"]').val("");
-          $('[name="dosen"]').val("");
-          $('#Modal_Add').modal('hide');
-          show_logbook();
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-          console.log(textStatus, errorThrown);
-        }
-      });
-      return false;
+        $('#form_logbook').submit();
     });
 
     //get data for delete record
