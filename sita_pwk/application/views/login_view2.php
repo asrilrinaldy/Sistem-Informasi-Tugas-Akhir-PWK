@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <!DOCTYPE html>
 <?php
 if ($this->session->userdata('masuk') == TRUE) {
-	redirect('page');
+	redirect('admin/berandaadmin');
 } ?>
 <html lang="en">
 

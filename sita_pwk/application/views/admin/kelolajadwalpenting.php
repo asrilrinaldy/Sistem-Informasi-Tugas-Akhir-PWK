@@ -48,7 +48,7 @@
 
   <!-- MODAL ADD -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/css/bootstrap.css' ?>">
-  <form>
+  <form id="form_jadwal">
     <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -220,35 +220,67 @@
         });
       }
 
+      $('#form_jadwal').validate({ // initialize plugin
+        // rules & options,
+        errorPlacement: function(error, element) {
+        error.insertBefore(element);
+        },
+        rules: {
+          mahasiswa: "required",
+          ruangan: "required",
+          waktu: "required",
+          tanggal: "required"
+        },
+        messages: {
+          mahasiswa: {
+            required: "Pilih Mahasiswa Terlebih Dahulu"
+          },
+          ruangan: {
+            required: "Pilih Ruangan Terlebih Dahulu"
+          },
+          waktu: {
+            required: "Pilih Waktu Terlebih Dahulu"
+          },
+          tanggal: {
+            required: "Pilih Tanggal Terlebih Dahulu"
+          }
+
+        },
+        submitHandler: function(form) {
+            // your ajax would go here
+            var nim = $('#nim').val();
+            var ruangan = $('#ruangan').val();
+            var waktu = $('#waktu').val();
+            var tanggal = $('#tanggal').val();
+
+            $.ajax({
+              type: "POST",
+              url: "<?php echo site_url('admin/kelolajadwalpenting/save') ?>",
+              dataType: "JSON",
+              data: {
+                nim: nim,
+                ruangan: ruangan,
+                waktu: waktu,
+                tanggal: tanggal
+              },
+              success: function(data) {
+                $('[name="id_jadwal"]').val("");
+                $('[name="nim"]').val("");
+                $('[name="nama"]').val("");
+                $('[name="ruangan"]').val("");
+                $('[name="waktu"]').val("");
+                $('[name="tanggal"]').val("");
+                $('#Modal_Add').modal('hide');
+                show_jadwal();
+              }
+            });
+            return false;  // blocks regular submit since you have ajax
+        }
+    });
+
       //Save product
       $('#btn_save').on('click', function() {
-        var nim = $('#nim').val();
-        var ruangan = $('#ruangan').val();
-        var waktu = $('#waktu').val();
-        var tanggal = $('#tanggal').val();
-
-        $.ajax({
-          type: "POST",
-          url: "<?php echo site_url('admin/kelolajadwalpenting/save') ?>",
-          dataType: "JSON",
-          data: {
-            nim: nim,
-            ruangan: ruangan,
-            waktu: waktu,
-            tanggal: tanggal
-          },
-          success: function(data) {
-            $('[name="id_jadwal"]').val("");
-            $('[name="nim"]').val("");
-            $('[name="nama"]').val("");
-            $('[name="ruangan"]').val("");
-            $('[name="waktu"]').val("");
-            $('[name="tanggal"]').val("");
-            $('#Modal_Add').modal('hide');
-            show_jadwal();
-          }
-        });
-        return false;
+        $('#form_jadwal').submit();
       });
 
       //get data for update record

@@ -45,7 +45,7 @@
 
 <!-- MODAL ADD -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
-        <form>
+        <form id="form_mahasiswa">
         <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -229,35 +229,81 @@
   		    });
   		}
 
+      $('#form_mahasiswa').validate({ // initialize plugin
+       // rules & options,
+        errorPlacement: function(error, element) {
+        error.insertBefore(element);
+        },
+       rules: {
+         nim: "required",
+         nama: "required",
+         password: "required",
+         email: "required",
+         no_telepon: "required",
+         alamat: "required"
+       },
+       messages: {
+         nim: {
+           required: "Field Ini Harus Diisi"
+         },
+         nama: {
+           required: "Field Ini Harus Diisi"
+         },
+         password: {
+           required: "Field Ini Harus Diisi"
+         },
+         email: {
+           required: "Field Ini Harus Diisi"
+         },
+         no_telepon: {
+           required: "Field Ini Harus Diisi"
+         },
+         alamat: {
+           required: "Field Ini Harus Diisi"
+         },
+         tempat_lahir: {
+           required: "Field Ini Harus Diisi"
+         },
+         tanggal_lahir: {
+           required: "Field Ini Harus Diisi"
+         }
+       },
+       submitHandler: function(form) {
+           // your ajax would go here
+           var nim = $('#nim').val();
+           var nama = $('#nama').val();
+           var password = $('#password').val();
+           var email = $('#email').val();
+           var no_telepon = $('#no_telepon').val();
+           var alamat = $('#alamat').val();
+           var tempat_lahir = $('#tempat_lahir').val();
+           var tanggal_lahir = $('#tanggal_lahir').val();
+           $.ajax({
+               type : "POST",
+               url  : "<?php echo site_url('admin/kelolamahasiswa/save')?>",
+               dataType : "JSON",
+               data : {nim:nim , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
+               success: function(data){
+                   $('[name="nim"]').val("");
+                   $('[name="nama"]').val("");
+                   $('[name="password"]').val("");
+                   $('[name="email"]').val("");
+                   $('[name="no_telepon"]').val("");
+                   $('[name="alamat"]').val("");
+                   $('[name="tempat_lahir"]').val("");
+                   $('[name="tanggal_lahir"]').val("");
+                   $('#Modal_Add').modal('hide');
+                   show_mahasiswa();
+               }
+           });
+           alert('simulated ajax submit');
+           return false;  // blocks regular submit since you have ajax
+       }
+   });
+
           //Save product
           $('#btn_save').on('click',function(){
-              var nim = $('#nim').val();
-              var nama = $('#nama').val();
-              var password = $('#password').val();
-              var email = $('#email').val();
-              var no_telepon = $('#no_telepon').val();
-              var alamat = $('#alamat').val();
-  						var tempat_lahir = $('#tempat_lahir').val();
-  						var tanggal_lahir = $('#tanggal_lahir').val();
-              $.ajax({
-                  type : "POST",
-                  url  : "<?php echo site_url('admin/kelolamahasiswa/save')?>",
-                  dataType : "JSON",
-                  data : {nim:nim , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
-                  success: function(data){
-                      $('[name="nim"]').val("");
-                      $('[name="nama"]').val("");
-                      $('[name="password"]').val("");
-                      $('[name="email"]').val("");
-                      $('[name="no_telepon"]').val("");
-                      $('[name="alamat"]').val("");
-  										$('[name="tempat_lahir"]').val("");
-  										$('[name="tanggal_lahir"]').val("");
-                      $('#Modal_Add').modal('hide');
-                      show_mahasiswa();
-                  }
-              });
-              return false;
+            $('#form_mahasiswa').submit();
           });
 
           //get data for update record

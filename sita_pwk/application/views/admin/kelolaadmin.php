@@ -242,31 +242,44 @@
   		}
 
       $('#form_admin').validate({
-          rules: {
-              id_admin: {
-                  required: true
-              },
-              nama: {
-                  required: true
-              },
-              email: {
-                  required: true,
-                  email: true
-              }
+        errorPlacement: function(error, element) {
+        error.insertBefore(element);
+        },
+        rules: {
+          id_admin: "required",
+          nama: "required",
+          username: "required",
+          password: "required",
+          email: "required",
+          no_telepon: "required",
+          alamat: "required"
           },
-          highlight: function (element) {
-              $(element).closest('.control-group').removeClass('success').addClass('error');
+          messages: {
+            id_admin: {
+              required: "Kolom Ini Harus Diisi"
+            },
+            nama: {
+              required: "Kolom Ini Harus Diisi"
+            },
+            username: {
+              required: "Kolom Ini Harus Diisi"
+            },
+            password: {
+              required: "Kolom Ini Harus Diisi"
+            },
+            email: {
+              required: "Kolom Ini Harus Diisi"
+            },
+            no_telepon: {
+              required: "Kolom Ini Harus Diisi"
+            },
+            alamat: {
+              required: "Kolom Ini Harus Diisi"
+            }
           },
-          success: function (element) {
-              element.text('OK!').addClass('valid')
-                  .closest('.control-group').removeClass('error').addClass('success');
-          }
-      });
 
-
-
-          //Save product
-          $('#btn_save').on('click',function(){
+          submitHandler: function(form) {
+              // your ajax would go here
               var id_admin = $('#id_admin').val();
               var nama = $('#nama').val();
               var username = $('#username').val();
@@ -291,7 +304,13 @@
                       show_admin();
                   }
               });
-              return false;
+              return false;  // blocks regular submit since you have ajax
+          }
+        });
+
+          //Save product
+          $('#btn_save').on('click',function(){
+            $('#form_admin').submit();
           });
 
           //get data for update record

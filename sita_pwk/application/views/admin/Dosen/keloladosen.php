@@ -45,7 +45,7 @@
 
 <!-- MODAL ADD -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
-        <form>
+        <form id="form_dosen">
         <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -227,31 +227,71 @@
   		    });
   		}
 
+      $('#form_dosen').validate({ // initialize plugin
+       // rules & options,
+        errorPlacement: function(error, element) {
+        error.insertBefore(element);
+        },
+       rules: {
+         nip: "required",
+         nama: "required",
+         password: "required",
+         email: "required",
+         no_telepon: "required",
+         alamat: "required"
+       },
+       messages: {
+         nip: {
+           required: "Field Ini Harus Diisi"
+         },
+         nama: {
+           required: "Field Ini Harus Diisi"
+         },
+         password: {
+           required: "Field Ini Harus Diisi"
+         },
+         email: {
+           required: "Field Ini Harus Diisi"
+         },
+         no_telepon: {
+           required: "Field Ini Harus Diisi"
+         },
+         alamat: {
+           required: "Field Ini Harus Diisi"
+         }
+       },
+       submitHandler: function(form) {
+           // your ajax would go here
+           var nip = $('#nip').val();
+           var nama = $('#nama').val();
+           var password = $('#password').val();
+           var email = $('#email').val();
+           var no_telepon = $('#no_telepon').val();
+           var alamat = $('#alamat').val();
+           $.ajax({
+               type : "POST",
+               url  : "<?php echo site_url('admin/keloladosen/save')?>",
+               dataType : "JSON",
+               data : {nip:nip , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat},
+               success: function(data){
+                   $('[name="nip"]').val("");
+                   $('[name="nama"]').val("");
+                   $('[name="password"]').val("");
+                   $('[name="email"]').val("");
+                   $('[name="no_telepon"]').val("");
+                   $('[name="alamat"]').val("");
+                   $('#Modal_Add').modal('hide');
+                   show_dosen();
+               }
+           });
+           alert('simulated ajax submit');
+           return false;  // blocks regular submit since you have ajax
+       }
+   });
+
           //Save product
           $('#btn_save').on('click',function(){
-              var nip = $('#nip').val();
-              var nama = $('#nama').val();
-              var password = $('#password').val();
-              var email = $('#email').val();
-              var no_telepon = $('#no_telepon').val();
-              var alamat = $('#alamat').val();
-              $.ajax({
-                  type : "POST",
-                  url  : "<?php echo site_url('admin/keloladosen/save')?>",
-                  dataType : "JSON",
-                  data : {nip:nip , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat},
-                  success: function(data){
-                      $('[name="nip"]').val("");
-                      $('[name="nama"]').val("");
-                      $('[name="password"]').val("");
-                      $('[name="email"]').val("");
-                      $('[name="no_telepon"]').val("");
-                      $('[name="alamat"]').val("");
-                      $('#Modal_Add').modal('hide');
-                      show_dosen();
-                  }
-              });
-              return false;
+            $('#form_dosen').submit();
           });
 
           //get data for update record

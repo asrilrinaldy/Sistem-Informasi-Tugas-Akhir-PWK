@@ -42,7 +42,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
 
     <!-- MODAL EDIT -->
-    <form>
+    <form id="dosen_pembimbing">
         <div class="modal fade" id="Modal_Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -179,20 +179,44 @@
             $('[name="nim_edit"]').val(nim);
         });
 
+      $('#dosen_pembimbing').validate({ // initialize plugin
+       // rules & options,
+        errorPlacement: function(error, element) {
+        error.insertBefore(element);
+        },
+       rules: {
+         dosen1: "required",
+         dosen2: "required"
+       },
+       messages: {
+         dosen1: {
+           required: "Pilih Dosen Terlebih Dahulu"
+         },
+         dosen2: {
+           required: "Pilih Dosen Terlebih Dahulu"
+         }
+
+       },
+       submitHandler: function(form) {
+           // your ajax would go here
+           var nim = $('#nim_edit').val();
+           $.ajax({
+               type : "POST",
+               url  : "<?php echo site_url('admin/kelolamahasiswa/update_pembimbing')?>",
+               dataType : "JSON",
+               data : {nim:nim, dosen1:dosen1, dosen2:dosen2},
+               success: function(data){
+                   $('#Modal_Edit').modal('hide');
+                   show_mahasiswa();
+               }
+           });
+           return false;  // blocks regular submit since you have ajax
+       }
+   });
+
         //Tambah Pembimbing ke DB
         $('#btn_update').on('click',function(){
-          var nim = $('#nim_edit').val();
-          $.ajax({
-              type : "POST",
-              url  : "<?php echo site_url('admin/kelolamahasiswa/update_pembimbing')?>",
-              dataType : "JSON",
-              data : {nim:nim, dosen1:dosen1, dosen2:dosen2},
-              success: function(data){
-                  $('#Modal_Edit').modal('hide');
-                  show_mahasiswa();
-              }
-          });
-            return false;
+          $('#dosen_pembimbing').submit();
         });
 
           //get data for delete pembimbing
@@ -222,8 +246,4 @@
 
   });
 </script>
-
-
-
-
 <!-- Buat DataTable-->
