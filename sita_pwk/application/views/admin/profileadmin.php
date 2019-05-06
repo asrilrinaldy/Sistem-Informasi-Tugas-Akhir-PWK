@@ -70,7 +70,7 @@
             </div>
 						<ul class="nav">
                 <li class=" ">
-                  <a href="<?php echo base_url('berandaadmin') ?>">
+                  <a href="<?php echo base_url('admin/berandaadmin') ?>">
                       <i class="menu-icon mdi mdi-home"></i>
                       <p>Kembali ke Beranda</p>
                   </a>

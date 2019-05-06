@@ -70,13 +70,13 @@
             </div>
 						<ul class="nav">
                 <li class=" ">
-                  <a href="<?php echo base_url('berandadosen') ?>">
+                  <a href="<?php echo base_url('mahasiswa/berandamahasiswa') ?>">
                       <i class="menu-icon mdi mdi-home"></i>
                       <p>Kembali ke Beranda</p>
                   </a>
 								</li>
                 <li class="active">
-                  <a href="<?php echo base_url('profile/dosen') ?>">
+                  <a href="<?php echo base_url('profile/mahasiswa') ?>">
                       <i class="menu-icon mdi mdi-account"></i>
                       <p>Edit Profile</p>
                   </a>

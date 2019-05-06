@@ -137,7 +137,7 @@
   		function show_mahasiswa(){
   		    $.ajax({
   		        type  : 'ajax',
-  		        url   : '<?php echo site_url('kelolamahasiswa/mahasiswa_data')?>',
+  		        url   : '<?php echo site_url('admin/kelolamahasiswa/mahasiswa_data')?>',
   		        async : false,
   		        dataType : 'json',
   		        success : function(data){
@@ -184,7 +184,7 @@
           var nim = $('#nim_edit').val();
           $.ajax({
               type : "POST",
-              url  : "<?php echo site_url('kelolamahasiswa/update_pembimbing')?>",
+              url  : "<?php echo site_url('admin/kelolamahasiswa/update_pembimbing')?>",
               dataType : "JSON",
               data : {nim:nim, dosen1:dosen1, dosen2:dosen2},
               success: function(data){
@@ -208,7 +208,7 @@
               var nim = $('#nim_delete').val();
               $.ajax({
                   type : "POST",
-                  url  : "<?php echo site_url('kelolamahasiswa/delete_pembimbing')?>",
+                  url  : "<?php echo site_url('admin/kelolamahasiswa/delete_pembimbing')?>",
                   dataType : "JSON",
                   data : {nim:nim},
                   success: function(data){

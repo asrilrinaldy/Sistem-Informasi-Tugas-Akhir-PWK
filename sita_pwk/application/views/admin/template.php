@@ -107,13 +107,13 @@ h3 {
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('berandaadmin') ?>">
+            <a class="nav-link" href="<?php echo base_url('admin/berandaadmin') ?>">
               <i class="menu-icon mdi mdi-signal"></i>
               <span class="menu-title">Beranda</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo base_url('kelolaadmin') ?>>
+            <a class="nav-link" href=<?php echo base_url('admin/kelolaadmin') ?>>
               <i class="menu-icon mdi mdi-account-location"></i>
               <span class="menu-title">Pengaturan Admin</span>
             </a>
@@ -127,10 +127,7 @@ h3 {
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('keloladosen') ?>">Info Dosen</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('ubahpassword') ?>">Ubah Password Dosen</a>
+                  <a class="nav-link" href="<?php echo base_url('admin/keloladosen') ?>">Info Dosen</a>
                 </li>
               </ul>
             </div>
@@ -144,21 +141,21 @@ h3 {
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('kelolamahasiswa') ?>"> Info Mahasiswa </a>
+                  <a class="nav-link" href="<?php echo base_url('admin/kelolamahasiswa') ?>"> Info Mahasiswa </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('kelolamahasiswa/tunjukpembimbing') ?>">Pilih Dosen Pembimbing </a>
+                  <a class="nav-link" href="<?php echo base_url('admin/kelolamahasiswa/tunjukpembimbing') ?>">Pilih Dosen Pembimbing </a>
                 </li>
               </ul>
             </div>
             <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('referensi') ?>">
+            <a class="nav-link" href="<?php echo base_url('admin/referensi') ?>">
               <i class="menu-icon mdi mdi-note-multiple-outline"></i>
               <span class="menu-title">Kelola Referensi T.A</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('kelolajadwalpenting') ?>">
+            <a class="nav-link" href="<?php echo base_url('admin/kelolajadwalpenting') ?>">
               <i class="menu-icon mdi mdi-table"></i>
               <span class="menu-title">Kelola Jadwal Penting</span>
             </a>

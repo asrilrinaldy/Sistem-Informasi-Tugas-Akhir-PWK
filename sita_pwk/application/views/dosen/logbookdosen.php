@@ -65,7 +65,7 @@ $(document).ready(function(){
   function show_logbook(){
       $.ajax({
           type  : 'ajax',
-          url   : '<?php echo site_url('logbookdosen/mahasiswa_data')?>',
+          url   : '<?php echo site_url('dosen/logbookdosen/mahasiswa_data')?>',
           async : false,
           dataType : 'json',
           success : function(data){
@@ -80,7 +80,7 @@ $(document).ready(function(){
                         '<td>'+data[i].Email+'</td>'+
                         '<td>'+data[i].Judul_TA+'</td>'+
                         '<td style="text-align:center;">' +
-                        '<a href="logbookdosen/detail_logbook?nim=' + data[i].NIM + '" class="btn btn-info btn-sm item_edit" id="jadwal" data-nim="' + data[i].NIM + '" >Logbook</a>' + ' ' +
+                        '<a href="dosen/logbookdosen/detail_logbook?nim=' + data[i].NIM + '" class="btn btn-info btn-sm item_edit" id="jadwal" data-nim="' + data[i].NIM + '" >Logbook</a>' + ' ' +
                         '</td>' +
                           '</tr>';
               }

@@ -95,7 +95,7 @@ $(document).ready(function(){
   function show_konsul(){
       $.ajax({
           type  : 'ajax',
-          url   : '<?php echo site_url('konsultasibelum/konsul_data')?>',
+          url   : '<?php echo site_url('dosen/konsultasibelum/konsul_data')?>',
           async : false,
           dataType : 'json',
           success : function(data){
@@ -135,14 +135,14 @@ $(document).ready(function(){
 
      $.ajax({
          type : "POST",
-         url  : "<?php echo site_url('konsultasibelum/periksa_konsul')?>",
+         url  : "<?php echo site_url('dosen/konsultasibelum/periksa_konsul')?>",
          dataType : "JSON",
          data : {id_konsul:id_konsul , komentar:komentar},
          success: function(data){
              $('[name="id_konsul"]').val("");
              $('[name="komentar"]').val("");
              $('#Modal_Edit').modal('hide');
-             window.location.href = "konsultasibelum";
+             window.location.href = "dosen/konsultasibelum";
          }
      });
      return false;

@@ -68,7 +68,7 @@ $(document).ready(function(){
   function show_konsul(){
       $.ajax({
           type  : 'ajax',
-          url   : '<?php echo site_url('konsultasisudah/konsul_data')?>',
+          url   : '<?php echo site_url('dosen/konsultasisudah/konsul_data')?>',
           async : false,
           dataType : 'json',
           success : function(data){

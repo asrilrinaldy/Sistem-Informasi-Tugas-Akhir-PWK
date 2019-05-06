@@ -70,22 +70,7 @@
                 </select>
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-md-2 col-form-label">NIM</label>
-              <div class="col-md-10">
-                <input type="text" name="nim" id="nim" class="form-control" disabled>
                 <div class="modal-body">
-                  <div class="form-group row">
-                    <label class="col-md-2 col-form-label">Mahasiswa</label>
-                    <div class="col-md-10">
-                      <select class="form-control" name="mahasiswa" id="mahasiswa" required>
-                        <option value="">No Selected</option>
-                        <?php foreach ($mahasiswa as $row) : ?>
-                          <option value="<?= $row->NIM; ?>"><?= $row->Nama; ?></option>
-                        <?php endforeach; ?>
-                      </select>
-                    </div>
-                  </div>
                   <div class="form-group row">
                     <label class="col-md-2 col-form-label">NIM</label>
                     <div class="col-md-10">
@@ -117,38 +102,12 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-md-2 col-form-label">Nama</label>
-                <div class="col-md-10">
-                  <input type="text" name="nama" id="nama" class="form-control" disabled>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-md-2 col-form-label">Ruangan</label>
-                <div class="col-md-10">
-                  <input type="text" name="ruangan" id="ruangan" class="form-control" placeholder="Ruangan">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-md-2 col-form-label">Waktu</label>
-                <div class="col-md-10">
-                  <input type=time name=waktu id="waktu" class="form-control">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-md-2 col-form-label">Tanggal</label>
-                <div class="col-md-10">
-                  <input type="date" name="tanggal" id="tanggal" class="form-control">
-                </div>
-              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="button" type="submit" id="btn_save" class="btn btn-primary">Save</button>
             </div>
           </div>
-        </div>
       </div>
   </form>
   <!--END MODAL ADD-->
@@ -235,7 +194,7 @@
       function show_jadwal() {
         $.ajax({
           type: 'ajax',
-          url: '<?php echo site_url('kelolajadwalpenting/jadwal_data') ?>',
+          url: '<?php echo site_url('admin/kelolajadwalpenting/jadwal_data') ?>',
           async: false,
           dataType: 'json',
           success: function(data) {
@@ -270,7 +229,7 @@
 
         $.ajax({
           type: "POST",
-          url: "<?php echo site_url('kelolajadwalpenting/save') ?>",
+          url: "<?php echo site_url('admin/kelolajadwalpenting/save') ?>",
           dataType: "JSON",
           data: {
             nim: nim,
@@ -318,7 +277,7 @@
 
         $.ajax({
           type: "POST",
-          url: "<?php echo site_url('kelolajadwalpenting/update') ?>",
+          url: "<?php echo site_url('admin/kelolajadwalpenting/update') ?>",
           dataType: "JSON",
           data: {
             id_jadwal: id_jadwal,
@@ -351,7 +310,7 @@
         var id_jadwal = $('#id_jadwal_delete').val();
         $.ajax({
           type: "POST",
-          url: "<?php echo site_url('kelolajadwalpenting/delete') ?>",
+          url: "<?php echo site_url('admin/kelolajadwalpenting/delete') ?>",
           dataType: "JSON",
           data: {
             id_jadwal: id_jadwal

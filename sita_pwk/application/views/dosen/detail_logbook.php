@@ -99,7 +99,7 @@
         var nim = $("#nim").val();
         $.ajax({
           type: 'ajax',
-          url: '<?php echo site_url("logbookdosen/logbook_data_mhs?nim='+ nim +'") ?>',
+          url: '<?php echo site_url("dosen/logbookdosen/logbook_data_mhs?nim='+ nim +'") ?>',
           async: false,
           dataType: 'json',
           success: function(data) {

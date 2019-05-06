@@ -28,12 +28,12 @@
                 <br>Berkas File</br>
                 <div class="input-group">
                   <div class="custom-file">
-                    <input type="file" name="file_konsul" id="file_konsul" enctype="multipart/form-data">
+                    <input type="file" name="file_konsul" id="file_konsul" enctype="multipart/form-data" required>
                   </div>
                 </div>
                 <br>
                 <div>Pembimbing</br>
-                  <label> <select name="dosen" id="dosen" aria-controls="kelas" class="form-control input-sm">
+                  <label> <select name="dosen" id="dosen" aria-controls="kelas" class="form-control input-sm" required>
                     <option value="">No Selected</option>
                     <?php foreach($dosen as $row):?>
                     <option value="<?= $row->NIP;?>"><?= $row->Nama;?></option>
@@ -41,10 +41,10 @@
                     </select>
                   </label>
                 </div>
-                <input type="text" id="nip" name="nip">
+                <input type="hidden" id="nip" name="nip">
                 <br>
                 <label>Keterangan</label>
-                <textarea name="keterangan" id="keterangan" class="form-control" rows="8"></textarea><br>
+                <textarea name="keterangan" id="keterangan" class="form-control" rows="8" required></textarea><br>
                 <center>
                     <input class="btn btn-primary" type="submit" value="Kirim" ></input>
                 </center>
@@ -110,7 +110,7 @@
     function show_konsul() {
       $.ajax({
         type: 'ajax',
-        url: '<?php echo site_url('konsultasimahasiswa/konsul_data') ?>',
+        url: '<?php echo site_url('mahasiswa/konsultasimahasiswa/konsul_data') ?>',
         async: false,
         dataType: 'json',
         success: function(data) {
@@ -137,7 +137,7 @@
           e.preventDefault();
           console.log(new FormData(this));
                $.ajax({
-                   url:'<?php echo base_url();?>konsultasimahasiswa/insert_data',
+                   url:'<?php echo base_url();?>mahasiswa/konsultasimahasiswa/insert_data',
                    type:"post",
                    data:new FormData(this),
                    processData:false,

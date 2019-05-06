@@ -8,10 +8,10 @@ class Berandadosen extends CI_Controller {
 		parent::__construct();
 		if($this->session->userdata('akses') != "Dosen") {
 			if($this->session->userdata('akses') == "Mahasiswa") {
-				$url = base_url('berandamahasiswa');
+				$url = base_url('mahasiswa/berandamahasiswa');
 				redirect($url);
 			}else{
-				$url = base_url('berandaadmin');
+				$url = base_url('admin/berandaadmin');
 				redirect($url);
 			}
 		}

@@ -224,7 +224,7 @@
 		function show_dosen(){
 		    $.ajax({
 		        type  : 'ajax',
-		        url   : '<?php echo site_url('keloladosen/dosen_data')?>',
+		        url   : '<?php echo site_url('admin/keloladosen/dosen_data')?>',
 		        async : false,
 		        dataType : 'json',
 		        success : function(data){
@@ -264,7 +264,7 @@
 						var tanggal_lahir = $('#tanggal_lahir').val();
             $.ajax({
                 type : "POST",
-                url  : "<?php echo site_url('keloladosen/save')?>",
+                url  : "<?php echo site_url('admin/keloladosen/save')?>",
                 dataType : "JSON",
                 data : {nip:nip , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
                 success: function(data){
@@ -319,7 +319,7 @@
 
             $.ajax({
                 type : "POST",
-                url  : "<?php echo site_url('keloladosen/update')?>",
+                url  : "<?php echo site_url('admin/keloladosen/update')?>",
                 dataType : "JSON",
                 data : {nip:nip , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
                 success: function(data){
@@ -351,7 +351,7 @@
             var nip = $('#nip_delete').val();
             $.ajax({
                 type : "POST",
-                url  : "<?php echo site_url('keloladosen/delete')?>",
+                url  : "<?php echo site_url('admin/keloladosen/delete')?>",
                 dataType : "JSON",
                 data : {nip:nip},
                 success: function(data){

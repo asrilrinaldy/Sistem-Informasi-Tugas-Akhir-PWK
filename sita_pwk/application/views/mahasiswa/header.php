@@ -106,35 +106,35 @@
 
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="berandamahasiswa">
+            <a class="nav-link" href="mahasiswa/berandamahasiswa">
               <i class="menu-icon mdi mdi-signal"></i>
               <span class="menu-title">Beranda</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="informasidosen">
+            <a class="nav-link" href="mahasiswa/informasidosen">
               <i class="menu-icon mdi mdi-account"></i>
               <span class="menu-title">Informasi Dosen</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="konsultasimahasiswa">
+            <a class="nav-link" href="mahasiswa/konsultasimahasiswa">
               <i class="menu-icon mdi mdi-message-text-outline"></i>
               <span class="menu-title">Konsultasi</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="referensijudul">
+            <a class="nav-link" href="mahasiswa/referensijudul">
               <i class="menu-icon mdi mdi-book-open"></i>
               <span class="menu-title">Referensi Judul</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="LogBookMahasiswa">
+            <a class="nav-link" href="mahasiswa/LogBookMahasiswa">
               <i class="menu-icon mdi mdi-tumblr-reblog"></i>
               <span class="menu-title">LogBook Mahasiswa</span>
             </a>

@@ -92,14 +92,14 @@
         <ul class="nav">
 
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url ('berandadosen')?>">
+            <a class="nav-link" href="<?php echo base_url ('dosen/berandadosen')?>">
               <i class="menu-icon mdi mdi-signal"></i>
               <span class="menu-title">Beranda</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo base_url('jadwaldosen') ?>>
+            <a class="nav-link" href=<?php echo base_url('dosen/jadwaldosen') ?>>
               <i class="menu-icon mdi mdi-calendar"></i>
               <span class="menu-title">Jadwal</span>
             </a>
@@ -114,17 +114,17 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('konsultasibelum') ?>">Belum Diperiksa<span class="badge badge-dark"><?php echo $jumlah_konsul ?></span></a>
+                  <a class="nav-link" href="<?php echo base_url('dosen/konsultasibelum') ?>">Belum Diperiksa<span class="badge badge-dark"><?php echo $jumlah_konsul ?></span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('konsultasisudah') ?>">Sudah Diperiksa</a>
+                  <a class="nav-link" href="<?php echo base_url('dosen/konsultasisudah') ?>">Sudah Diperiksa</a>
                 </li>
               </ul>
             </div>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('logbookdosen') ?>">
+            <a class="nav-link" href="<?php echo base_url('dosen/logbookdosen') ?>">
               <i class="menu-icon mdi mdi-file-document-box"></i>
               <span class="menu-title">Logbook  Mahasiswa</span>
             </a>

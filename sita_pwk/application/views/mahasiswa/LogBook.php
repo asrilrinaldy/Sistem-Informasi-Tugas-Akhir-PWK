@@ -128,7 +128,7 @@
     function show_logbook() {
       $.ajax({
         type: 'ajax',
-        url: '<?php echo site_url('logbookmahasiswa/logbook_mahasiswa_data') ?>',
+        url: '<?php echo site_url('mahasiswa/logbookmahasiswa/logbook_mahasiswa_data') ?>',
         async: false,
         dataType: 'json',
         success: function(data) {
@@ -161,7 +161,7 @@
       var dosen = $('#dosen').val();
       $.ajax({
         type: "POST",
-        url: "<?php echo site_url('logbookmahasiswa/save') ?>",
+        url: "<?php echo site_url('mahasiswa/logbookmahasiswa/save') ?>",
         dataType: "JSON",
         data: {
           deskripsi: deskripsi,
@@ -196,7 +196,7 @@
       var id_logbook = $('#id_logbook_delete').val();
       $.ajax({
         type: "POST",
-        url: "<?php echo site_url('logbookmahasiswa/delete') ?>",
+        url: "<?php echo site_url('mahasiswa/logbookmahasiswa/delete') ?>",
         dataType: "JSON",
         data: {
           id_logbook: id_logbook

@@ -40,7 +40,7 @@ class Login extends CI_Controller
       $this->session->set_userdata('ses_no_telp', $data['no_telp']);
       $this->session->set_userdata('ses_alamat', $data['alamat']);
       $this->session->set_userdata('ses_foto', $data['foto']);
-      redirect('berandaadmin');
+      redirect('admin/berandaadmin');
     } else if ($cek_dosen->num_rows() > 0) {
       $data = $cek_dosen->row_array();
       $this->session->set_userdata('masuk', TRUE);
@@ -51,7 +51,7 @@ class Login extends CI_Controller
       $this->session->set_userdata('ses_no_telp', $data['No_telepon']);
       $this->session->set_userdata('ses_alamat', $data['Alamat']);
       $this->session->set_userdata('ses_foto', $data['foto']);
-      redirect('berandadosen');
+      redirect('dosen/berandadosen');
     } else {
       $cek_mahasiswa = $this->login_model->cek_mhs($username, $password);
       if ($cek_mahasiswa->num_rows() > 0) {
@@ -71,7 +71,7 @@ class Login extends CI_Controller
         $dosen2 = $this->dosen_model->get_dosen($data['Pembimbing2'])->row_array();
         $this->session->set_userdata('ses_pembimbing', $dosen1['Nama']);
         $this->session->set_userdata('ses_pembimbing2', $dosen2['Nama']);
-        redirect('berandamahasiswa');
+        redirect('mahasiswa/berandamahasiswa');
       } else {
         $url = base_url('login');
         redirect($url);

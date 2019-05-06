@@ -144,7 +144,7 @@
     function show_jadwal(){
         $.ajax({
             type  : 'ajax',
-            url   : '<?php echo site_url('jadwaldosen/jadwal_data')?>',
+            url   : '<?php echo site_url('dosen/jadwaldosen/jadwal_data')?>',
             async : false,
             dataType : 'json',
             success : function(data){
@@ -175,7 +175,7 @@
 
         $.ajax({
             type : "POST",
-            url  : "<?php echo site_url('jadwaldosen/input_jadwal')?>",
+            url  : "<?php echo site_url('dosen/jadwaldosen/input_jadwal')?>",
             dataType : "JSON",
             data : {gedung:gedung , jam:jam, tanggal:tanggal},
             success: function(data){
@@ -200,7 +200,7 @@
         var id_jadwal = $('#id_jadwal_delete').val();
         $.ajax({
             type : "POST",
-            url  : "<?php echo site_url('jadwaldosen/delete_jadwal')?>",
+            url  : "<?php echo site_url('dosen/jadwaldosen/delete_jadwal')?>",
             dataType : "JSON",
             data : {id_jadwal:id_jadwal},
             success: function(data){

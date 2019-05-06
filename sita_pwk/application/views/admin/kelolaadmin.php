@@ -214,7 +214,7 @@
   		function show_admin(){
   		    $.ajax({
   		        type  : 'ajax',
-  		        url   : '<?php echo site_url('kelolaadmin/admin_data')?>',
+  		        url   : '<?php echo site_url('admin/kelolaadmin/admin_data')?>',
   		        async : false,
   		        dataType : 'json',
   		        success : function(data){
@@ -276,7 +276,7 @@
               var alamat = $('#alamat').val();
               $.ajax({
                   type : "POST",
-                  url  : "<?php echo site_url('kelolaadmin/save')?>",
+                  url  : "<?php echo site_url('admin/kelolaadmin/save')?>",
                   dataType : "JSON",
                   data : {id_admin:id_admin , nama:nama, username:username, password:password, email:email, no_telepon:no_telepon, alamat:alamat},
                   success: function(data){
@@ -327,7 +327,7 @@
 
               $.ajax({
                   type : "POST",
-                  url  : "<?php echo site_url('kelolaadmin/update')?>",
+                  url  : "<?php echo site_url('admin/kelolaadmin/update')?>",
                   dataType : "JSON",
                   data : {id_admin:id_admin , nama:nama, username:username, password:password, email:email, no_telepon:no_telepon, alamat:alamat},
                   success: function(data){
@@ -358,7 +358,7 @@
               var id_admin = $('#id_admin_delete').val();
               $.ajax({
                   type : "POST",
-                  url  : "<?php echo site_url('kelolaadmin/delete')?>",
+                  url  : "<?php echo site_url('admin/kelolaadmin/delete')?>",
                   dataType : "JSON",
                   data : {id_admin:id_admin},
                   success: function(data){

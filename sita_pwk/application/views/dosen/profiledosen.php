@@ -70,7 +70,7 @@
             </div>
 						<ul class="nav">
                 <li class=" ">
-                  <a href="<?php echo base_url('berandadosen') ?>">
+                  <a href="<?php echo base_url('dosen/berandadosen') ?>">
                       <i class="menu-icon mdi mdi-home"></i>
                       <p>Kembali ke Beranda</p>
                   </a>

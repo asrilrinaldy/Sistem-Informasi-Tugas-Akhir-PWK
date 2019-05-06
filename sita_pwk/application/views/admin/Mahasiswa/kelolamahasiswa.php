@@ -203,7 +203,7 @@
   		function show_mahasiswa(){
   		    $.ajax({
   		        type  : 'ajax',
-  		        url   : '<?php echo site_url('kelolamahasiswa/mahasiswa_data')?>',
+  		        url   : '<?php echo site_url('admin/kelolamahasiswa/mahasiswa_data')?>',
   		        async : false,
   		        dataType : 'json',
   		        success : function(data){
@@ -241,7 +241,7 @@
   						var tanggal_lahir = $('#tanggal_lahir').val();
               $.ajax({
                   type : "POST",
-                  url  : "<?php echo site_url('kelolamahasiswa/save')?>",
+                  url  : "<?php echo site_url('admin/kelolamahasiswa/save')?>",
                   dataType : "JSON",
                   data : {nim:nim , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
                   success: function(data){
@@ -296,7 +296,7 @@
 
               $.ajax({
                   type : "POST",
-                  url  : "<?php echo site_url('kelolamahasiswa/update')?>",
+                  url  : "<?php echo site_url('admin/kelolamahasiswa/update')?>",
                   dataType : "JSON",
                   data : {nim:nim , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat, tempat_lahir:tempat_lahir, tanggal_lahir:tanggal_lahir},
                   success: function(data){
@@ -328,7 +328,7 @@
               var nim = $('#nim_delete').val();
               $.ajax({
                   type : "POST",
-                  url  : "<?php echo site_url('kelolamahasiswa/delete')?>",
+                  url  : "<?php echo site_url('admin/kelolamahasiswa/delete')?>",
                   dataType : "JSON",
                   data : {nim:nim},
                   success: function(data){

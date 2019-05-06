@@ -182,7 +182,7 @@
       function show_referensi(){
           $.ajax({
               type  : 'ajax',
-              url   : '<?php echo site_url('referensi/referensi_data')?>',
+              url   : '<?php echo site_url('admin/referensi/referensi_data')?>',
               async : false,
               dataType : 'json',
               success : function(data){
@@ -214,7 +214,7 @@
       $('#submit').submit(function(e){
             e.preventDefault();
                  $.ajax({
-                     url:'<?php echo base_url();?>referensi/upload',
+                     url:'<?php echo base_url();?>admin/referensi/upload',
                      type:"post",
                      data:new FormData(this),
                      processData:false,
@@ -257,7 +257,7 @@
          var asal_referensi = $('#asal_referensi_edit').val();
           $.ajax({
               type : "POST",
-              url  : "<?php echo site_url('referensi/update')?>",
+              url  : "<?php echo site_url('admin/referensi/update')?>",
               dataType : "JSON",
               data : {id_referensi:id_referensi , judul_ta:judul_ta, penulis:penulis, tahun:tahun, asal_referensi:asal_referensi},
               success: function(data){
@@ -283,7 +283,7 @@
           var id_referensi = $('#id_referensi_delete').val();
           $.ajax({
               type : "POST",
-              url  : "<?php echo site_url('referensi/delete')?>",
+              url  : "<?php echo site_url('admin/referensi/delete')?>",
               dataType : "JSON",
               data : {id_referensi:id_referensi},
               success: function(data){
