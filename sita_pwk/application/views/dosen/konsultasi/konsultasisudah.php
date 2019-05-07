@@ -76,13 +76,15 @@ $(document).ready(function(){
               var i;
               for(i=0; i<data.length; i++){
                 var no = i+1;
+                var link_file = '<?php echo site_url('assets/upload/')?>'+data[i].File;
+                var download = 'Download';
                 html += '<tr>'+
                       '<td>'+no+'</td>'+
                       '<td>' + data[i].NIM + '</td>' +
                       '<td>' + data[i].Nama + '</td>' +
                       '<td>' + data[i].Judul_TA + '</td>' +
                       '<td>' + data[i].Tanggal_diperiksa + '</td>' +
-                      '<td>' + data[i].File + '</td>' +
+                      '<td>'+'<a href="'+link_file+'" target="_blank">'+download+'</a>'+'</td>'+
                       '<td>' + data[i].Komentar + '</td>' +
                       '</tr>';
               }

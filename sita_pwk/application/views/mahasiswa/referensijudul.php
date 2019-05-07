@@ -26,6 +26,7 @@
                       <th>Penulis</th>
                       <th>Tahun</th>
                       <th>Asal Referensi</th>
+                      <th>File</th>
                   </tr>
                 </thead>
                 <tbody id="show_data">
@@ -59,12 +60,15 @@
                   var i,nomor;
                   for(i=0; i<data.length; i++){
                     nomor=i+1;
+                    var link_file = '<?php echo site_url('assets/upload/referensi/')?>'+data[i].file;
+                    var download = 'Download';
                       html += '<tr>'+
                             '<td>'+nomor+'</td>'+
                               '<td>'+data[i].Judul_TA+'</td>'+
                               '<td>'+data[i].Penulis+'</td>'+
                               '<td>'+data[i].Tahun+'</td>'+
                               '<td>'+data[i].Asal_Referensi+'</td>'+
+                              '<td>'+'<a href="'+link_file+'" target="_blank">'+download+'</a>'+'</td>'+
                               '</tr>';
                   }
                   $('#show_data').html(html);

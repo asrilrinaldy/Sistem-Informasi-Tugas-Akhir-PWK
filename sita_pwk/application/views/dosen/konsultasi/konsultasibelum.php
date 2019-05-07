@@ -102,6 +102,8 @@ $(document).ready(function(){
               var html = '';
               var i;
               for(i=0; i<data.length; i++){
+                var link_file = '<?php echo site_url('assets/upload/')?>'+data[i].File;
+                var download = 'Download';
                 var no = i+1;
                 html += '<tr>'+
                       '<td>'+no+'</td>'+
@@ -109,7 +111,7 @@ $(document).ready(function(){
                       '<td>' + data[i].Nama + '</td>' +
                       '<td>' + data[i].Tanggal + '</td>' +
                       '<td>' + data[i].Judul_TA + '</td>' +
-                      '<td>' + data[i].File + '</td>' +
+                      '<td>'+'<a href="'+link_file+'" target="_blank">'+download+'</a>'+'</td>'+
                       '<td>' + data[i].Keterangan + '</td>' +
                       '<td style="text-align:center;">' +
                       '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_konsul="' + data[i].Id_Konsul + '">Periksa</a>' + ' ' +
