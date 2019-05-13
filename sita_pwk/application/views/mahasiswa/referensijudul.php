@@ -52,7 +52,7 @@
       function show_referensi(){
           $.ajax({
               type  : 'ajax',
-              url   : '<?php echo site_url('admin/referensi/referensi_data')?>',
+              url   : '<?php echo site_url('mahasiswa/referensijudul/referensi_data')?>',
               async : false,
               dataType : 'json',
               success : function(data){

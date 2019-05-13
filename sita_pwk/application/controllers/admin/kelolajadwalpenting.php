@@ -7,6 +7,17 @@ class kelolajadwalpenting extends CI_Controller {
         parent::__construct();
         $this->load->model('mahasiswa_model');
 				$this->load->model('jadwalpenting_model');
+				//Start Untuk mengecek kalau yg akses adalah admin
+				if($this->session->userdata('akses') != "Admin") {
+					if($this->session->userdata('akses') == "Dosen") {// Jika Dosen berusaha akses maka akan di redirect ke halaman dosen
+						$url = base_url('dosen/berandadosen');
+						redirect($url);
+					}else{// Jika Mahasiswa berusaha akses maka akan di redirect ke halaman mahasiswa
+						$url = base_url('mahasiswa/berandamahasiswa');
+						redirect($url);
+					}
+				}
+				//END Untuk mengecek kalau yg akses adalahadmin
     }
 
 	public function index()
@@ -16,7 +27,7 @@ class kelolajadwalpenting extends CI_Controller {
 		$this->load->view('admin/template', $isi);
 	}
 
-	public function getmahasiswa()
+	public function getmahasiswa() // Function untuk mendapatkan mahasiswa dengan berdasarkan NIM pada jadwal penting
 	{
 		$nim = $this->input->post('nim',TRUE);
 		$data = $this->jadwalpenting_model->get_mhs_by_nim($nim)->result();

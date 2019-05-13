@@ -3,6 +3,17 @@ class Referensi extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->model('referensi_model');
+		//Start Untuk mengecek kalau yg akses adalah admin
+		if($this->session->userdata('akses') != "Admin") {
+			if($this->session->userdata('akses') == "Dosen") {// Jika Dosen berusaha akses maka akan di redirect ke halaman dosen
+				$url = base_url('dosen/berandadosen');
+				redirect($url);
+			}else{// Jika Mahasiswa berusaha akses maka akan di redirect ke halaman mahasiswa
+				$url = base_url('mahasiswa/berandamahasiswa');
+				redirect($url);
+			}
+		}
+		//END Untuk mengecek kalau yg akses adalahadmin
 	}
 	function index(){
 		$isi['konten'] = 'admin/judulTA';
@@ -24,14 +35,14 @@ class Referensi extends CI_Controller{
 	}
 
 	function upload(){
-		$config['upload_path']="./assets/upload/referensi/"; //path folder file upload
-		$config['allowed_types']='doc|docx|pdf'; //type file yang boleh di upload
+		$config['upload_path']="./assets/upload/referensi/"; //file yg diupload akan disimpan
+		$config['allowed_types']='doc|docx|pdf'; // tipe file yang boleh di upload
 
-		$this->load->library('upload',$config); //call library upload
+		$this->load->library('upload',$config);
 		if($this->upload->do_upload("file")){ //upload file
-		$data = array('upload_data' => $this->upload->data()); //ambil file name yang diupload
+		$data = array('upload_data' => $this->upload->data()); //ambil nama file yang diupload
 
-		$file= $data['upload_data']['file_name']; //set file name ke variable image
+		$file= $data['upload_data']['file_name'];
 		$id_referensi=$this->input->post('id_referensi');
 		$judul_ta=$this->input->post('judul_ta');
 		$penulis=$this->input->post('penulis');

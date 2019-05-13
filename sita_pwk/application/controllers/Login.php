@@ -24,14 +24,15 @@ class Login extends CI_Controller
 
   public function login()
   {
-    $username = htmlspecialchars($this->input->post('username', TRUE), ENT_QUOTES);
-    $password = htmlspecialchars($this->input->post('password', TRUE), ENT_QUOTES);
+    $username = htmlspecialchars($this->input->post('username', TRUE), ENT_QUOTES); // mengambil email yg dimasukkan
+    $password = htmlspecialchars($this->input->post('password', TRUE), ENT_QUOTES); // // mengambil password yg dimasukkan
 
     $cek_admin = $this->login_model->cek_admin($username, $password);
     $cek_dosen = $this->login_model->cek_dosen($username, $password);
 
     if ($cek_admin->num_rows() > 0) {
       $data = $cek_admin->row_array();
+      //Set data user dari DB ke Session
       $this->session->set_userdata('masuk', TRUE);
       $this->session->set_userdata('akses', 'Admin');
       $this->session->set_userdata('ses_id', $data['id_admin']);
@@ -42,6 +43,7 @@ class Login extends CI_Controller
       $this->session->set_userdata('ses_foto', $data['foto']);
       redirect('admin/berandaadmin');
     } else if ($cek_dosen->num_rows() > 0) {
+      //Set data user dari DB ke Session
       $data = $cek_dosen->row_array();
       $this->session->set_userdata('masuk', TRUE);
       $this->session->set_userdata('akses', 'Dosen');
@@ -54,6 +56,7 @@ class Login extends CI_Controller
       redirect('dosen/berandadosen');
     } else {
       $cek_mahasiswa = $this->login_model->cek_mhs($username, $password);
+      //Set data user dari DB ke Session
       if ($cek_mahasiswa->num_rows() > 0) {
         $data = $cek_mahasiswa->row_array();
         $this->session->set_userdata('masuk', TRUE);

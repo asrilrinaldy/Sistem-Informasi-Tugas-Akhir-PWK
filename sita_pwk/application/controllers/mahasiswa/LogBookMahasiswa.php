@@ -3,12 +3,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class LogBookMahasiswa extends CI_Controller
 {
+
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->model('mahasiswa_model');
 		$this->load->model('dosen_model');
 		$this->load->model('logbook_mahasiswa_model');
+		if($this->session->userdata('akses') != "Mahasiswa") {
+			if($this->session->userdata('akses') == "Dosen") {
+				$url = base_url('dosen/berandadosen');
+				redirect($url);
+			}else{
+				$url = base_url('admin/berandaadmin');
+				redirect($url);
+			}
+		}
 	}
 
 	public function index()

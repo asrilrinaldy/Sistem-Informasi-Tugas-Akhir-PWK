@@ -97,7 +97,7 @@
         var nip_dosen = $("#nip_dosen").val();
         $.ajax({
           type: 'ajax',
-          url: '<?php echo site_url("dosen/jadwaldosen/jadwal_data_mhs?nip='+ nip_dosen +'") ?>',
+          url: '<?php echo site_url("mahasiswa/informasidosen2/jadwal_data_mhs?nip='+ nip_dosen +'") ?>',
           async: false,
           dataType: 'json',
           success: function(data) {
