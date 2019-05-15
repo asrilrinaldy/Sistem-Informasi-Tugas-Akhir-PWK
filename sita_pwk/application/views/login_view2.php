@@ -46,7 +46,7 @@ if ($this->session->userdata('masuk') == TRUE) {
 							</div>
 					<?php }elseif ($this->session->flashdata('error')){ ?>
 							<div class="alert alert-warning" role="alert">
-							<?php echo "Username / Password Salah!"; ?>
+							<?php echo $this->session->flashdata('error') ?>
 							</div>
 					<?php }; ?>
 					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">

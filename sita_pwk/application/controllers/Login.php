@@ -76,7 +76,7 @@ class Login extends CI_Controller
         $this->session->set_userdata('ses_pembimbing2', $dosen2['Nama']);
         redirect('mahasiswa/berandamahasiswa');
       } else {
-        $this->session->set_flashdata('error', 'Gagal Megubah Profil!');
+        $this->session->set_flashdata('error', 'Username / Password Salah!');
         $url = base_url('login');
         redirect($url);
       }

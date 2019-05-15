@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2019 at 08:57 AM
+-- Generation Time: May 13, 2019 at 05:10 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -44,7 +44,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `nama`, `username`, `password`, `email`, `no_telp`, `alamat`, `foto`) VALUES
-('Adm004', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '123', '123admin', NULL);
+('Adm004', 'admin', '', '202cb962ac59075b964b07152d234b70', 'admin', '123', 'as3a', NULL);
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`Nama`, `NIP`, `password`, `Email`, `No_telepon`, `Alamat`, `foto`) VALUES
-('Dosen S.T.,M.T.', '111', 'f499263a253447dd5cb68dafb9f13235', 'dosen1', '123', '123asd', NULL),
+('Dosen S.T.,M.T.', '111', 'f499263a253447dd5cb68dafb9f13235', 'dosen1', '123232', '123asd', ''),
 ('Dosen2 S.T.,M.T.', '222', 'ac41c4e0e6ef7ac51f0c8f3895f82ce5', 'dosen2', '123', 'dosen2123', NULL);
 
 -- --------------------------------------------------------
@@ -84,6 +84,14 @@ CREATE TABLE `jadwal_kosong` (
   `Jam` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `jadwal_kosong`
+--
+
+INSERT INTO `jadwal_kosong` (`Id_Jadwal`, `NIP`, `Gedung`, `Tanggal`, `Jam`) VALUES
+(4, '111', 'Gedung C', '2019-05-01', '07:01:00'),
+(5, '111', 'Gedung C', '2019-05-01', '12:01:00');
+
 -- --------------------------------------------------------
 
 --
@@ -97,6 +105,14 @@ CREATE TABLE `jadwal_penting` (
   `Waktu` varchar(20) NOT NULL,
   `Tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jadwal_penting`
+--
+
+INSERT INTO `jadwal_penting` (`Id_Jadwal`, `NIM`, `Ruangan`, `Waktu`, `Tanggal`) VALUES
+(1, 14116150, 'E311', '03:23', '2019-05-11'),
+(2, 14116150, 'E121', '22:23', '2323-02-21');
 
 -- --------------------------------------------------------
 
@@ -117,6 +133,19 @@ CREATE TABLE `konsultasi` (
   `Status` varchar(50) NOT NULL DEFAULT 'Belum Diperiksa'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `konsultasi`
+--
+
+INSERT INTO `konsultasi` (`Id_Konsul`, `NIM`, `Komentar`, `NIP`, `Tanggal`, `Tanggal_diperiksa`, `Judul_TA`, `File`, `Keterangan`, `Status`) VALUES
+(1, 14116150, 'aselole', '111', '2019-04-24', '2019-05-06', 'Analisis Blabla....', 'file.docx', '-', 'Sudah Diperiksa'),
+(2, 14116150, 'asdasd', '111', '2019-04-24', '2019-05-06', 'HAHAHAHA', 'file2.docx', 'Perbaikan Bab 100', 'Sudah Diperiksa'),
+(3, 14116150, 'due tige sabun detol\nsa ae lu botol', '111', '2019-05-07', '2019-05-05', 'HAHAHAHA', 'asd.pdf', 'Perbaikan Bab 1000', 'Sudah Diperiksa'),
+(4, 14116150, 'sdkfskdfksd', '111', '2019-05-06', '2019-05-06', 'asdasd', '14116150_M_Ragil_Tri', 'sdsdf', 'Sudah Diperiksa'),
+(6, 14116150, 'aksdsaldlasld', '111', '2019-05-01', '2019-05-06', 'kljljlj', 'jjhjh', 'jkjkjkj', 'Sudah Diperiksa'),
+(7, 14116150, 'bagus', '111', '2019-05-07', '2019-05-07', 'asdasd', '14116150_M_Ragil_Tri', 'ASYAPP', 'Sudah Diperiksa'),
+(8, 14116150, 'sadasd', '111', '2019-05-07', '2019-05-07', 'asdasd', 'Skenario_1.pdf', 'asdsa', 'Sudah Diperiksa');
+
 -- --------------------------------------------------------
 
 --
@@ -131,6 +160,13 @@ CREATE TABLE `logbook` (
   `Deskripsi` varchar(100) NOT NULL,
   `Tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `logbook`
+--
+
+INSERT INTO `logbook` (`Id_Log`, `NIP`, `Keterangan`, `NIM`, `Deskripsi`, `Tanggal`) VALUES
+(2, '111', 'narasumber nya', 14116150, 'Wawancara', '2019-05-06');
 
 -- --------------------------------------------------------
 
@@ -158,7 +194,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`Nama`, `NIM`, `password`, `Alamat`, `No_telepon`, `Email`, `Judul_TA`, `Tempat_Lahir`, `Tanggal_Lahir`, `Pembimbing`, `Pembimbing2`, `foto`) VALUES
-('Mahasiswa1', 14116150, '8eac357684eb8c36513235c7e77bfdfb', '123asd', '123', 'mahasiswa1', NULL, '', '0000-00-00', '111', '222', NULL);
+('Mahasiswa1', 14116150, '8eac357684eb8c36513235c7e77bfdfb', '321', '123', 'mahasiswa1', NULL, '', '0000-00-00', '222', '111', NULL);
 
 -- --------------------------------------------------------
 
@@ -189,7 +225,8 @@ INSERT INTO `referensi` (`Id_Referensi`, `Judul_TA`, `Penulis`, `Tahun`, `Asal_R
 (6, 'TA KE ENAM', 'Muhammad', 2016, 'ITERA', NULL, 'Adm001'),
 (7, 'TA KE TUJUH', 'Ragil', 2017, 'ITERA', NULL, 'Adm001'),
 (8, 'TA KE DELAPAN', 'Trireza', 2018, 'ITERA', NULL, 'Adm001'),
-(9, 'TA KE SEMBILAN', 'Ramadhan', 2018, 'ITERA', NULL, '');
+(9, 'TA KE SEMBILAN', 'Ramadhan', 2018, 'ITERA', NULL, ''),
+(10, 'TA TA AN', 'penulisa TA', 2019, 'ITERA', 'Contoh_Nota.pdf', 'Adm004');
 
 --
 -- Indexes for dumped tables
@@ -260,31 +297,31 @@ ALTER TABLE `referensi`
 -- AUTO_INCREMENT for table `jadwal_kosong`
 --
 ALTER TABLE `jadwal_kosong`
-  MODIFY `Id_Jadwal` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Jadwal` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `jadwal_penting`
 --
 ALTER TABLE `jadwal_penting`
-  MODIFY `Id_Jadwal` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Jadwal` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `konsultasi`
 --
 ALTER TABLE `konsultasi`
-  MODIFY `Id_Konsul` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Konsul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `logbook`
 --
 ALTER TABLE `logbook`
-  MODIFY `Id_Log` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Log` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `referensi`
 --
 ALTER TABLE `referensi`
-  MODIFY `Id_Referensi` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Id_Referensi` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
