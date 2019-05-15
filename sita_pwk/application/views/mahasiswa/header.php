@@ -139,6 +139,12 @@
               <span class="menu-title">LogBook Mahasiswa</span>
             </a>
           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="mahasiswa/PengajuanJudul">
+              <i class="menu-icon mdi mdi-tumblr-reblog"></i>
+              <span class="menu-title">Pengajuan Judul TA</span>
+            </a>
+          </li>
 
 
 
