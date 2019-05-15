@@ -210,8 +210,9 @@
       show_admin();
       $('#tabelADM').dataTable();
 
-      //function show all product
+      //menampilkan data admin dari database
   		function show_admin(){
+        //AJAX request data dari url = controller kelolaadmin function admin_data
   		    $.ajax({
   		        type  : 'ajax',
   		        url   : '<?php echo site_url('admin/kelolaadmin/admin_data')?>',
@@ -222,6 +223,7 @@
   		            var i;
   		            for(i=0; i<data.length; i++){
   									html += '<tr>'+
+                    //Nampilin data berdasarkan database "id_admin" itu sesuai dengan di database
   												'<td>'+data[i].id_admin+'</td>'+
   													'<td>'+data[i].nama+'</td>'+
                             '<td>'+data[i].username+'</td>'+
@@ -241,10 +243,12 @@
   		    });
   		}
 
+      //Validasi pengisian form kalau harus diisi semua
       $('#form_admin').validate({
         errorPlacement: function(error, element) {
         error.insertBefore(element);
         },
+        //harus diisi semua (required)
         rules: {
           id_admin: "required",
           nama: "required",
@@ -254,9 +258,10 @@
           no_telepon: "required",
           alamat: "required"
           },
+          //pesan yg ditampilin kalau ada yg gk diisi diform
           messages: {
             id_admin: {
-              required: "Kolom Ini Harus Diisi"
+              required: "Kolom ID Admin Harus Diisi"
             },
             nama: {
               required: "Kolom Ini Harus Diisi"
@@ -279,7 +284,8 @@
           },
 
           submitHandler: function(form) {
-              // your ajax would go here
+              //kalau sudah disubmit sama user
+              //simpen semua inputan berdasarkan id (#) dan disimpen ke variabel
               var id_admin = $('#id_admin').val();
               var nama = $('#nama').val();
               var username = $('#username').val();
@@ -287,12 +293,15 @@
               var email = $('#email').val();
               var no_telepon = $('#no_telepon').val();
               var alamat = $('#alamat').val();
+
+              //request AJAX dengan tipe POST
               $.ajax({
                   type : "POST",
                   url  : "<?php echo site_url('admin/kelolaadmin/save')?>",
                   dataType : "JSON",
                   data : {id_admin:id_admin , nama:nama, username:username, password:password, email:email, no_telepon:no_telepon, alamat:alamat},
                   success: function(data){
+                    //Kalau berhasil data yg udah diinputin di modal dihapus ("") dan modal nya di close (hide)
                       $('[name="id_admin"]').val("");
                       $('[name="nama"]').val("");
                       $('[name="username"]').val("");
@@ -301,14 +310,15 @@
                       $('[name="no_telepon"]').val("");
                       $('[name="alamat"]').val("");
                       $('#Modal_Add').modal('hide');
+                      //panggil lagi function buat nampilin daftar admin, karena sudah ada data baru
                       show_admin();
                   }
               });
-              return false;  // blocks regular submit since you have ajax
+              return false;  // blocks regular submit karna pake ajax
           }
         });
 
-          //Save product
+          //Button dengan (ID = btn_save) diklik maka akan mensubmit form dengan id = (#form_admin)
           $('#btn_save').on('click',function(){
             $('#form_admin').submit();
           });
@@ -390,8 +400,4 @@
           });
   });
 </script>
-
-
-
-
 <!-- Buat DataTable-->

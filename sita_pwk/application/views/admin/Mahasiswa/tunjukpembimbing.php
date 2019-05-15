@@ -70,8 +70,8 @@
                     <div class="col-md-10">
                       <select class="form-control" name="dosen1" id="dosen1" required>
                       <option value="">No Selected</option>
-                      <?php foreach($dosen as $row):?>
-                      <option value="<?= $row->NIP;?>"><?= $row->Nama;?></option>
+                      <?php foreach($dosen as $datadosen):?>
+                      <option value="<?= $datadosen->NIP;?>"><?= $datadosen->Nama;?></option>
                       <?php endforeach;?>
                       </select>
                     </div>
@@ -81,8 +81,8 @@
                     <div class="col-md-10">
                       <select class="form-control" name="dosen2" id="dosen2" required>
                       <option value="">No Selected</option>
-                      <?php foreach($dosen as $row):?>
-                      <option value="<?= $row->NIP;?>"><?= $row->Nama;?></option>
+                      <?php foreach($dosen as $datadosen):?>
+                      <option value="<?= $datadosen->NIP;?>"><?= $datadosen->Nama;?></option>
                       <?php endforeach;?>
                       </select>
                     </div>

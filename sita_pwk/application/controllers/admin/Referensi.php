@@ -52,7 +52,7 @@ class Referensi extends CI_Controller{
 
 		$result= $this->referensi_model->tambah_referensi($id_referensi,$judul_ta,$penulis,$tahun,$asal_referensi,$file,$id_admin);
 		echo json_decode($result);
-}
+		}
 	}
 
 	function update(){
