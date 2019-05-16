@@ -14,6 +14,15 @@ class Mahasiswa_model extends CI_Model
     return $query;
   }
 
+  function set_judulta(){
+    $nim = $this->session->userdata('ses_id');
+    $judul_ta= $this->input->post('judul');
+    $this->db->set('Judul_TA', $judul_ta);
+    $this->db->where('NIM', $nim);
+    $result = $this->db->update('mahasiswa');
+    return $result->result();
+  }
+
   function save_mahasiswa()
   {
     $data = array(
