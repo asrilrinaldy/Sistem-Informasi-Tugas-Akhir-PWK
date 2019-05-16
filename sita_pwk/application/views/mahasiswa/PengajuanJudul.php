@@ -2,31 +2,12 @@
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="row">
-      <div class="col-lg-4  grid-margin">
-        <div class="card card-statistics">
-          <div class="card-body">
-           <h3>
-              <i class="menu-icon mdi mdi-paperclip"></i>Informasi Pengajuan
-            </h3>
-            <div class="biodata-dosen">
-              <br><b>Judul TA : <?php echo $this->session->userdata('ses_judulta'); ?></b></br>
-              <br><b>Status :</b></br>
-            </div>
-          </div>
-        </div>
-
-
-        <br></br>
-
-      </div>
-
-
 
       <div class="col-lg-8 grid-margin">
         <div class="card card-statistics">
           <div class="card-body">
             <h3>
-              <i class="menu-icon mdi mdi-paperclip"></i>Pengajuan Judul Tugas Akhir
+              <i class="menu-icon mdi mdi-paperclip"></i>Judul Tugas Akhir
             </h3>
             <form id="submit" >
               <div class="biodata-dosen">

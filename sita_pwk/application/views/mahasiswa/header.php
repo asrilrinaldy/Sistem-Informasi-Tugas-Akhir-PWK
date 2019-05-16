@@ -120,6 +120,13 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="mahasiswa/PengajuanJudul">
+              <i class="menu-icon mdi mdi-tumblr-reblog"></i>
+              <span class="menu-title">Judul TA</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" href="mahasiswa/konsultasimahasiswa">
               <i class="menu-icon mdi mdi-message-text-outline"></i>
               <span class="menu-title">Konsultasi</span>
@@ -140,12 +147,7 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="mahasiswa/PengajuanJudul">
-              <i class="menu-icon mdi mdi-tumblr-reblog"></i>
-              <span class="menu-title">Pengajuan Judul TA</span>
-            </a>
-          </li>
+
 
 
 
