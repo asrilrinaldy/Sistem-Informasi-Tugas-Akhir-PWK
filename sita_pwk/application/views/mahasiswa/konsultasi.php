@@ -6,7 +6,7 @@
         <div class="card card-statistics">
           <div class="card-body">
           <h5>
-            Judul Tugas Akhir
+            Judul TA : <?php echo $this->session->userdata('ses_judulta'); ?>
           </h5>
             <div class="biodata-dosen">
               <br><b>Pembimbing 1 : <?php echo $this->session->userdata("ses_pembimbing") ?></b></br>
@@ -14,7 +14,6 @@
             </div>
           </div>
         </div>
-
 
         <br></br>
         <div class="card card-statistics">

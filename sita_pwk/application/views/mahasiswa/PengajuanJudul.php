@@ -9,7 +9,7 @@
               <i class="menu-icon mdi mdi-paperclip"></i>Informasi Pengajuan
             </h3>
             <div class="biodata-dosen">
-              <br><b>Judul TA : </b></br>
+              <br><b>Judul TA : <?php echo $this->session->userdata('ses_judulta'); ?></b></br>
               <br><b>Status :</b></br>
             </div>
           </div>
@@ -17,7 +17,7 @@
 
 
         <br></br>
-       
+
       </div>
 
 
@@ -32,17 +32,13 @@
               <div class="biodata-dosen">
                  <label>
                   <br>
-                    Keterangan
+                    Judul Tugas Akhir
                   </br>
                   </label>
-                <textarea name="keterangan" id="keterangan" class="form-control" rows="8" required></textarea><br>
-              
+                <textarea name="keterangan" id="judul" class="form-control" rows="8" required></textarea><br>
                 <br>
-               
-               
-               
                 <center>
-                    <input class="btn btn-primary" type="submit" value="Kirim" ></input>
+                    <input class="btn btn-primary" id="btn_save" type="submit" value="Kirim" ></input>
                 </center>
               </div>
             </form>
@@ -68,60 +64,25 @@
 <script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.dataTables.js' ?>"></script>
 <script>
   $(document).ready(function() {
-    show_konsul();
-    $('#tabelKonsul').dataTable();
 
-    //function show all product
-    function show_konsul() {
+    $('#btn_save').on('click', function() {
+      var judul = $('#judul').val();
       $.ajax({
-        type: 'ajax',
-        url: '<?php echo site_url('mahasiswa/konsultasimahasiswa/konsul_data') ?>',
-        async: false,
-        dataType: 'json',
+        type: "POST",
+        url: "<?php echo site_url('mahasiswa/PengajuanJudul/set_judulta') ?>",
+        dataType: "JSON",
+        data: {
+          judul: judul
+        },
         success: function(data) {
-          var html = '';
-          var i;
-          for (i = 0; i < data.length; i++) {
-            var no = i+1;
-            html += '<tr>' +
-              '<td>' + no + '</td>' +
-              '<td>' + data[i].Tanggal + '</td>' +
-              '<td>' + data[i].Status + '</td>' +
-              '<td>' + data[i].File + '</td>' +
-              '<td>' + data[i].Keterangan + '</td>' +
-              '<td>' + data[i].Komentar + '</td>' +
-              '</tr>';
-          }
-          $('#show_data').html(html);
+          $('[name="judul"]').val("");
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          console.log(textStatus, errorThrown);
         }
-
       });
-    }
-
-    $('#submit').submit(function(e){
-          e.preventDefault();
-          console.log(new FormData(this));
-               $.ajax({
-                   url:'<?php echo base_url();?>mahasiswa/konsultasimahasiswa/insert_data',
-                   type:"post",
-                   data:new FormData(this),
-                   processData:false,
-                   contentType:false,
-                   cache:false,
-                   async:false,
-                  success: function(data){
-                        show_konsul();
-                 },
-                 error: function(jqXHR, textStatus, errorThrown) {
-                  console.log(textStatus, errorThrown);
-                }
-               });
-          });
-
-    $('#dosen').change(function() {
-
-      $("#nip").val($("#dosen").val());
     });
+
 
   });
 
